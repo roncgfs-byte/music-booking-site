@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body{
+font-family: Arial, sans-serif;
+text-align:center;
+max-width:900px;
+margin:auto;
+}
+</style>
+<title>Artists</title>
+</head>
+
+<body>
+
+<h1>Register Your Artists to Book Live Music</h1>
+
+<form>
+
+venue Name<br>
+<input type="text"><br>
+Contact Name<br>
+<input type="text"><br><br>
+
+Email<br>
+<input type="email"><br><br>
+
+City<br>
+<input type="text"><br><br>
+
+Venue Capacity<br>
+<input type="number"><br><br>
+
+Music Style Preferred<br>
+<input type="text"><br><br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>
+<title>Artists | Booking With a Smile</title>
+<meta charset="UTF-8">
+</head>
+
+<body>
+<nav>
+<a href="index.html">HOME</a> |
+<a href="artists.html">ARTISTS</a> |
+<a href="venues.html">VENUES</a> |
+<a href="contact.html">CONTACT</a>
+</nav>
+
+<h2>Apply to Perform Through Booking With a Smile</h2>
+
+<div class="card">
+<h3>Artist Name</h3>
+<p>Genre: Folk / Acoustic</p>
+<p>City: Vancouver</p>
+<p>Listen: Link to YouTube or Spotify</p>
+</div>
+
+<p>Join our network of performers and connect with venues looking for live music.</p>
+
+<form name="artist-application" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="artist-application">
+
+<p>
+<label>Name:<br>
+<input type="text" name="name" required>
+</label>
+</p>
+
+<p>
+<label>Email:<br>
+<input type="email" name="email" required>
+</label>
+</p>
+
+<p>
+<label>Message:<br>
+<textarea name="message"></textarea>
+</label>
+</p>
+
+<p>
+<button type="submit">Apply as an Artist</button>
+</p>
+
+</form>
+
+<p><a href="index.html">Return Home</a></p>
+
+</body>
+</html>
