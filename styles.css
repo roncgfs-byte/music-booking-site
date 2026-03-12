@@ -28,4 +28,15 @@ nav a {
     border: 1px solid #ccc;
     border-radius: 8px;
 }
+nav {
+text-align: center;
+margin-bottom: 20px;
+}
+
+nav a {
+margin: 0 12px;
+font-weight: bold;
+text-decoration: none;
+color: #333;
+}
 
