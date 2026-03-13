@@ -19,7 +19,27 @@ margin:auto;
 <h1>Register as an Artist to Book Live Music</h1>
 
 <form>
+.card-container {
+display: flex;
+justify-content: center;
+gap: 30px;
+margin-top: 40px;
+}
 
+.card {
+border: 1px solid #ddd;
+padding: 25px;
+width: 260px;
+text-align: center;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+background-color: #fff;
+}
+
+.card:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
 venue Name<br>
 <input type="text"><br>
 Contact Name<br>
