@@ -45,3 +45,63 @@ text-align: center;
 max-width: 800px;
 margin: 40px auto;
 }
+<body>
+
+<!-- SITE NAVIGATION START - DO NOT EDIT -->
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="artists.html">Artists</a>
+<a href="venues.html">Venues</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<!-- SITE NAVIGATION END -->
+
+<!-- PAGE CONTENT START - BRAD CAN EDIT -->
+
+<div class="hero">
+
+<h1>Booking with a Smile</h1>
+
+<p>
+Making live music booking simpler, more personal, and stress-free for artists and venues.
+</p>
+
+</div>
+
+<!-- PAGE CONTENT END -->
+
+<!-- SITE FOOTER START - DO NOT EDIT -->
+
+<footer>
+<p>© 2026 Booking with a Smile</p>
+<p>Connecting Artists and Venues for Live Music</p>
+</footer>
+
+<!-- SITE FOOTER END -->
+
+</body>
+
+.card-container {
+display: flex;
+justify-content: center;
+gap: 30px;
+margin-top: 40px;
+}
+
+.card {
+border: 1px solid #ddd;
+padding: 25px;
+width: 260px;
+text-align: center;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+background-color: #fff;
+}
+
+.card:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
