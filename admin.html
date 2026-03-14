@@ -1,51 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Booking with a Smile - Admin</title>
-<link rel="stylesheet" href="styles.css">
+<title>Admin Panel</title>
+
+<script>
+var password = prompt("Enter Admin Password");
+
+if(password !== "BradAdmin123") {
+    alert("Access Denied");
+    window.location = "index.html";
+}
+</script>
+
 </head>
 
 <body>
 
-<!-- SITE NAVIGATION START - DO NOT EDIT -->
-
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="artists.html">Artists</a>
-<a href="venues.html">Venues</a>
-<a href="contact.html">Contact</a>
-</nav>
-
-<!-- SITE NAVIGATION END -->
-
 <h1>Admin Dashboard</h1>
+<p>Welcome Ron & Brad.</p>
 
-<p>This page is for managing submissions from the website.</p>
-
-<div class="card-container">
-
-<div class="card">
-<h3>Artist Applications</h3>
-<p>View artist submissions in Netlify Forms.</p>
-</div>
-
-<div class="card">
-<h3>Venue Registrations</h3>
-<p>Check venue signup requests.</p>
-</div>
-
-<div class="card">
-<h3>Booking Requests</h3>
-<p>Review booking inquiries submitted through the site.</p>
-</div>
-
-</div>
-
-<footer>
-<p>© 2026 Booking with a Smile</p>
-</footer>
+<h2>Booking Requests</h2>
+<p>This page will display booking requests once the form email system is connected.</p>
 
 </body>
 </html>
-
