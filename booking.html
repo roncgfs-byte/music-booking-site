@@ -1,72 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="styles.css">
-</head>
-<style>
-body{
-font-family: Arial, sans-serif;
-text-align:center;
-max-width:900px;
-margin:auto;
-}
-</style>
-<style>
-body{
-font-family: Arial, sans-serif;
-text-align:center;
-max-width:900px;
-margin:auto;
-}
-</style>
-<style>
-body{
-font-family: Arial, sans-serif;
-text-align:center;
-max-width:900px;
-margin:auto;
-}
-</style>
-<title>Artist Registration</title>
+<meta charset="UTF-8">
+<title>Request a Booking</title>
 </head>
 
-<body>
-<!-- SITE NAVIGATION START -->
+<body style="font-family: Arial; text-align: center;">
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="artists.html">Artists</a>
-<a href="venues.html">Venues</a>
-<a href="contact.html">Contact</a>
-</nav>
+<h1>Request a Booking</h1>
 
-<!-- SITE NAVIGATION END -->
-<h1>Artist Registration</h1>
+<div style="max-width: 500px; margin: auto; text-align: left;">
 
-<form>
+<form name="booking-request" method="POST" data-netlify="true">
 
-Name<br>
-<input type="text"><br><br>
+<input type="hidden" name="form-name" value="booking-request">
 
-Band / Artist Name<br>
-<input type="text"><br><br>
+<p>
+<label>Name:<br>
+<input type="text" name="name" required></label>
+</p>
 
-Email<br>
-<input type="email"><br><br>
+<p>
+<label>Email:<br>
+<input type="email" name="email" required></label>
+</p>
 
-Music Genre<br>
-<input type="text"><br><br>
+<p>
+<label>Are you Artist or Venue?<br>
+<input type="text" name="type"></label>
+</p>
 
-City<br>
-<input type="text"><br><br>
+<p>
+<label>Details:<br>
+<textarea name="details"></textarea></label>
+</p>
 
-Link to Music (Spotify / YouTube)<br>
-<input type="text"><br><br>
-
+<p>
 <button type="submit">Submit</button>
+</p>
 
 </form>
 
+</div>
+
 </body>
 </html>
+Step C — Fix the card link
+
+In index.html:
+
+<a href="booking.html">
+
+✅ This fixes:
+
+Wrong page
+Submission issue
+🔧 FIX 3 — Contact page (remove Formspree completely)
+
+👉 That error is because old code is still there
+
+Do this:
+
+Open contact.html
+Delete EVERYTHING
+Paste this:
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Contact</title>
+</head>
+
+<body style="font-family: Arial; text-align: center;">
+
+<h1>Contact Us</h1>
+
+<div style="max-width: 500px; margin: auto; text-align: left;">
+
+<form name="contact" method="POST" data-netlify="true">
+
+<input type="hidden" name="form-name" value="contact">
+
+<p>
+<label>Name:<br>
+<input type="text" name="name"></label>
+</p>
+
+<p>
+<label>Email:<br>
+<input type="email" name="email"></label>
+</p>
+
+<p>
+<label>Message:<br>
+<textarea name="message"></textarea></label>
+</p>
+
+<p>
+<button type="submit">Send</button>
+</p>
+
+</form>
+
+</div>
+
+</body>
+</html>
+
