@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="styles.css">
-</head>
-<style>
-body{
-font-family: Arial, sans-serif;
-text-align:center;
-max-width:900px;
-margin:auto;
-}
-</style>
-<title>Venue Registration</title>
+  <meta charset="UTF-8">
+  <title>Register Your Venue</title>
 </head>
 
-<body>
+<body style="font-family: Arial; text-align: center;">
 
-<h1>Register Your Venue</h1>
+<h1>Register Your Venue to Book Live Music</h1>
+<p>We are inviting venues to connect with artists.</p>
 
-<form>
+<div style="max-width: 500px; margin: auto; text-align: left;">
 
-Venue Name<br>
-<input type="text"><br><br>
+<form name="venue-application" method="POST" data-netlify="true">
 
-Contact Name<br>
-<input type="text"><br><br>
+<input type="hidden" name="form-name" value="venue-application">
 
-Email<br>
-<input type="email"><br><br>
+<p>
+<label>Venue Name:<br>
+<input type="text" name="venue_name" required></label>
+</p>
 
-City<br>
-<input type="text"><br><br>
+<p>
+<label>Email:<br>
+<input type="email" name="email" required></label>
+</p>
 
-Venue Capacity<br>
-<input type="number"><br><br>
+<p>
+<label>City:<br>
+<input type="text" name="city"></label>
+</p>
 
-Music Style Preferred<br>
-<input type="text"><br><br>
+<p>
+<label>Preferred Music Style:<br>
+<input type="text" name="music_style"></label>
+</p>
 
+<p>
+<label>Preferred Booking Days:<br>
+<input type="text" name="booking_days"></label>
+</p>
+
+<p>
+<label>Tell us about your venue:<br>
+<textarea name="message"></textarea></label>
+</p>
+
+<p>
 <button type="submit">Submit</button>
+</p>
 
 </form>
 
+</div>
+
 </body>
 </html>
-
