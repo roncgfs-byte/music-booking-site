@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Register Your Venue</title>
+</head>
+<body style="font-family: Arial; text-align: center;">
+
+<h1>Register Your Venue to Book Live Music</h1>
+<p>We are inviting venues to register and connect with professional artists for live events.</p>
+
+<div style="max-width: 500px; margin: auto; text-align: left;">
+
+  <form name="venue-application" method="POST" data-netlify="true" netlify>
+
+    <input type="hidden" name="form-name" value="venue-application">
+
+    <p>
+      <label>Venue Name:<br>
+      <input type="text" name="venue_name" required></label>
+    </p>
+
+    <p>
+      <label>Email:<br>
+      <input type="email" name="email" required></label>
+    </p>
+
+    <p>
+      <label>City:<br>
+      <input type="text" name="city"></label>
+    </p>
+
+    <p>
+      <label>Capacity:<br>
+      <input type="text" name="capacity"></label>
+    </p>
+
+    <p>
+      <label>Website or Social Media:<br>
+      <input type="text" name="link"></label>
+    </p>
+
+    <p>
+      <label>Preferred Music Style:<br>
+      <input type="text" name="music_style"></label>
+    </p>
+
+    <p>
+      <label>Preferred Booking Days:<br>
+      <input type="text" name="booking_days"></label>
+    </p>
+
+    <p>
+      <label>Tell us about your venue:<br>
+      <textarea name="message"></textarea></label>
+    </p>
+
+    <p>
+      <button type="submit">Submit Venue Application</button>
+    </p>
+
+  </form>
+
+</div>
+
+</body>
+</html>
