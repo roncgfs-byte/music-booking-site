@@ -1,50 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<title>Contact</title>
 </head>
-<style>
-body{
-font-family: Arial, sans-serif;
-text-align:center;
-max-width:900px;
-margin:auto;
-}
-</style>
-  <meta charset="UTF-8">
-  <title>Contact</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<!-- SITE NAVIGATION START -->
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="artists.html">Artists</a>
-<a href="venues.html">Venues</a>
-<a href="contact.html">Contact</a>
-</nav>
+<body style="font-family: Arial; text-align: center;">
 
-<!-- SITE NAVIGATION END -->
-<h1 style="text-align:center;">Contact</h1>
+<h1>Contact Us</h1>
 
-<form action="https://formspree.io/f/REPLACE_ME"
-      method="POST"
-      style="max-width:500px; margin:30px auto;">
+<div style="max-width: 500px; margin: auto; text-align: left;">
 
-  <input type="text" name="name" placeholder="Your Name" required
-         style="width:100%; padding:10px; margin-bottom:10px;">
+<form name="contact" method="POST" data-netlify="true">
 
-  <input type="email" name="email" placeholder="Your Email" required
-         style="width:100%; padding:10px; margin-bottom:10px;">
+<input type="hidden" name="form-name" value="contact">
 
-  <textarea name="message" placeholder="Your Message" required
-            style="width:100%; padding:10px; height:120px; margin-bottom:10px;"></textarea>
+<p>
+<label>Name:<br>
+<input type="text" name="name"></label>
+</p>
 
-  <button type="submit" style="padding:10px 20px;">Send</button>
-<form action="https://formspree.io/f/abcdwxyz" method="POST">
+<p>
+<label>Email:<br>
+<input type="email" name="email"></label>
+</p>
+
+<p>
+<label>Message:<br>
+<textarea name="message"></textarea></label>
+</p>
+
+<p>
+<button type="submit">Send</button>
+</p>
+
 </form>
+
+</div>
 
 </body>
 </html>
