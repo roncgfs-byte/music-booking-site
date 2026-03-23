@@ -3,20 +3,49 @@
 <head>
   <title>Artist Booking Preferences</title>
 </head>
+
 <body style="font-family: Arial; text-align: center;">
 
 <h1>Artist Booking Preferences</h1>
 
-<p>Help us understand how you prefer to book shows.</p>
+<p>Tell us what kind of shows you want to play.</p>
+<p>This helps venues understand your needs and availability.</p>
 
-<ul style="list-style:none;">
-<li>Preferred venues</li>
-<li>Travel distance</li>
-<li>Performance rates</li>
-<li>Available dates</li>
-<li>Technical requirements</li>
-</ul>
+<form name="artist-preferences" method="POST" data-netlify="true">
 
+<input type="hidden" name="form-name" value="artist-preferences">
+
+<div style="max-width:500px; margin:auto; text-align:left;">
+
+<p><strong>Budget Range</strong></p>
+<input type="range" name="budget" min="0" max="5000">
+
+<p><strong>Music Styles</strong></p>
+<label><input type="checkbox" name="style" value="Rock"> Rock</label><br>
+<label><input type="checkbox" name="style" value="Jazz"> Jazz</label><br>
+<label><input type="checkbox" name="style" value="Hip Hop"> Hip Hop</label><br>
+<label><input type="checkbox" name="style" value="Blues"> Blues</label><br>
+<label><input type="checkbox" name="style" value="Electronic"> Electronic</label><br>
+<label><input type="checkbox" name="style" value="Folk"> Folk</label><br>
+<label><input type="checkbox" name="style" value="Classical"> Classical</label>
+
+<p><strong>Equipment Needed</strong></p>
+<label><input type="checkbox" name="equipment" value="Microphones"> Microphones</label><br>
+<label><input type="checkbox" name="equipment" value="Speakers"> Speakers</label><br>
+<label><input type="checkbox" name="equipment" value="Monitors"> Monitors</label>
+
+<p><strong>Available Days</strong></p>
+<input type="text" name="availability" placeholder="e.g. Weekends, Fridays">
+
+<br><br>
+
+<button type="submit">Save Preferences</button>
+
+</div>
+
+</form>
+
+<br>
 <a href="index.html">Return Home</a>
 
 </body>
