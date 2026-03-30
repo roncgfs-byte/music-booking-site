@@ -57,3 +57,10 @@ nav {
     gap: 20px;
 }
     
+nav {
+    text-align: center;
+}
+nav a {
+    display: inline;
+    margin: 0 10px;
+}
