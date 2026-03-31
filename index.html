@@ -41,6 +41,26 @@ nav a:hover{
   padding:40px;
   flex-wrap:wrap;
 }
+/* FORCE CENTER FIX — DO NOT REMOVE */
+body {
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cards,
+div[style*="display:flex"] {
+  justify-content: center !important;
+}
 .card{
   background:white;
   padding:30px;
