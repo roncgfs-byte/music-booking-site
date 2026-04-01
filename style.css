@@ -65,6 +65,38 @@ nav a:hover {
   border-radius: 5px;
 }
 
+/* ===== CARDS & NAV CENTERING ===== */
+.cards {
+    display: flex;
+    justify-content: center;  /* centers all cards horizontally */
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    text-align: center;       /* centers text inside cards */
+}
+
+.card {
+    width: 260px;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* centers content inside each card */
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    margin: 0 12px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
 .card a:hover {
   background: #444;
 }
