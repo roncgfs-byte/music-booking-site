@@ -3,173 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <title>Booking with a Smile</title>
-<link rel="stylesheet" href="styles.css">
-<style>
-body{
-  font-family: Arial, sans-serif;
-  text-align:center;
-  background:#f4f4f4;
-  margin:0;
-}
-nav{
-  background:#222;
-  padding:15px;
-}
-nav a{
-  color:white;
-  text-decoration:none;
-  margin:0 15px;
-  font-weight:bold;
-}
-nav a:hover{
-  color:#ffd700;
-}
-.hero{
-  padding:40px;
-  background:white;
-}
-.hero img{
-  width:60%;
-  max-width:600px;
-  display:block;
-  margin:auto;
-}
-.cards{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  padding:40px;
-  flex-wrap:wrap;
-}
-/* FORCE CENTER FIX — DO NOT REMOVE */
-body {
-  text-align: center;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.hero {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cards,
-div[style*="display:flex"] {
-  justify-content: center !important;
-}
-.card{
-  background:white;
-  padding:30px;
-  width:300px;
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
-.card h2{
-  margin-top:0;
-}
-.card a{
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 15px;
-  background:#222;
-  color:white;
-  text-decoration:none;
-  border-radius:5px;
-}
-.card a:hover{
-  background:#444;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<nav style="text-align:center; padding:15px; background:#222;">
-  <a href="index.html" style="color:white; margin:0 10px; text-decoration:none;">Home</a>
-  <a href="about.html" style="color:white; margin:0 10px; text-decoration:none;">About</a>
-  <a href="apply.html" style="color:white; margin:0 10px; text-decoration:none;">Artists</a>
-  <a href="venue-register.html" style="color:white; margin:0 10px; text-decoration:none;">Venues</a>
-  <a href="artist-preferences.html" style="color:white; margin:0 10px; text-decoration:none;">Artist Preferences</a>
-  <a href="venue-preferences.html" style="color:white; margin:0 10px; text-decoration:none;">Venue Preferences</a>
-  <a href="contact.html" style="color:white; margin:0 10px; text-decoration:none;">Contact</a>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="apply.html">Artists</a>
+  <a href="venue-register.html">Venues</a>
+  <a href="artist-preferences.html">Artist Preferences</a>
+  <a href="venue-preferences.html">Venue Preferences</a>
+  <a href="contact.html">Contact</a>
 </nav>
- 
-<!-- SITE NAVIGATION START - DO NOT EDIT -->
 
-  
-  <!-- SITE NAVIGATION END -->
-
-<!-- PAGE CONTENT START - BRAD CAN EDIT -->
+<!-- HERO -->
 <div class="hero">
   <h1>Booking with a Smile</h1>
-  <p>Making live music booking simpler, more personal, and stress-free for artists and venues.</p>
+  <p>Making live music booking simpler, more personal, and stress-free.</p>
   <p class="credibility">Connecting independent artists with venues across Canada.</p>
   <img src="booking-with-a-smile.jpg" alt="Booking Live Music">
-  <p>Choose your path below and let’s simplify your booking experience.</p>
 </div>
 
-<div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:40px;">
+<!-- CARDS -->
+<div class="cards">
 
-  <div style="width:260px;">
+  <div class="card">
     <h2>Artists</h2>
-    <p>Support for musicians looking to book live shows and grow their audience.</p>
+    <p>Support for musicians looking to book live shows.</p>
     <a href="apply.html">Apply as an Artist</a>
   </div>
 
-  <div style="width:260px;">
+  <div class="card">
     <h2>Venues</h2>
-    <p>Helping venues connect with reliable, professional artists.</p>
+    <p>Helping venues connect with reliable artists.</p>
     <a href="venue-register.html">Apply as a Venue</a>
   </div>
 
-  <div style="width:260px;">
+  <div class="card">
     <h2>Book a Show</h2>
-    <p>Submit a booking request to connect artists with venues.</p>
+    <p>Submit a booking request.</p>
     <a href="booking.html">Request Booking</a>
   </div>
 
 </div>
-<!-- ===================== -->
-<!-- FEATURED ARTISTS SECTION -->
-<!-- BRAD CAN DUPLICATE ARTIST BLOCKS -->
-<!-- ===================== -->
 
-<h2>Featured Artists</h2>
+<!-- FEATURED ARTISTS -->
+<h2 class="section-title">Featured Artists</h2>
 
 <div class="cards">
 
-  <!-- ARTIST PROFILE START -->
   <div class="card">
     <h3>Artist Name</h3>
-
     <p><strong>Genre:</strong> Hip Hop / R&B</p>
-
     <p><strong>Location:</strong> Vancouver, BC</p>
-
-    <p><strong>Bio:</strong> High-energy performer with live band experience and crowd engagement.</p>
-
-    <!-- Optional future link -->
+    <p><strong>Bio:</strong> High-energy performer with live band experience.</p>
     <a href="#">View Profile</a>
   </div>
-  <!-- ARTIST PROFILE END -->
-
-
-  <!-- COPY THIS BLOCK TO ADD MORE ARTISTS -->
-  
 
 </div>
 
-  <!-- PAGE CONTENT END -->
-
-<!-- SITE FOOTER START - DO NOT EDIT -->
+<!-- FOOTER -->
 <footer>
   <p>© 2026 Booking with a Smile</p>
   <p>Connecting Artists and Venues for Live Music</p>
 </footer>
-<!-- SITE FOOTER END -->
 
 </body>
 </html>
