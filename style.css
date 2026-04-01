@@ -38,11 +38,6 @@ nav a:hover {
   margin: 20px auto;
 }
 
-.credibility {
-  font-style: italic;
-  color: #555;
-}
-
 /* CARDS */
 .cards {
   display: flex;
@@ -74,30 +69,9 @@ nav a:hover {
   background: #444;
 }
 
-/* SECTION TITLE */
-.section-title {
-  margin-top: 40px;
-}
-
 /* FOOTER */
 footer {
   background: #222;
   color: white;
   padding: 20px;
-}
-/* FORCE EVERYTHING CENTER */
-nav {
-  display: flex !important;
-  justify-content: center !important;
-  flex-wrap: wrap;
-}
-
-.cards {
-  display: flex !important;
-  justify-content: center !important;
-  flex-wrap: wrap;
-}
-
-.hero, body {
-  text-align: center !important;
 }
