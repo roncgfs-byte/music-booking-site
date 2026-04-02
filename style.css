@@ -107,3 +107,30 @@ footer {
   color: white;
   padding: 20px;
 }
+
+/* ===== FINAL CENTER FIX ===== */
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #222;
+  padding: 15px;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 10px 15px;
+  font-weight: bold;
+}
+
+.main-nav a:hover {
+  color: #ffd700;
+}
+
+/* force all headings centered */
+h1, h2, h3, p {
+  text-align: center;
+}
