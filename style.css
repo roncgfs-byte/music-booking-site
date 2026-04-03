@@ -1,136 +1,60 @@
+/* GLOBAL */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f4;
-  text-align: center;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    text-align: center; /* ensures everything inside body is centered */
 }
 
-/* NAV */
+/* NAVIGATION */
 nav {
-  background: #222;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+    background: #222;
+    padding: 15px;
+    text-align: center;
 }
 
 nav a {
-  color: white;
-  margin: 10px;
-  text-decoration: none;
-  font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
 }
 
 nav a:hover {
-  color: #ffd700;
+    color: #ffd700;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
-  background: white;
-  padding: 40px;
+    padding: 40px;
+    background: white;
 }
 
 .hero img {
-  width: 60%;
-  max-width: 600px;
-  display: block;
-  margin: 20px auto;
+    width: 60%;
+    max-width: 600px;
+    display: block;
+    margin: auto;
 }
 
 /* CARDS */
 .cards {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  padding: 40px;
-}
-
-.card {
-  background: white;
-  padding: 25px;
-  width: 260px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #222;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-/* ===== CARDS & NAV CENTERING ===== */
-.cards {
     display: flex;
-    justify-content: center;  /* centers all cards horizontally */
+    justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
-    margin-top: 40px;
-    text-align: center;       /* centers text inside cards */
+    padding: 40px;
 }
 
 .card {
     width: 260px;
     background: white;
     padding: 25px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;      /* centers content inside each card */
+    margin: 10px;
+    text-align: center; /* centers text inside cards */
 }
 
-nav {
-    text-align: center;
-}
-
-nav a {
-    margin: 0 12px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
-
-.card a:hover {
-  background: #444;
-}
-
-/* FOOTER */
-footer {
-  background: #222;
-  color: white;
-  padding: 20px;
-}
-
-/* ===== FINAL CENTER FIX ===== */
-
-.main-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  background: #222;
-  padding: 15px;
-}
-
-.main-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 10px 15px;
-  font-weight: bold;
-}
-
-.main-nav a:hover {
-  color: #ffd700;
-}
-
-/* force all headings centered */
-h1, h2, h3, p {
-  text-align: center;
-}
+.card a {
+    display: inline-block;
