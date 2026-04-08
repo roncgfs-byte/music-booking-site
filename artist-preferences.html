@@ -17,33 +17,33 @@
 
 <div style="max-width: 500px; margin: auto; text-align: center;">
 
-<p><strong>Budget Range</strong></p>
-<input type="range" name="budget" min="0" max="500">
+<p><strong>Budget Range: $<span id="budgetValue">250</span></strong></p>
+<input type="range" name="budget" min="0" max="5000" value="250"
+oninput="document.getElementById('budgetValue').innerText = this.value">
 
 <p><strong>Music Styles</strong></p>
-<label><input type="checkbox" name="style" value="Rock"> Rock</label><br>
-<label><input type="checkbox" name="style" value="Jazz"> Jazz</label><br>
-<label><input type="checkbox" name="style" value="Hip Hop"> Hip Hop</label><br>
-<label><input type="checkbox" name="style" value="Blues"> Blues</label><br>
-<label><input type="checkbox" name="style" value="Electronic"> Electronic</label><br>
-<label><input type="checkbox" name="style" value="Folk"> Folk</label><br>
-<label><input type="checkbox" name="style" value="Classical"> Classical</label>
+<label><input type="checkbox" name="style[]" value="Rock"> Rock</label><br>
+<label><input type="checkbox" name="style[]" value="Jazz"> Jazz</label><br>
+<label><input type="checkbox" name="style[]" value="Hip Hop"> Hip Hop</label><br>
+<label><input type="checkbox" name="style[]" value="Blues"> Blues</label><br>
+<label><input type="checkbox" name="style[]" value="Electronic"> Electronic</label><br>
+<label><input type="checkbox" name="style[]" value="Folk"> Folk</label><br>
+<label><input type="checkbox" name="style[]" value="Classical"> Classical</label>
 
 <p><strong>Equipment Needed</strong></p>
-<label><input type="checkbox" name="equipment" value="Microphones"> Microphones</label><br>
-<label><input type="checkbox" name="equipment" value="Speakers"> Speakers</label><br>
-<label><input type="checkbox" name="equipment" value="Monitors"> Monitors</label>
-<label><input type="checkbox" name="equipment" value="Cables"> Cables</label>
-
+<label><input type="checkbox" name="equipment[]" value="Microphones"> Microphones</label><br>
+<label><input type="checkbox" name="equipment[]" value="Speakers"> Speakers</label><br>
+<label><input type="checkbox" name="equipment[]" value="Monitors"> Monitors</label><br>
+<label><input type="checkbox" name="equipment[]" value="Cables"> Cables</label>
 
 <p><strong>Available Days</strong></p>
-<label><input type="checkbox" name="day" value="Mon"> Mon</label>
-<label><input type="checkbox" name="day" value="Tue"> Tue</label>
-<label><input type="checkbox" name="day" value="Wed"> Wed</label>
-<label><input type="checkbox" name="day" value="Thu"> Thu</label>
-<label><input type="checkbox" name="day" value="Fri"> Fri</label>
-<label><input type="checkbox" name="day" value="Sat"> Sat</label>
-<label><input type="checkbox" name="day" value="Sun"> Sun</label>
+<label><input type="checkbox" name="day[]" value="Mon"> Mon</label>
+<label><input type="checkbox" name="day[]" value="Tue"> Tue</label>
+<label><input type="checkbox" name="day[]" value="Wed"> Wed</label>
+<label><input type="checkbox" name="day[]" value="Thu"> Thu</label>
+<label><input type="checkbox" name="day[]" value="Fri"> Fri</label>
+<label><input type="checkbox" name="day[]" value="Sat"> Sat</label>
+<label><input type="checkbox" name="day[]" value="Sun"> Sun</label>
 
 <br><br>
 
@@ -59,4 +59,3 @@
 </body>
 </html>
 
-</html>
