@@ -17,6 +17,23 @@
 
 <div style="max-width: 500px; margin: auto; text-align: center;">
 
+<!-- CONTACT SECTION -->
+<h2>Artist Contact Information</h2>
+
+<p><strong>Artist Name</strong></p>
+<input type="text" name="artist-name" placeholder="Enter your artist or band name" required>
+
+<p><strong>Email Address</strong></p>
+<input type="email" name="email" placeholder="Enter your email" required>
+
+<p><strong>Message (optional)</strong></p>
+<textarea name="message" placeholder="Tell us about your music, experience, or goals"></textarea>
+
+<hr>
+
+<!-- PREFERENCES SECTION -->
+<h2>Booking Preferences</h2>
+
 <p><strong>Budget Range: $<span id="budgetValue">250</span></strong></p>
 <input type="range" name="budget" min="0" max="5000" value="250"
 oninput="document.getElementById('budgetValue').innerText = this.value">
@@ -47,12 +64,11 @@ oninput="document.getElementById('budgetValue').innerText = this.value">
 
 <br><br>
 
-<button type="submit">Save Preferences</button>
+<button type="submit">Submit Booking Request</button>
 
 </div>
 
 </form>
-
 <br>
 <a href="contact.html">Continue to Contact</a>
 
