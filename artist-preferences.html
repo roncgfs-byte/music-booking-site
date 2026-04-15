@@ -102,6 +102,46 @@ oninput="document.getElementById('budgetValue').innerText = this.value">
 </form>
 
 <p>We review every submission. Selected artists will be contacted.</p>
+<form name="artist-booking" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="artist-booking">
+
+  <h2>Artist Booking Application</h2>
+
+  <h3>Contact Information</h3>
+  <input type="text" name="artist_name" placeholder="Artist / Band Name" required>
+  <input type="text" name="contact_name" placeholder="Contact Person Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="text" name="phone" placeholder="Phone Number">
+  <input type="text" name="location" placeholder="City / Country">
+
+  <h3>Media</h3>
+  <input type="url" name="youtube" placeholder="YouTube LIVE Performance Link" required>
+  <p>Please include at least one recent LIVE performance video (YouTube preferred).</p>
+
+  <input type="url" name="spotify" placeholder="Spotify / Music Link">
+
+  <h3>Artist Details</h3>
+  <input type="text" name="genre" placeholder="Genre">
+  <input type="text" name="band_size" placeholder="Band Size (Solo, Duo, Band)">
+  <textarea name="bio" placeholder="Short Bio"></textarea>
+
+  <h3>Booking Preferences</h3>
+  <input type="text" name="venues" placeholder="Preferred Venue Types">
+  <input type="text" name="availability" placeholder="Availability">
+  <input type="text" name="travel" placeholder="Travel Willingness">
+
+  <h3>Pricing</h3>
+  <input type="text" name="rate" placeholder="Typical Booking Rate">
+  <input type="text" name="flexible" placeholder="Flexible Pricing?">
+
+  <h3>Experience</h3>
+  <textarea name="experience" placeholder="Venues, Festivals, Experience"></textarea>
+
+  <h3>Final</h3>
+  <textarea name="notes" placeholder="Anything else?"></textarea>
+
+  <button type="submit">Submit Application</button>
+</form>
   
 </body>
 </html>
