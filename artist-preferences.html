@@ -73,6 +73,36 @@ oninput="document.getElementById('budgetValue').innerText = this.value">
 <br>
 <a href="contact.html">Continue to Contact</a>
 
+<!-- PASTE FORM HERE -->
+
+<form name="artist-submissions" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="artist-submissions">
+
+  <h2>Apply as an Artist</h2>
+
+  <input type="text" name="artist_name" placeholder="Artist / Band Name" required>
+  <input type="text" name="contact_name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+
+  <input type="url" name="video" placeholder="YouTube LIVE Performance Link" required>
+
+  <input type="url" name="music" placeholder="Spotify / Music Link (optional)">
+
+  <input type="text" name="genre" placeholder="Genre">
+  <input type="text" name="band_size" placeholder="Solo, Duo, or Band">
+  <textarea name="bio" placeholder="Short description of your music"></textarea>
+
+  <input type="text" name="location" placeholder="City / Country">
+  <input type="text" name="availability" placeholder="Availability">
+  <input type="text" name="rate" placeholder="Typical rate (optional)">
+
+  <textarea name="notes" placeholder="Anything else? (optional)"></textarea>
+
+  <button type="submit">Submit Application</button>
+</form>
+
+<p>We review every submission. Selected artists will be contacted.</p>
+  
 </body>
 </html>
 
