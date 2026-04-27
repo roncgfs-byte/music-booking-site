@@ -9,10 +9,10 @@
 <p>We are currently inviting artists to express interest in joining our booking platform.</p>
 
 <div style="max-width: 500px; margin: auto; background:white; padding:20px; border-radius:10px;">
-  <form name="artist-application" method="POST" data-netlify="true">
+ <form name="artist-application" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="artist-application">
 
-  <h2>Apply as an Artist</h2>
+  <h2>Artist Sign-up</h2>
 
   <p>
     <label>Artist / Band Name:<br>
@@ -40,24 +40,29 @@
   </p>
 
   <p>
-    <label>YouTube LIVE Performance Video:<br>
-    <input type="url" name="video">
-  </p>
-
-  <p style="font-size:14px;">
-    Please include at least one recent LIVE performance video (YouTube preferred).
+    <label>YouTube Performance Video:<br>
+    <input type="url" name="video"></label>
   </p>
 
   <p>
-    <button type="submit">Submit Application</button>
+    <label>Music Link (optional):<br>
+    <input type="url" name="music"></label>
+  </p>
+
+  <p>
+    <label>Short Description:<br>
+    <textarea name="bio"></textarea></label>
+  </p>
+
+  <p>
+    <button type="submit">Submit</button>
   </p>
 
   <p style="font-size:14px;">
     We review every submission. Selected artists will be contacted.
   </p>
 
-</form>
-
+</form> 
 </div>
 
 </body>
