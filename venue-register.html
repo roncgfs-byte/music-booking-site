@@ -7,41 +7,44 @@
 
 <body style="font-family: Arial;">
 
-<div style="text-align:center;">
+<div style="max-width: 600px; margin: auto; text-align: center;">
+
   <h1>Register your venue to book live music</h1>
   <p>Connect with artists and bring live music to your venue.</p>
-</div>
 
-<p>
-<label>Email:<br>
-<input type="email" name="email" required></label>
-</p>
+  <form name="venue-application" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="venue-application">
 
-<p>
-<label>City:<br>
-<input type="text" name="city"></label>
-</p>
+    <p>
+      <label>Email:<br>
+      <input type="email" name="email" required></label>
+    </p>
 
-<p>
-<label>Preferred Music Style:<br>
-<input type="text" name="music_style"></label>
-</p>
+    <p>
+      <label>City:<br>
+      <input type="text" name="city"></label>
+    </p>
 
-<p>
-<label>Preferred Booking Days:<br>
-<input type="text" name="booking_days"></label>
-</p>
+    <p>
+      <label>Preferred Music Style:<br>
+      <input type="text" name="music_style"></label>
+    </p>
 
-<p>
-<label>Tell us about your venue:<br>
-<textarea name="message"></textarea></label>
-</p>
+    <p>
+      <label>Preferred Booking Days:<br>
+      <input type="text" name="booking_days"></label>
+    </p>
 
-<p>
-<button type="submit">Submit</button>
-</p>
+    <p>
+      <label>Tell us about your venue:<br>
+      <textarea name="message"></textarea></label>
+    </p>
 
-</form>
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+
+  </form>
 
 </div>
 
