@@ -6,55 +6,58 @@
 
 <body style="font-family: Arial; text-align: center;">
 
-<h1>Venue Booking Preferences</h1>
+<div style="max-width: 600px; margin: auto; text-align: left;">
 
-<p>Tell us what kind of artists you are looking for and when your venue is available.</p>
-<p>This helps match you with the right performers.</p>
+  <div style="text-align:center;">
+    <h1>Venue Booking Details</h1>
+    <p>Provide additional information to help us match you with the right artists.</p>
+  </div>
 
-<form name="venue-preferences" method="POST" data-netlify="true">
+  <h3>Venue Information</h3>
+  <p>
+    <label>Venue Type:<br>
+    <input type="text" name="venue_type"></label>
+  </p>
 
-<input type="hidden" name="form-name" value="venue-preferences">
+  <p>
+    <label>Capacity:<br>
+    <input type="text" name="capacity"></label>
+  </p>
 
-<div style="max-width: 500px; margin: auto; text-align: center;">
+  <h3>Music & Events</h3>
+  <p>
+    <label>Preferred Music Styles:<br>
+    <input type="text" name="music_styles"></label>
+  </p>
 
-<p><strong>Budget Range</strong></p>
-<input type="range" name="budget" min="0" max="500">
+  <p>
+    <label>Type of Events:<br>
+    <input type="text" name="event_types"></label>
+  </p>
 
-<p><strong>Music Styles</strong></p>
-<label><input type="checkbox" name="style" value="Rock"> Rock</label><br>
-<label><input type="checkbox" name="style" value="Jazz"> Jazz</label><br>
-<label><input type="checkbox" name="style" value="Hip Hop"> Hip Hop</label><br>
-<label><input type="checkbox" name="style" value="Blues"> Blues</label><br>
-<label><input type="checkbox" name="style" value="Electronic"> Electronic</label><br>
-<label><input type="checkbox" name="style" value="Folk"> Folk</label><br>
-<label><input type="checkbox" name="style" value="Classical"> Classical</label>
-<label><input type="checkbox" name="style" value="Acoustic"> Acoustic</label>
+  <h3>Booking Details</h3>
+  <p>
+    <label>Typical Budget:<br>
+    <input type="text" name="budget"></label>
+  </p>
 
-<p><strong>Equipment Available</strong></p>
-<label><input type="checkbox" name="equipment" value="Microphones"> Microphones</label><br>
-<label><input type="checkbox" name="equipment" value="Speakers"> Speakers</label><br>
-<label><input type="checkbox" name="equipment" value="Monitors"> Monitors</label>
-<label><input type="checkbox" name="equipment" value="Cable"> Cable</label>
+  <p>
+    <label>Available Dates / Schedule:<br>
+    <input type="text" name="availability"></label>
+  </p>
 
-<p><strong>Available Days</strong></p>
-<label><input type="checkbox" name="day" value="Mon"> Mon</label>
-<label><input type="checkbox" name="day" value="Tue"> Tue</label>
-<label><input type="checkbox" name="day" value="Wed"> Wed</label>
-<label><input type="checkbox" name="day" value="Thu"> Thu</label>
-<label><input type="checkbox" name="day" value="Fri"> Fri</label>
-<label><input type="checkbox" name="day" value="Sat"> Sat</label>
-<label><input type="checkbox" name="day" value="Sun"> Sun</label>
+  <h3>Technical Setup</h3>
+  <p>
+    <label>Stage / Sound Info:<br>
+    <textarea name="tech"></textarea></label>
+  </p>
 
-<br><br>
-
-<button type="submit">Save Preferences</button>
+  <h3>Experience</h3>
+  <p>
+    <label>Past Events or Notes:<br>
+    <textarea name="experience"></textarea></label>
+  </p>
 
 </div>
-
-</form>
-
-<br>
-<a href="contact.html">Continue to Contact</a>
-
 </body>
 </html>
