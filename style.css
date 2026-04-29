@@ -1,60 +1,113 @@
-/* GLOBAL */
+/* GENERAL PAGE */
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    margin: 0;
-    text-align: center; /* ensures everything inside body is centered */
+  font-family: Arial, sans-serif;
+  background-color: #f5f0e6; /* soft beige */
+  color: #3a2b2b; /* dark warm text */
+  margin: 0;
+  padding: 0;
 }
 
 /* NAVIGATION */
-nav {
-    background: #222;
-    padding: 15px;
-    text-align: center;
+.main-nav {
+  background-color: #800020; /* burgundy */
+  padding: 15px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
+.main-nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-nav a:hover {
-    color: #ffd700;
+.main-nav a:hover {
+  text-decoration: underline;
 }
 
 /* HERO SECTION */
 .hero {
-    padding: 40px;
-    background: white;
+  text-align: center;
+  padding: 40px;
 }
 
-.hero img {
-    width: 60%;
-    max-width: 600px;
-    display: block;
-    margin: auto;
+.hero h1 {
+  color: #800020;
+}
+
+.credibility {
+  font-style: italic;
+  color: #555;
 }
 
 /* CARDS */
 .cards {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
 }
 
 .card {
-    width: 260px;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    margin: 10px;
-    text-align: center; /* centers text inside cards */
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  color: #800020;
 }
 
 .card a {
-    display: inline-block;
+  display: inline-block;
+  margin-top: 10px;
+  color: white;
+  background-color: #800020;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.card a:hover {
+  background-color: #a0002a;
+}
+
+/* FORMS */
+form {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+input, textarea {
+  width: 90%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #800020;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a0002a;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #800020;
+  color: white;
+  margin-top: 40px;
+}
