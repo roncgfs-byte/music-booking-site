@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Venue Booking Preferences</title>
+  <meta charset="UTF-8">
+  <title>Venue Preferences</title>
 </head>
 
-<body style="font-family: Arial; text-align: center;">
+<body style="font-family: Arial;">
+
 <form name="venue-preferences" method="POST" data-netlify="true">
-<input type="hidden" name="status" value="New">
 <input type="hidden" name="form-name" value="venue-preferences">
-<div style="max-width: 600px; margin: auto; text-align: left;">
 
-  <div style="text-align:center;">
-    <h1>Venue Booking Details</h1>
-    <p>Provide additional information to help us match you with the right artists.</p>
-  </div>
+<div style="max-width: 600px; margin: auto; text-align: center;">
 
-  <h3>Venue Information</h3>
+  <h1>Venue Booking Details</h1>
+  <p>Provide additional information to help us match you with the right artists.</p>
+
+  <p>
+    <label>Email (same as application):<br>
+    <input type="email" name="email" required></label>
+  </p>
+
   <p>
     <label>Venue Type:<br>
     <input type="text" name="venue_type"></label>
@@ -26,45 +30,38 @@
     <input type="text" name="capacity"></label>
   </p>
 
-  <h3>Music & Events</h3>
   <p>
     <label>Preferred Music Styles:<br>
     <input type="text" name="music_styles"></label>
   </p>
 
   <p>
-    <label>Type of Events:<br>
+    <label>Event Types:<br>
     <input type="text" name="event_types"></label>
   </p>
 
-  <h3>Booking Details</h3>
   <p>
     <label>Typical Budget:<br>
     <input type="text" name="budget"></label>
   </p>
 
   <p>
-    <label>Available Dates / Schedule:<br>
+    <label>Available Dates:<br>
     <input type="text" name="availability"></label>
   </p>
 
-  <h3>Technical Setup</h3>
   <p>
     <label>Stage / Sound Info:<br>
     <textarea name="tech"></textarea></label>
   </p>
 
-  <h3>Experience</h3>
   <p>
-    <label>Past Events or Notes:<br>
-    <textarea name="experience"></textarea></label>
+    <button type="submit">Submit Details</button>
   </p>
 
 </div>
-<p>
-  <button type="submit">Submit Details</button>
-</p>
 
 </form>
+
 </body>
 </html>
