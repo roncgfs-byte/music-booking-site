@@ -43,6 +43,29 @@
 </div>
   </div>
 
+<form id="applyForm">
+  <!-- Booking Details -->
+  <h3>Request a Booking</h3>
+  <label for="bookingDate">Date:</label>
+  <input type="date" id="bookingDate" required>
+  
+  <label for="serviceType">Service:</label>
+  <select id="serviceType">
+    <option value="basic">Basic Package</option>
+    <option value="premium">Premium Package</option>
+  </select>
+
+  <!-- Budget Details -->
+  <h3>Budget Planning</h3>
+  <label for="totalBudget">Total Budget ($):</label>
+  <input type="number" id="totalBudget" placeholder="Enter your max budget" required>
+  
+  <div id="budgetStatus">
+    <p>Remaining Balance: <span id="balance">0</span></p>
+  </div>
+
+  <button type="submit">Submit Application</button>
+</form
 
 
 </div>
