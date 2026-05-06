@@ -11,98 +11,84 @@
 
 <div style="max-width: 500px; margin: auto; background:white; padding:20px; border-radius:10px;">
  <form name="artist-application" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="artist-application">
+<input type="hidden" name="form-name" value="artist-application">
+
+<h1>Apply as an Artist</h1>
+<p>Quick application – takes under 2 minutes</p>
 
 <p>
-  <label>Band's Website:<br>
-  <input type="text" name="link" placeholder="Band's Website"></label>
+  <label>Artist / Band Name:<br>
+  <input type="text" name="artist_name" required></label>
 </p>
-   
-  <p>
-    <label>Artist / Band Name:<br>
-    <input type="text" name="artist_name" required></label>
-  </p>
 
-  <p>
-    <label>Email Address:<br>
-    <input type="email" name="email" required></label>
-  </p>
+<p>
+  <label>Email:<br>
+  <input type="email" name="email" required></label>
+</p>
 
-  <p>
-    <label>Phone Number:<br>
-    <input type="text" name="phone"></label>
-  </p>
+<p>
+  <label>Phone Number:<br>
+  <input type="text" name="phone"></label>
+</p>
 
-  <p>
-    <label>City:<br>
-    <input type="text" name="city"></label>
-  </p>
+<p>
+  <label>City:<br>
+  <input type="text" name="city"></label>
+</p>
 
-  <p>
-    <label>Country:<br>
-    <input type="text" name="country"></label>
-  </p>
+<p>
+  <label>Country:<br>
+  <input type="text" name="country"></label>
+</p>
 
-  <p>
-    <label>YouTube Performance Video:<br>
-    <input type="url" name="video"></label>
-  </p>
+<p>
+  <label>Genre:<br>
+  <input type="text" name="genre"></label>
+</p>
 
- <p>
-    <label>YouTube Performance Video:<br>
-    <input type="url" name="video"></label>
-  </p>
+<p>
+  <label>Website or Social Media:<br>
+  <input type="text" name="link"></label>
+</p>
 
-    <p>
-    <label>YouTube Performance Video:<br>
-    <input type="url" name="video"></label>
-  </p>
+<p>
+  <label>YouTube Performance Video:<br>
+  <input type="url" name="video"></label>
+</p>
 
-    <p>
-    <label>YouTube Performance Video:<br>
-    <input type="url" name="video"></label>
-  </p>
-   
-  <p>
-    <label>Music Link (optional):<br>
-    <input type="url" name="music"></label>
-  </p>
+<p>
+  <label>Short Bio:<br>
+  <textarea name="bio"></textarea></label>
+</p>
 
-  <p>
-    <label>Short Description:<br>
-    <textarea name="bio"></textarea></label>
-  </p>
 <h3>Booking Details</h3>
 
 <p>
   <label>Typical Rate / Budget:<br>
-  <input type="text" name="rate" placeholder="$ or range"></label>
+  <input type="text" name="rate"></label>
 </p>
 
 <p>
   <label>Availability:<br>
-  <input type="text" name="availability" placeholder="Weekends, specific dates, etc."></label>
+  <input type="text" name="availability"></label>
 </p>
 
 <p>
   <label>Preferred Venue Types:<br>
-  <input type="text" name="venues" placeholder="Bars, weddings, festivals"></label>
+  <input type="text" name="venues"></label>
 </p>
 
 <p>
   <label>Travel Willingness:<br>
-  <input type="text" name="travel" placeholder="Local / touring"></label>
+  <input type="text" name="travel"></label>
 </p>
-   
-<p>
-    <button type="submit">Submit</button>
-  </p>
-  
-  <p style="font-size:14px;">
-    We review every submission. Selected artists will be contacted.
-  </p>
 
-</form> 
+<p>
+  <button type="submit">Submit Application</button>
+</p>
+
+</form>
+
 </div>
 <h2>Budget</h2>
 <input type="number" min="100" max="2000">
