@@ -96,6 +96,11 @@ body {
 .card a:hover {
   background-color: #a0002a;
 }
+transition: transform 0.2s ease;
+
+.card:hover {
+  transform: translateY(-5px);
+}
 
 /* FORMS */
 form {
