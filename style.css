@@ -27,19 +27,33 @@ body {
 /* HERO SECTION */
 .hero {
   text-align: center;
-  padding: 40px;
+  padding: 70px 20px 50px;
 }
 
 .hero h1 {
-  color: #800020;
+  color: #5A1823;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
+
+.hero p {
+  font-size: 1.2rem;
+  color: #6B1E2B;
+  max-width: 700px;
+  margin: 0 auto 25px;
+  line-height: 1.6;
+}
+
 /* HERO IMAGE */
 .hero-image {
-  width: 70%;
-  max-width: 700px;
-  border-radius: 12px;
+  width: 32%;
+  max-width: 220px;
+  min-width: 120px;
+  border-radius: 10px;
   margin-top: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  opacity: 0.92;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 /* TAGLINE */
