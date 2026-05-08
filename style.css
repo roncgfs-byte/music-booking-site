@@ -58,8 +58,9 @@ body {
 .music-symbol {
   font-size: 2.5rem;
   color: #6B1E2B;
-  margin-top: 15px;
-  letter-spacing: 10px;
+  text-align: center;
+  margin: 10px 0 20px;
+  letter-spacing: 8px;
 }
 <img src="logo.png" class="hero-image">
 
