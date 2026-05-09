@@ -23,7 +23,15 @@ body {
 .main-nav a:hover {
   text-decoration: underline;
 }
-
+/* MUSIC BANNER */
+.music-banner {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #6B1E2B;
+  padding: 12px 0;
+  letter-spacing: 10px;
+  border-bottom: 1px solid #d8cfc2;
+}
 /* HERO SECTION */
 .hero {
   text-align: center;
