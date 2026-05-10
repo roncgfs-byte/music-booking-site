@@ -32,6 +32,29 @@ body {
   letter-spacing: 10px;
   border-bottom: 1px solid #d8cfc2;
 }
+
+/* NAVIGATION BAR */
+.main-nav {
+  background-color: #6B1E2B;
+  padding: 14px 10px;
+  text-align: center;
+  border-top: 1px solid #d8cfc2;
+  border-bottom: 1px solid #d8cfc2;
+}
+
+.main-nav a {
+  color: #F7F4ED;
+  text-decoration: none;
+  margin: 0 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.main-nav a:hover {
+  opacity: 0.8;
+}
+
 /* HERO SECTION */
 .hero {
   text-align: center;
