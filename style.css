@@ -183,3 +183,6 @@ footer {
 }
 /* TEST NAV OVERRIDE */
 
+nav.main-nav {
+  display: block !important;
+}
