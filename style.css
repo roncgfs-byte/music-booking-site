@@ -7,22 +7,7 @@ body {
   padding: 0;
 }
 
-/* NAVIGATION */
-.main-nav {
-  background-color: #800020; /* burgundy */
-  padding: 15px;
-}
 
-.main-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.main-nav a:hover {
-  text-decoration: underline;
-}
 /* MUSIC BANNER */
 .music-banner {
   text-align: center;
