@@ -184,9 +184,18 @@ footer {
 
 .page-container {
   max-width: 600px;
-  margin: 0 auto;
-  text-align: center !important;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.main-nav {
-  border: 2px solid red;
+
+form {
+  width: 100%;
 }
+
+input, textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
