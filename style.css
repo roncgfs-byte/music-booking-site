@@ -223,3 +223,38 @@ input, textarea {
 body {
   margin: 0;
 }
+/* FINAL GLOBAL LAYOUT RESET */
+body {
+  margin: 0;
+  text-align: center;
+  font-family: Arial;
+}
+
+/* FORCE CONSISTENT CENTERED CONTAINER */
+.page-container,
+.venue-page-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* FIX FORM ALIGNMENT */
+form {
+  width: 100%;
+}
+
+input,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* NAVIGATION LOCK */
+.main-nav {
+  background: #6B1E2B;
+  padding: 12px 10px;
+  text-align: center;
+  border-top: 1px solid #d8cfc2;
+  border-bottom: 1px solid #d8cfc2;
+}
