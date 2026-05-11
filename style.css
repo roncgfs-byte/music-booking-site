@@ -181,8 +181,4 @@ footer {
   color: white;
   margin-top: 40px;
 }
-/* TEST NAV OVERRIDE */
 
-nav.main-nav {
-  display: block !important;
-}
