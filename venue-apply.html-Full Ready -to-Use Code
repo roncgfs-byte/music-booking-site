@@ -9,8 +9,7 @@
 <h1>Register Your Venue to Book Live Music</h1>
 <p>We are inviting venues to register and connect with professional artists for live events.</p>
 
-<div style="max-width: 500px; margin: auto; text-align: left;">
-
+<div class="page-container">
   <form name="venue-application" method="POST" data-netlify="true" netlify>
 
     <input type="hidden" name="form-name" value="venue-application">
