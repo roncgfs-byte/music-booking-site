@@ -7,7 +7,6 @@ body {
   padding: 0;
 }
 
-
 /* MUSIC BANNER */
 .music-banner {
   text-align: center;
@@ -184,15 +183,6 @@ footer {
 body {
   margin: 0;
 }
-.page-container {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 
 form {
   width: 100%;
@@ -231,13 +221,6 @@ body {
 }
 
 /* FORCE CONSISTENT CENTERED CONTAINER */
-.page-container,
-.venue-page-wrapper {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 0 20px;
-  text-align: center;
-}
 
 /* FIX FORM ALIGNMENT */
 form {
@@ -257,4 +240,10 @@ textarea {
   text-align: center;
   border-top: 1px solid #d8cfc2;
   border-bottom: 1px solid #d8cfc2;
+}
+.page-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
 }
