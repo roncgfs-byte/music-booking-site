@@ -203,3 +203,23 @@ input, textarea {
   box-sizing: border-box;
 }
 
+.venue-page-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.venue-page-wrapper form {
+  width: 100%;
+}
+
+.venue-page-wrapper input,
+.venue-page-wrapper textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
