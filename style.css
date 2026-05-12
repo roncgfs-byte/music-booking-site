@@ -279,3 +279,9 @@ textarea {
 .cards {
   align-items: stretch;
 }
+.hero-image {
+  width: 100%;
+  max-width: 1200px;
+  display: block;
+  margin: 0 auto;
+}
