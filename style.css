@@ -274,9 +274,8 @@ textarea {
 
 /* HERO IMAGE */
 .hero-image {
-  width: 42%;
-  max-width: 420px;
-  min-width: 220px;
+  width: 100%;
+  max-width: 1400px;
   display: block;
-  margin: 10px auto 20px auto;
+  margin: 0 auto 20px auto;
 }
