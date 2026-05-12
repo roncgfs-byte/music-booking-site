@@ -247,3 +247,23 @@ textarea {
   padding: 0 20px;
   text-align: center;
 }
+
+.hero-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.music-flow {
+  font-size: 18px;
+  letter-spacing: 6px;
+  color: #6B1E2B;
+  margin-bottom: 6px;
+}
+
+.wine-glass {
+  font-size: 34px;
+}
+
+.hero h1 {
+  margin-top: 10px;
+}
