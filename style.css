@@ -64,15 +64,7 @@ body {
   text-align: center;
 }
 /* HERO IMAGE */
-.hero-image {
-  width: 32%;
-  max-width: 220px;
-  min-width: 120px;
-  border-radius: 10px;
-  margin-top: 20px;
-  opacity: 0.92;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
+
 .music-symbol {
   font-size: 2.5rem;
   color: #6B1E2B;
@@ -279,9 +271,11 @@ textarea {
 .cards {
   align-items: stretch;
 }
+
+/* HERO IMAGE */
 .hero-image {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
 }
