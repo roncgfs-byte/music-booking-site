@@ -11,7 +11,7 @@ body {
 .music-banner {
   text-align: center;
   font-size: 1.4rem;
-  color: #6B1E2B;
+  color: #5A1622;
   padding: 12px 0;
   letter-spacing: 10px;
   border-bottom: 1px solid #d8cfc2;
@@ -19,7 +19,7 @@ body {
 
 /* NAVIGATION BAR */
 .main-nav {
-  background: #6B1E2B !important;
+  background: #5A1622 !important;
   padding: 12px 10px !important;
   text-align: center !important;
   border-top: 1px solid #d8cfc2;
@@ -59,17 +59,17 @@ body {
 
 .hero p {
   font-size: 1.2rem;
-  color: #6B1E2B;
+  color: ;
   max-width: 700px;
   margin: 0 auto 25px;
-  line-height: 1.6;
+  line-height: 1.6;#5A1622
   text-align: center;
 }
 /* HERO IMAGE */
 
 .music-symbol {
   font-size: 2.5rem;
-  color: #6B1E2B;
+  color: #5A1622;
   text-align: center;
   margin: 5px 0 10px;
   letter-spacing: 8px;
@@ -231,7 +231,7 @@ textarea {
 
 /* NAVIGATION LOCK */
 .main-nav {
-  background: #6B1E2B;
+  background: #5A1622;
   padding: 12px 10px;
   text-align: center;
   border-top: 1px solid #d8cfc2;
@@ -252,7 +252,7 @@ textarea {
 .music-flow {
   font-size: 18px;
   letter-spacing: 6px;
-  color: #6B1E2B;
+  color: #5A1622;
   margin-bottom: 6px;
 }
 
