@@ -280,9 +280,7 @@ textarea {
 .hero-image {
   width: 88%;
   max-width: 900px;
-  height: 320px;
-  object-fit: cover;
-  object-position: top;
+ 
   display: block;
   margin: -10px auto 8px auto;
 }
