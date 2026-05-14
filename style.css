@@ -19,11 +19,15 @@ body {
 
 /* NAVIGATION BAR */
 .main-nav {
-  background: #5A1622 !important;
-  padding: 12px 10px !important;
-  text-align: center !important;
+  background: #5A1622;
+  width: 88%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  text-align: center;
   border-top: 1px solid #d8cfc2;
   border-bottom: 1px solid #d8cfc2;
+  border-radius: 10px;
 }
 
 .main-nav a {
