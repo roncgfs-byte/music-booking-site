@@ -288,3 +288,20 @@ textarea {
   display: block;
   margin: -10px auto 8px auto;
 }
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero-overlay-text {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f7f3ed;
+  padding: 4px 14px;
+  font-size: 20px;
+  color: #5A1622;
+  font-weight: 500;
+  border-radius: 4px;
+}
