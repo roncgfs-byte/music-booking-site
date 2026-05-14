@@ -288,12 +288,4 @@ textarea {
   display: block;
   margin: -10px auto 8px auto;
 }
-.cover-across-canada {
-  position: absolute;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  height: 40px;
-  background: #f7f3ed;
-}
+
