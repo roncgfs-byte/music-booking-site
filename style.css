@@ -289,3 +289,32 @@ textarea {
   margin: -10px auto 8px auto;
 }
 
+/* EDITABLE HERO SECTION */
+
+.hero {
+  background: linear-gradient(to right,
+    #d9c7b3 0%,
+    #efe4d6 45%,
+    #f8f5ef 100%);
+    
+  padding: 70px 20px 60px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 52px;
+  color: #5A1622;
+  margin-bottom: 12px;
+}
+
+.hero h2 {
+  font-size: 28px;
+  color: #444;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
