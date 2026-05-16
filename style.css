@@ -292,13 +292,22 @@ textarea {
 /* EDITABLE HERO SECTION */
 
 .hero {
-  background: linear-gradient(to right,
-    #d9c7b3 0%,
-    #efe4d6 45%,
-    #f8f5ef 100%);
-    
-  padding: 70px 20px 60px;
+  background:
+    linear-gradient(
+      to right,
+      rgba(80, 30, 40, 0.35) 0%,
+      rgba(150, 120, 90, 0.15) 35%,
+      rgba(255, 245, 230, 0.65) 100%
+    ),
+    url('booking-hero-final.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 110px 20px 100px;
   text-align: center;
+  position: relative;
 }
 
 .hero-content {
