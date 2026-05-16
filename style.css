@@ -318,3 +318,10 @@ textarea {
   font-weight: 400;
   margin-bottom: 22px;
 }
+.hero-text {
+  font-size: 22px;
+  color: #666;
+  max-width: 720px;
+  margin: auto;
+  line-height: 1.6;
+}
