@@ -292,7 +292,19 @@ textarea {
 /* EDITABLE HERO SECTION */
 
 .hero {
-  background-color: #f5f0e6;
+  background:
+    linear-gradient(
+      to right,
+      rgba(245, 240, 230, 0.95) 0%,
+      rgba(245, 240, 230, 0.80) 45%,
+      rgba(245, 240, 230, 0.35) 100%
+    ),
+    url('booking-hero-final.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   padding: 110px 20px 100px;
   text-align: center;
   position: relative;
