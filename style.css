@@ -396,21 +396,4 @@ textarea {
   background: #7a2232;
   transform: translateY(-2px);
 }
-.hero-art {
-  position: absolute;
-  right: 10%;
-  top: 70px;
-  font-size: 54px;
-  color: rgba(90, 22, 34, 0.28);
-  text-align: center;
-  line-height: 1.1;
-  z-index: 1;
-  pointer-events: none;
-}
 
-.hero-art span {
-  font-size: 120px;
-  display: block;
-  margin-top: 8px;
-  filter: drop-shadow(0 10px 18px rgba(90, 22, 34, 0.22));
-}
