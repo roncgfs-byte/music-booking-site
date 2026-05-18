@@ -397,3 +397,38 @@ textarea {
   transform: translateY(-2px);
 }
 
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 70px 20px;
+  flex-wrap: wrap;
+  background: #fffaf4;
+}
+
+.service-box {
+  background: #F7F4ED;
+  width: 300px;
+  padding: 35px 28px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(90, 22, 34, 0.10);
+  border: 1px solid rgba(90, 22, 34, 0.10);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.service-box:hover {
+  transform: translateY(-6px);
+}
+
+.service-box h3 {
+  color: #5A1622;
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+
+.service-box p {
+  color: #3a2b2b;
+  line-height: 1.7;
+  font-size: 17px;
+}
