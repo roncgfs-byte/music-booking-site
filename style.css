@@ -377,3 +377,22 @@ textarea {
   margin: auto;
   line-height: 1.6;
 }
+.hero-button {
+  display: inline-block;
+  margin-top: 32px;
+  background: #5A1622;
+  color: #F7F4ED;
+  padding: 16px 34px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(90, 22, 34, 0.22);
+}
+
+.hero-button:hover {
+  background: #7a2232;
+  transform: translateY(-2px);
+}
