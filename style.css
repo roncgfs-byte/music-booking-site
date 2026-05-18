@@ -432,55 +432,100 @@ textarea {
   line-height: 1.7;
   font-size: 17px;
 }
+
 .music-glass-art {
   position: absolute;
   right: 8%;
-  top: 80px;
-  width: 260px;
-  height: 330px;
+  top: 75px;
+  width: 300px;
+  height: 340px;
   z-index: 1;
   pointer-events: none;
 }
 
-.note-stream {
+.note {
   position: absolute;
-  top: 5px;
-  left: -85px;
+  color: rgba(90, 22, 34, 0.52);
+  font-weight: bold;
+  line-height: 1;
+}
+
+.n1 {
+  top: 10px;
+  left: 5px;
+  font-size: 42px;
+  transform: rotate(-25deg);
+}
+
+.n2 {
+  top: 42px;
+  left: 55px;
+  font-size: 38px;
+  transform: rotate(-15deg);
+}
+
+.n3 {
+  top: 78px;
+  left: 105px;
   font-size: 34px;
-  color: rgba(90, 22, 34, 0.45);
-  letter-spacing: 10px;
-  transform: rotate(-28deg);
-  white-space: nowrap;
+  transform: rotate(8deg);
+}
+
+.n4 {
+  top: 108px;
+  left: 145px;
+  font-size: 30px;
+  transform: rotate(18deg);
+}
+
+.n5 {
+  top: 132px;
+  left: 175px;
+  font-size: 26px;
+  transform: rotate(25deg);
+}
+
+.n6 {
+  top: 154px;
+  left: 198px;
+  font-size: 22px;
+  transform: rotate(30deg);
 }
 
 .css-glass {
   position: absolute;
-  top: 100px;
-  left: 95px;
-  width: 90px;
-  height: 125px;
-  border: 4px solid rgba(90, 22, 34, 0.55);
+  top: 150px;
+  left: 178px;
+  width: 82px;
+  height: 112px;
+  border: 4px solid rgba(90, 22, 34, 0.58);
   border-top: none;
-  border-radius: 0 0 45px 45px;
+  border-radius: 0 0 42px 42px;
 }
 
 .css-glass::before {
   content: "";
   position: absolute;
-  bottom: -80px;
-  left: 39px;
-  width: 8px;
-  height: 80px;
-  background: rgba(90, 22, 34, 0.55);
+  bottom: -72px;
+  left: 36px;
+  width: 7px;
+  height: 72px;
+  background: rgba(90, 22, 34, 0.58);
 }
 
 .css-glass::after {
   content: "";
   position: absolute;
-  bottom: -92px;
-  left: 14px;
-  width: 62px;
+  bottom: -82px;
+  left: 10px;
+  width: 60px;
   height: 8px;
-  background: rgba(90, 22, 34, 0.55);
+  background: rgba(90, 22, 34, 0.58);
   border-radius: 50%;
 }
+
+
+
+
+
+
