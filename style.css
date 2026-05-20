@@ -417,16 +417,6 @@ textarea {
   font-size: 17px;
 }
 
-.music-glass-art {
-  position: absolute;
-  right: 8%;
-  top: 75px;
-  width: 300px;
-  height: 340px;
-  z-index: 1;
-  pointer-events: none;
-}
-
 .note {
   position: absolute;
   color: rgba(90, 22, 34, 0.52);
@@ -476,38 +466,65 @@ textarea {
   transform: rotate(30deg);
 }
 
+.hero::before,
+.hero::after {
+  display: none !important;
+}
+
+.music-glass-art {
+  position: absolute !important;
+  right: 6% !important;
+  top: 55px !important;
+  width: 360px !important;
+  height: 360px !important;
+  z-index: 5 !important;
+  pointer-events: none !important;
+}
+
+.note {
+  position: absolute !important;
+  color: rgba(90, 22, 34, 0.72) !important;
+  font-weight: bold !important;
+}
+
+.n1 { top: 0; left: 0; font-size: 50px; transform: rotate(-25deg); }
+.n2 { top: 35px; left: 65px; font-size: 45px; transform: rotate(-15deg); }
+.n3 { top: 75px; left: 125px; font-size: 40px; transform: rotate(0deg); }
+.n4 { top: 112px; left: 175px; font-size: 35px; transform: rotate(12deg); }
+.n5 { top: 145px; left: 215px; font-size: 30px; transform: rotate(20deg); }
+.n6 { top: 170px; left: 245px; font-size: 26px; transform: rotate(28deg); }
+
 .css-glass {
-  position: absolute;
-  top: 150px;
-  left: 178px;
-  width: 82px;
-  height: 112px;
-  border: 4px solid rgba(90, 22, 34, 0.58);
-  border-top: none;
-  border-radius: 0 0 42px 42px;
+  position: absolute !important;
+  top: 165px !important;
+  left: 230px !important;
+  width: 85px !important;
+  height: 115px !important;
+  border: 4px solid rgba(90, 22, 34, 0.75) !important;
+  border-top: none !important;
+  border-radius: 0 0 45px 45px !important;
 }
 
 .css-glass::before {
-  content: "";
-  position: absolute;
-  bottom: -72px;
-  left: 36px;
-  width: 7px;
-  height: 72px;
-  background: rgba(90, 22, 34, 0.58);
+  content: "" !important;
+  position: absolute !important;
+  bottom: -75px !important;
+  left: 38px !important;
+  width: 7px !important;
+  height: 75px !important;
+  background: rgba(90, 22, 34, 0.75) !important;
 }
 
 .css-glass::after {
-  content: "";
-  position: absolute;
-  bottom: -82px;
-  left: 10px;
-  width: 60px;
-  height: 8px;
-  background: rgba(90, 22, 34, 0.58);
-  border-radius: 50%;
+  content: "" !important;
+  position: absolute !important;
+  bottom: -85px !important;
+  left: 11px !important;
+  width: 62px !important;
+  height: 8px !important;
+  background: rgba(90, 22, 34, 0.75) !important;
+  border-radius: 50% !important;
 }
-
 
 
 
