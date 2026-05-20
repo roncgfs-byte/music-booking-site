@@ -494,26 +494,7 @@ textarea {
   border-radius: 0 0 45px 45px !important;
 }
 
-.css-glass::before {
-  content: "" !important;
-  position: absolute !important;
-  bottom: -75px !important;
-  left: 38px !important;
-  width: 7px !important;
-  height: 75px !important;
-  background: rgba(90, 22, 34, 0.75) !important;
-}
 
-.css-glass::after {
-  content: "" !important;
-  position: absolute !important;
-  bottom: -85px !important;
-  left: 11px !important;
-  width: 62px !important;
-  height: 8px !important;
-  background: rgba(90, 22, 34, 0.75) !important;
-  border-radius: 50% !important;
-}
 
 
 
