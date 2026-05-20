@@ -406,93 +406,13 @@ textarea {
   font-size: 17px;
 }
 
-.note {
-  position: absolute;
-  color: rgba(90, 22, 34, 0.52);
-  font-weight: bold;
-  line-height: 1;
-}
-
-.n1 {
-  top: 10px;
-  left: 5px;
-  font-size: 42px;
-  transform: rotate(-25deg);
-}
-
-.n2 {
-  top: 42px;
-  left: 55px;
-  font-size: 38px;
-  transform: rotate(-15deg);
-}
-
-.n3 {
-  top: 78px;
-  left: 105px;
-  font-size: 34px;
-  transform: rotate(8deg);
-}
-
-.n4 {
-  top: 108px;
-  left: 145px;
-  font-size: 30px;
-  transform: rotate(18deg);
-}
-
-.n5 {
-  top: 132px;
-  left: 175px;
-  font-size: 26px;
-  transform: rotate(25deg);
-}
-
-.n6 {
-  top: 154px;
-  left: 198px;
-  font-size: 22px;
-  transform: rotate(30deg);
-}
 
 .hero::before,
 .hero::after {
   display: none !important;
 }
 
-.music-glass-art {
-  position: absolute !important;
-  right: 6% !important;
-  top: 55px !important;
-  width: 360px !important;
-  height: 360px !important;
-  z-index: 5 !important;
-  pointer-events: none !important;
-}
 
-.note {
-  position: absolute !important;
-  color: rgba(90, 22, 34, 0.72) !important;
-  font-weight: bold !important;
-}
-
-.n1 { top: 0; left: 0; font-size: 50px; transform: rotate(-25deg); }
-.n2 { top: 35px; left: 65px; font-size: 45px; transform: rotate(-15deg); }
-.n3 { top: 75px; left: 125px; font-size: 40px; transform: rotate(0deg); }
-.n4 { top: 112px; left: 175px; font-size: 35px; transform: rotate(12deg); }
-.n5 { top: 145px; left: 215px; font-size: 30px; transform: rotate(20deg); }
-.n6 { top: 170px; left: 245px; font-size: 26px; transform: rotate(28deg); }
-
-.css-glass {
-  position: absolute !important;
-  top: 165px !important;
-  left: 230px !important;
-  width: 85px !important;
-  height: 115px !important;
-  border: 4px solid rgba(90, 22, 34, 0.75) !important;
-  border-top: none !important;
-  border-radius: 0 0 45px 45px !important;
-}
 
 
 
