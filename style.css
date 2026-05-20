@@ -301,25 +301,9 @@ textarea {
   overflow: hidden;
 }
 
-.hero::before {
-  content: "♪  ♫  ♪";
-  position: absolute;
-  top: 35px;
-  left: 8%;
-  font-size: 64px;
-  color: rgba(90, 22, 34, 0.18);
-  letter-spacing: 18px;
-}
 
-.hero::after {
-  content: "♫  ♪  ♫";
-  position: absolute;
-  bottom: 35px;
-  right: 8%;
-  font-size: 58px;
-  color: rgba(90, 22, 34, 0.14);
-  letter-spacing: 16px;
-}
+
+
 
 .hero-content {
   position: relative;
