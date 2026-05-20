@@ -252,17 +252,6 @@ textarea {
   margin-bottom: 10px;
 }
 
-.music-flow {
-  font-size: 18px;
-  letter-spacing: 6px;
-  color: #5A1622;
-  margin-bottom: 6px;
-}
-
-.wine-glass {
-  font-size: 34px;
-}
-
 .hero h1 {
   margin-top: 10px;
 }
@@ -526,7 +515,15 @@ textarea {
   border-radius: 50% !important;
 }
 
-
+.wine-fill {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  width: 69px;
+  height: 42px;
+  background: rgba(90, 22, 34, 0.55);
+  border-radius: 0 0 35px 35px;
+}
 
 
 
