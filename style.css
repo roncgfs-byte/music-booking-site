@@ -515,15 +515,7 @@ textarea {
   border-radius: 50% !important;
 }
 
-.wine-fill {
-  position: absolute;
-  left: 8px;
-  bottom: 8px;
-  width: 69px;
-  height: 42px;
-  background: rgba(90, 22, 34, 0.55);
-  border-radius: 0 0 35px 35px;
-}
+
 
 
 
