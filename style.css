@@ -19,15 +19,14 @@ body {
 
 /* NAVIGATION BAR */
 .main-nav {
-  background: #5A1622;
-  width: 86%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 10px 10px;
-  text-align: center;
-  border-top: 1px solid #d8cfc2;
-  border-bottom: 1px solid #d8cfc2;
-  
+  background-color: #5A1622;
+  color: #F5F0E6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  padding: 14px 20px;
+  flex-wrap: wrap;
 }
 
 .main-nav a {
