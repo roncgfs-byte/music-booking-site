@@ -412,7 +412,72 @@ textarea {
   display: none !important;
 }
 
+.main-nav {
+  background-color: #5A1622;
+  color: #F5F0E6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  padding: 14px 20px;
+  flex-wrap: wrap;
+}
 
+.main-nav a,
+.nav-brand {
+  color: #F5F0E6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-brand {
+  margin-right: 20px;
+  font-size: 1.15rem;
+}
+
+.hero {
+  background-color: #F5F0E6;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 1100px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0 0 22px 22px;
+}
+
+.hero-content {
+  color: #5A1622;
+  margin-top: 18px;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.hero-content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.hero-button {
+  background-color: #5A1622;
+  color: #F5F0E6;
+  padding: 12px 24px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
 
 
