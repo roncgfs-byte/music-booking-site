@@ -33,8 +33,23 @@ body {
 .main-nav a:link,
 .main-nav a:visited,
 .main-nav a:hover,
-.main-nav a:active,
+.main-nav a:active {
+  color: #F5F0E6 !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+}
+
 .nav-brand {
+  color: #F5F0E6 !important;
+  font-weight: 700 !important;
+}
+.main-nav a:hover {
+  color: #F5F0E6 !important;
+}
+
+.main-nav a:visited {
+  color: #F5F0E6 !important;
+}
   color: #F5F0E6 !important;
   text-decoration: none !important;
   font-weight: 700;
