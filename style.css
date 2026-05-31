@@ -480,36 +480,7 @@ textarea {
 .hero-image {
   margin-top: 0 !important;
 }
-.hero {
-  position: relative;
-}
 
-.hero-overlay-text {
-  position: absolute;
-  left: 8%;
-  top: 28%;
-  max-width: 420px;
-  text-align: left;
-  color: #5A1622;
-  background: rgba(245, 240, 230, 0.72);
-  padding: 22px 26px;
-  border-radius: 22px;
-}
-
-.hero-overlay-text h1 {
-  margin: 0 0 8px;
-  font-size: 2.3rem;
-}
-
-.hero-overlay-text h2 {
-  margin: 0 0 8px;
-  font-size: 1.35rem;
-}
-
-.hero-overlay-text p {
-  margin: 0;
-  font-size: 1.05rem;
-}
 
 
 
