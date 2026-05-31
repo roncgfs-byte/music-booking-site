@@ -508,4 +508,18 @@ footer {
   text-decoration: none !important;
   font-weight: 600;
 }
+.main-nav,
+.main-nav * {
+  background-color: #5A1622 !important;
+}
 
+.main-nav a,
+.main-nav a:link,
+.main-nav a:visited,
+.main-nav a:hover,
+.main-nav a:active,
+.nav-brand {
+  color: #F5F0E6 !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+}
