@@ -495,5 +495,13 @@ footer {
   margin-top: 20px;
 }
 
-
+.main-nav a,
+.main-nav a:visited,
+.main-nav a:hover,
+.main-nav a:active,
+.nav-brand {
+  color: #F5F0E6 !important;
+  text-decoration: none !important;
+  font-weight: 600;
+}
 
