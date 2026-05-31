@@ -43,16 +43,16 @@ body {
 }
 
 /* HERO SECTION */
+
 .hero {
-  .hero {
+  background-color: #F5F0E6;
   text-align: center;
-  padding: 10px 20px 8px;
-}
+  padding: 0 0 30px 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .hero h1 {
   color: #5A1823;
   font-size: 3rem;
@@ -269,25 +269,14 @@ textarea {
 
 /* HERO IMAGE */
 .hero-image {
-  width: 88%;
-  max-width: 900px;
-  
+  width: 100%;
+  max-width: 1100px;
   display: block;
-  margin: -10px auto 8px auto;
+  margin: 0 auto;
 }
 
 /* EDITABLE HERO SECTION */
 
-.hero {
-  background:
-    radial-gradient(circle at top right, rgba(90, 22, 34, 0.18), transparent 35%),
-    linear-gradient(135deg, #f5f0e6 0%, #fffaf2 55%, #ead9c4 100%);
-
-  padding: 120px 20px 110px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
 
 
 
