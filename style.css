@@ -143,3 +143,15 @@ select {
   width: 100%;
   box-sizing: border-box;
 }
+nav.main-nav a {
+  color: #F5F0E6 !important;
+  text-decoration: none !important;
+}
+
+nav.main-nav a:link,
+nav.main-nav a:visited,
+nav.main-nav a:hover,
+nav.main-nav a:active {
+  color: #F5F0E6 !important;
+  text-decoration: none !important;
+}
