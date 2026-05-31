@@ -467,7 +467,19 @@ textarea {
   font-weight: bold;
 }
 
+.main-nav {
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
+}
 
+.hero {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.hero-image {
+  margin-top: 0 !important;
+}
 
 
 
