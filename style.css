@@ -203,3 +203,31 @@ a:active {
 .hero-card span {
   font-size: 0.95rem;
 }
+.hero-banner {
+  justify-content: flex-start;
+}
+
+.hero-banner .hero-content {
+  max-width: 430px;
+  padding: 24px 24px 28px;
+  margin-left: 40px;
+  margin-right: auto;
+  background: rgba(245, 240, 230, 0.78);
+}
+
+.hero-banner .hero-content h1 {
+  font-size: 2.2rem;
+}
+
+.hero-banner .hero-content h2 {
+  font-size: 1.2rem;
+}
+
+.hero-banner .hero-content p {
+  font-size: 1rem;
+}
+
+.hero-card {
+  min-width: 130px;
+  padding: 12px 14px;
+}
