@@ -185,15 +185,16 @@ a:active {
 }
 
 .hero-card {
-  background-color: #5A1622;
+  background-color: rgba(90, 22, 34, 0.88);
   color: #F5F0E6 !important;
   text-decoration: none;
-  padding: 16px 20px;
-  border-radius: 16px;
-  min-width: 160px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  min-width: 110px;
+  max-width: 120px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .hero-card strong {
@@ -208,11 +209,12 @@ a:active {
 }
 
 .hero-banner .hero-content {
-  max-width: 430px;
-  padding: 24px 24px 28px;
-  margin-left: 40px;
+  max-width: 380px;
+  padding: 18px 18px 22px;
+  margin-left: 30px;
   margin-right: auto;
-  background: rgba(245, 240, 230, 0.78);
+  background: rgba(245, 240, 230, 0.25);
+  backdrop-filter: blur(2px);
 }
 
 .hero-banner .hero-content h1 {
