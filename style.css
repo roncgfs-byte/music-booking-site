@@ -244,3 +244,9 @@ a:active {
   box-shadow: none;
   border: none;
 }
+.hero-card {
+  min-width: 95px !important;
+  max-width: 110px !important;
+  padding: 8px 10px !important;
+  border-radius: 10px;
+}
