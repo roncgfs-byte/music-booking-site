@@ -233,3 +233,14 @@ a:active {
   min-width: 130px;
   padding: 12px 14px;
 }
+.hero-banner {
+  background-size: cover;
+  background-position: center center;
+}
+
+.hero-banner .hero-content {
+  background: rgba(245, 240, 230, 0.12);
+  backdrop-filter: blur(1px);
+  box-shadow: none;
+  border: none;
+}
