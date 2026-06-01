@@ -166,3 +166,40 @@ a:active {
   color: #F5F0E6 !important;
   text-decoration: none !important;
 }
+.hero-banner {
+  background-image: url('booking-hero-final.png');
+  background-size: cover;
+  background-position: center right;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.hero-cards {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-card {
+  background-color: #5A1622;
+  color: #F5F0E6 !important;
+  text-decoration: none;
+  padding: 16px 20px;
+  border-radius: 16px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-card strong {
+  font-size: 1.1rem;
+}
+
+.hero-card span {
+  font-size: 0.95rem;
+}
