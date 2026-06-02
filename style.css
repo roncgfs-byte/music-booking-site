@@ -358,3 +358,21 @@ footer {
 footer p {
   margin: 4px 0 !important;
 }
+.hero-banner {
+  background-color: #F5F0E6 !important;
+  background-image: url('booking-hero-final.png') !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  min-height: 620px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hero-content {
+  margin-bottom: 0 !important;
+}
+
+footer {
+  margin-top: 0 !important;
+}
