@@ -298,3 +298,19 @@ a:active {
   padding: 8px 10px !important;
   border-radius: 10px;
 }
+.hero-banner {
+  background-color: #F5F0E6 !important;
+  background-image: url('booking-hero-final.png') !important;
+  background-size: 100% auto !important;
+  background-repeat: no-repeat !important;
+  background-position: center top !important;
+  min-height: 560px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hero-banner .hero-content {
+  margin-left: 35px !important;
+  margin-top: 80px !important;
+}
