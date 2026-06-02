@@ -376,3 +376,26 @@ footer p {
 footer {
   margin-top: 0 !important;
 }
+
+html,
+body {
+  background-color: #F5F0E6 !important;
+  color: #5A1622 !important;
+}
+
+.main-nav,
+footer {
+  background-color: #5A1622 !important;
+  color: #F5F0E6 !important;
+}
+
+.page-container,
+.venue-page-wrapper {
+  background-color: #F5F0E6 !important;
+  color: #5A1622 !important;
+}
+
+form {
+  background-color: #F5F0E6 !important;
+  color: #5A1622 !important;
+}
