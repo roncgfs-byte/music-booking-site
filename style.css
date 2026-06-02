@@ -184,7 +184,7 @@ select {
 }
 /* HOMEPAGE GAP FIX */
 .hero-banner {
-  min-height: 78vh !important;
+  min-height: calc(100vh - 86px) !important;
   margin-bottom: 0 !important;
 }
 
