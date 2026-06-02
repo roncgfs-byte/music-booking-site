@@ -422,3 +422,96 @@ form {
   max-width: 600px;
   margin: 20px auto;
 }
+/* FINAL SITE-WIDE POLISH */
+
+/* Global page color */
+html,
+body {
+  background-color: #F5F0E6 !important;
+  color: #5A1622 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Homepage hero adjustment */
+.hero-banner {
+  background-color: #F5F0E6 !important;
+  background-image: url('booking-hero-final.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  min-height: 520px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Move homepage text slightly right and center it */
+.hero-banner .hero-content {
+  margin-left: 70px !important;
+  margin-top: 35px !important;
+  max-width: 390px !important;
+  text-align: center !important;
+  background: rgba(245, 240, 230, 0.14) !important;
+}
+
+/* Smaller homepage cards */
+.hero-card {
+  min-width: 95px !important;
+  max-width: 110px !important;
+  padding: 8px 10px !important;
+  border-radius: 10px !important;
+}
+
+/* All inner pages */
+.page-container,
+.venue-page-wrapper,
+main,
+section,
+form {
+  background-color: #F5F0E6 !important;
+  color: #5A1622 !important;
+}
+
+/* Center inner page content */
+.page-container,
+.venue-page-wrapper {
+  max-width: 850px !important;
+  margin: 40px auto !important;
+  padding: 0 20px !important;
+  text-align: center !important;
+}
+
+/* Forms */
+form {
+  max-width: 600px !important;
+  margin: 20px auto !important;
+  padding: 24px !important;
+  border-radius: 14px !important;
+}
+
+input,
+textarea,
+select {
+  background-color: #fffaf2 !important;
+  color: #5A1622 !important;
+  border: 1px solid #d8cfc2 !important;
+}
+
+/* Headings and text */
+h1,
+h2,
+h3,
+p,
+label {
+  color: #5A1622 !important;
+}
+
+/* Footer */
+footer {
+  margin-top: 0 !important;
+  background-color: #5A1622 !important;
+  color: #F5F0E6 !important;
+}
