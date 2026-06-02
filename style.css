@@ -314,3 +314,17 @@ a:active {
   margin-left: 35px !important;
   margin-top: 80px !important;
 }
+footer {
+  margin-top: 0 !important;
+  background-color: #5A1622 !important;
+  color: #F5F0E6 !important;
+}
+
+.hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.hero-content {
+  margin-bottom: 0 !important;
+}
