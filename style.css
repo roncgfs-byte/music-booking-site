@@ -182,3 +182,19 @@ textarea,
 select {
   background-color: #F5F0E6 !important;
 }
+/* HOMEPAGE GAP FIX */
+.hero-banner {
+  min-height: 78vh !important;
+  margin-bottom: 0 !important;
+}
+
+footer {
+  margin-top: -1px !important;
+}
+
+/* Keep form boxes white */
+input,
+textarea,
+select {
+  background-color: #FFFFFF !important;
+}
