@@ -161,3 +161,24 @@ footer p {
   color: #F5F0E6;
   margin: 4px 0;
 }
+/* FINAL TIGHTENING */
+
+/* Remove white space below homepage hero */
+.hero-banner {
+  min-height: 650px;
+}
+
+/* Make Artist page consistent */
+body,
+form,
+.page-container,
+.venue-page-wrapper {
+  background-color: #F5F0E6 !important;
+}
+
+/* Keep fill-in boxes cream, not stark white */
+input,
+textarea,
+select {
+  background-color: #F5F0E6 !important;
+}
