@@ -328,3 +328,33 @@ footer {
 .hero-content {
   margin-bottom: 0 !important;
 }
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #5A1622 !important;
+}
+
+.hero-banner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 560px !important;
+}
+
+.hero-banner::after {
+  content: "";
+  display: block;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  margin-top: -1px !important;
+  padding-top: 20px !important;
+  background-color: #5A1622 !important;
+  color: #F5F0E6 !important;
+}
+
+footer p {
+  margin: 4px 0 !important;
+}
