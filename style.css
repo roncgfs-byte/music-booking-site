@@ -399,3 +399,26 @@ form {
   background-color: #F5F0E6 !important;
   color: #5A1622 !important;
 }
+html,
+body {
+  background-color: #F5F0E6 !important;
+}
+
+.page-container,
+.venue-page-wrapper,
+form {
+  background-color: #F5F0E6 !important;
+  color: #5A1622 !important;
+}
+
+.page-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+form {
+  max-width: 600px;
+  margin: 20px auto;
+}
