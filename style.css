@@ -195,9 +195,9 @@ select {
 }
 /* FINAL HOMEPAGE WHITE GAP REMOVAL */
 .hero-banner {
-  height: 560px !important;
+  height: 580px !important;
   min-height: 0 !important;
-  max-height: 560px !important;
+  max-height: 580px !important;
   overflow: hidden !important;
   background-color: #F5F0E6 !important;
   background-image: url("booking-hero-final.png") !important;
