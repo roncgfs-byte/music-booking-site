@@ -203,7 +203,7 @@ select {
   background-image: url("booking-hero-final.png") !important;
   background-size: 100% 112% !important;
   background-repeat: no-repeat !important;
-  background-position: center top !important;
+  background-position: center -20px !important;
   margin: 0 !important;
   padding: 0 !important;
 }
