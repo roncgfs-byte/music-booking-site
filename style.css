@@ -31,7 +31,7 @@ body {
 
 /* HOMEPAGE HERO */
 .hero-banner {
-  background-color: #F5F0E6;
+  background-color: #F3E4C7;
   background-image: url("booking-hero-final.png");
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -49,7 +49,7 @@ body {
   margin-left: 70px;
   margin-top: 25px;
   padding: 18px;
-  background: rgba(245, 240, 230, 0.18);
+  background: rgba(243,228,199,0.28);
   border-radius: 14px;
   text-align: center;
   color: #5A1622;
@@ -210,4 +210,18 @@ select {
 
 footer {
   margin-top: 0 !important;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at left center,
+      rgba(90,22,34,0.10),
+      transparent 40%),
+    radial-gradient(circle at right center,
+      rgba(90,22,34,0.12),
+      transparent 45%);
+  pointer-events: none;
 }
