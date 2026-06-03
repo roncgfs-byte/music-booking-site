@@ -195,15 +195,15 @@ select {
 }
 /* FINAL HOMEPAGE WHITE GAP REMOVAL */
 .hero-banner {
-  height: 590px !important;
+  height: 600px !important;
   min-height: 0 !important;
-  max-height: 590px !important;
+  max-height: 600px !important;
   overflow: hidden !important;
   background-color: #F5F0E6 !important;
   background-image: url("booking-hero-final.png") !important;
   background-size: 100% 112% !important;
   background-repeat: no-repeat !important;
-  background-position: center -30px !important;
+  background-position: center top !important;
   margin: 0 !important;
   padding: 0 !important;
 }
