@@ -53,6 +53,7 @@ body {
   border-radius: 14px;
   text-align: center;
   color: #5A1622;
+  transform: translateX(80px);
 }
 
 .hero-content h1 {
