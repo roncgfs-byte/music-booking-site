@@ -242,3 +242,19 @@ footer {
   max-width: 760px;
   margin: 18px auto;
 }
+
+/* HOMEPAGE MATCH ABOUT STYLE */
+.hero-banner {
+  background-image: url("booking-hero-final.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-color: #F5F0E6 !important;
+}
+
+.hero-content {
+  background: rgba(245, 240, 230, 0.25) !important;
+  border-radius: 18px !important;
+  padding: 24px !important;
+  box-shadow: none !important;
+}
