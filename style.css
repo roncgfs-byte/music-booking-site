@@ -258,3 +258,6 @@ footer {
   padding: 24px !important;
   box-shadow: none !important;
 }
+.hero-content {
+  transform: translate(80px, -70px) !important;
+}
