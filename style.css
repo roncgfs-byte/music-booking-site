@@ -229,10 +229,10 @@ footer {
 /* ABOUT PAGE POLISH */
 .about-page {
   background-image: url("booking-hero-final.png");
-  background-size: contain;
+  background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  min-height: 420px;
+  min-height: 520px;
   padding: 60px 30px 0 30px;
   margin-bottom: 0;
   border-radius: 18px;
