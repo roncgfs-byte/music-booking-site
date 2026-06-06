@@ -320,3 +320,29 @@ body,
 form {
   background-color: #F5E3B8 !important;
 }
+
+/* FINAL WORKABLE HOMEPAGE COLOR POLISH */
+.hero-banner {
+  background-color: #F2D28A !important;
+  background-blend-mode: soft-light;
+}
+
+.hero-content {
+  background: rgba(245, 240, 230, 0.20) !important;
+  box-shadow: 0 0 28px rgba(90, 22, 34, 0.16) !important;
+}
+
+.hero-card {
+  background-color: #5A1622 !important;
+  color: #F5F0E6 !important;
+}
+
+/* WARM GOLD/CREAM LOOK ACROSS PAGES */
+html,
+body,
+.page-container,
+.about-page,
+.venue-page-wrapper,
+form {
+  background-color: #F5E3B8 !important;
+}
