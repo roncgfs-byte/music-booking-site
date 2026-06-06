@@ -293,3 +293,12 @@ footer {
   font-style: italic;
   color: #5A1622;
 }
+.hero-footer-text {
+  margin-top: 18px;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #5A1622;
+}
+.hero-content {
+  background: rgba(245,240,230,0.32) !important;
+  box-shadow: 0 0 30px rgba(90,22,34,0.18) !important;
