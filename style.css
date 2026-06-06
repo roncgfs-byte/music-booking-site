@@ -278,3 +278,18 @@ footer {
 .about-page h1 {
   margin-top: 0 !important;
 }
+
+.hero-banner {
+  filter: saturate(1.15) contrast(1.08);
+}
+
+.hero-content {
+  background: rgba(245, 240, 230, 0.18) !important;
+}
+
+.hero-footer-text {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #5A1622;
+}
