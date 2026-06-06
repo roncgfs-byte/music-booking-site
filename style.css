@@ -302,3 +302,21 @@ footer {
 .hero-content {
   background: rgba(245,240,230,0.32) !important;
   box-shadow: 0 0 30px rgba(90,22,34,0.18) !important;
+
+.hero-banner {
+  background-color: #F3D38A !important;
+  background-blend-mode: soft-light;
+}
+
+.hero-content {
+  background: rgba(245, 240, 230, 0.22) !important;
+}
+
+html,
+body,
+.page-container,
+.about-page,
+.venue-page-wrapper,
+form {
+  background-color: #F5E3B8 !important;
+}
