@@ -373,3 +373,8 @@ form {
 .hero-card strong {
   color: #F5F0E6 !important;
 }
+.hero-content {
+  background: rgba(245, 240, 230, 0.12) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
