@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #F5F0E6;
+  background-color: #F5E3B8;
   color: #5A1622;
   text-align: center;
 }
@@ -31,41 +31,46 @@ body {
 
 /* HOMEPAGE HERO */
 .hero-banner {
-  background-color: #F3E4C7;
-  background-image: url("booking-hero-final.png");
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position: center top;
-  min-height: 520px;
-  margin: 0;
-  padding: 0;
+  height: 560px !important;
+  min-height: 0 !important;
+  max-height: 560px !important;
+  overflow: hidden !important;
+  background-color: #F2D28A !important;
+  background-image: url("booking-hero-final.png") !important;
+  background-size: 100% 108% !important;
+  background-repeat: no-repeat !important;
+  background-position: center top !important;
+  margin: 0 !important;
+  padding: 0 !important;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
 .hero-content {
-  max-width: 430px;
-  margin-left: 70px;
-  margin-top: 25px;
-  padding: 18px;
-  background: transparent;
+  max-width: 420px;
+  margin-left: 35px;
+  margin-top: 10px;
+  padding: 14px;
+  background: rgba(245, 240, 230, 0.04) !important;
+  border: none !important;
+  box-shadow: none !important;
   border-radius: 0;
   text-align: center;
   color: #5A1622;
-  transform: translate(-20px, 60px);
+  transform: translate(-35px, 35px);
 }
 
 .hero-content h1 {
   margin: 0 0 8px;
   font-size: 2.3rem;
-  color: #5A1622;
+  color: #5A1622 !important;
 }
 
 .hero-content h2 {
   margin: 0 0 10px;
   font-size: 1.25rem;
-  color: #5A1622;
+  color: #5A1622 !important;
 }
 
 .hero-content p,
@@ -77,22 +82,53 @@ body {
 }
 
 .hero-cards {
-  display: flex;
-  justify-content: center;
+  display: grid !important;
+  grid-template-columns: repeat(2, 150px);
   gap: 12px;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero-card,
 .hero-button {
-  background-color: #5A1622;
+  width: 150px !important;
+  min-height: 48px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #5A1622 0%, #7A2232 55%, #3F0F18 100%) !important;
   color: #F5F0E6 !important;
   text-decoration: none;
-  padding: 8px 12px;
   border-radius: 10px;
-  min-width: 95px;
   font-weight: 700;
-  display: inline-block;
+  border: 1px solid rgba(245,240,230,0.25);
+}
+
+.hero-card strong {
+  color: #F5F0E6 !important;
+}
+
+/* ABOUT PAGE */
+.about-page {
+  background-image: url("booking-hero-final.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  min-height: 560px;
+  padding: 60px 30px 0 30px;
+  margin-bottom: 0;
+  border-radius: 18px;
+}
+
+.about-page p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 18px auto;
+}
+
+.about-page p:last-child {
+  margin-bottom: 0 !important;
 }
 
 /* INNER PAGES */
@@ -100,7 +136,7 @@ body {
 .venue-page-wrapper,
 main,
 section {
-  background-color: #F5F0E6;
+  background-color: #F5E3B8;
   color: #5A1622;
   max-width: 850px;
   margin: 40px auto;
@@ -110,7 +146,7 @@ section {
 
 /* FORMS */
 form {
-  background-color: #F5F0E6;
+  background-color: #F5E3B8;
   color: #5A1622;
   max-width: 600px;
   margin: 20px auto;
@@ -123,7 +159,7 @@ textarea,
 select {
   width: 100%;
   box-sizing: border-box;
-  background-color: #FFFAF2;
+  background-color: #FFFFFF !important;
   color: #5A1622;
   border: 1px solid #d8cfc2;
   border-radius: 6px;
@@ -161,218 +197,4 @@ footer {
 footer p {
   color: #F5F0E6;
   margin: 4px 0;
-}
-/* FINAL TIGHTENING */
-
-/* Remove white space below homepage hero */
-.hero-banner {
-  min-height: 650px;
-}
-
-/* Make Artist page consistent */
-body,
-form,
-.page-container,
-.venue-page-wrapper {
-  background-color: #F5F0E6 !important;
-}
-
-/* Keep fill-in boxes cream, not stark white */
-input,
-textarea,
-select {
-  background-color: #F5F0E6 !important;
-}
-
-footer {
-  margin-top: -1px !important;
-}
-
-/* Keep form boxes white */
-input,
-textarea,
-select {
-  background-color: #FFFFFF !important;
-}
-/* FINAL HOMEPAGE WHITE GAP REMOVAL */
-.hero-banner {
-  height: 600px !important;
-  min-height: 0 !important;
-  max-height: 600px !important;
-  overflow: hidden !important;
-  background-color: #F5F0E6 !important;
-  background-image: url("booking-hero-final.png") !important;
-  background-size: 100% 112% !important;
-  background-repeat: no-repeat !important;
-  background-position: center top !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-footer {
-  margin-top: 0 !important;
-}
-
-.hero-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at left center,
-      rgba(90,22,34,0.10),
-      transparent 40%),
-    radial-gradient(circle at right center,
-      rgba(90,22,34,0.12),
-      transparent 45%);
-  pointer-events: none;
-}
-/* ABOUT PAGE POLISH */
-.about-page {
-  background-image: url("booking-hero-final.png");
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  min-height: 560px;
-  padding: 60px 30px 0 30px;
-  margin-bottom: 0;
-  border-radius: 18px;
-}
-.about-page + footer {
-  margin-top: -4px;
-}
-.about-page p {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  max-width: 760px;
-  margin: 18px auto;
-}
-
-/* HOMEPAGE MATCH ABOUT STYLE */
-.hero-banner {
-  background-image: url("booking-hero-final.png") !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-color: #F5F0E6 !important;
-}
-
-.hero-content {
-  background: rgba(245, 240, 230, 0.25) !important;
-  border-radius: 18px !important;
-  padding: 24px !important;
-  box-shadow: none !important;
-}
-
-
-.about-page {
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.about-page p:last-child {
-  margin-bottom: 0 !important;
-}
-
-.about-page h1 {
-  margin-top: 0 !important;
-}
-
-.hero-banner {
-  filter: saturate(1.15) contrast(1.08);
-}
-
-.hero-content {
-  background: rgba(245, 240, 230, 0.18) !important;
-}
-
-.hero-footer-text {
-  margin-top: 20px;
-  font-size: 1.05rem;
-  font-style: italic;
-  color: #5A1622;
-}
-.hero-footer-text {
-  margin-top: 18px;
-  font-size: 1.05rem;
-  font-style: italic;
-  color: #5A1622;
-}
-.hero-content {
-  background: rgba(245,240,230,0.32) !important;
-  box-shadow: 0 0 30px rgba(90,22,34,0.18) !important;
-
-.hero-banner {
-  background-color: #F3D38A !important;
-  background-blend-mode: soft-light;
-}
-
-.hero-content {
-  background: rgba(245, 240, 230, 0.22) !important;
-}
-
-html,
-body,
-.page-container,
-.about-page,
-.venue-page-wrapper,
-form {
-  background-color: #F5E3B8 !important;
-}
-
-/* FINAL WORKABLE HOMEPAGE COLOR POLISH */
-.hero-banner {
-  background-color: #F2D28A !important;
-  background-blend-mode: soft-light;
-}
-
-.hero-content {
-  background: rgba(245, 240, 230, 0.20) !important;
-  box-shadow: 0 0 28px rgba(90, 22, 34, 0.16) !important;
-}
-
-.hero-card {
-  background-color: #5A1622 !important;
-  color: #F5F0E6 !important;
-}
-
-/* WARM GOLD/CREAM LOOK ACROSS PAGES */
-html,
-body,
-.page-container,
-.about-page,
-.venue-page-wrapper,
-form {
-  background-color: #F5E3B8 !important;
-}
-.hero-card {
-  background-color: #5A1622 !important;
-  color: #F5F0E6 !important;
-  border: 1px solid rgba(245,240,230,0.25);
-}
-
-.hero-content h1,
-.hero-content h2 {
-  color: #5A1622;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.35);
-}
-/* BURGUNDY ENHANCEMENT */
-
-.hero-content h1,
-.hero-content h2 {
-  color: #5A1622 !important;
-}
-
-.hero-card {
-  background: #5A1622 !important;
-  color: #F5F0E6 !important;
-  border: 1px solid rgba(245,240,230,0.25);
-}
-
-.hero-card strong {
-  color: #F5F0E6 !important;
-}
-.hero-content {
-  background: rgba(245, 240, 230, 0.12) !important;
-  border: none !important;
-  box-shadow: none !important;
 }
