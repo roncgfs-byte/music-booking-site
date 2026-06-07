@@ -45,15 +45,15 @@ body {
 }
 
 .hero-content {
-  max-width: 390px;
+  max-width: 430px;
   margin-left: 70px;
   margin-top: 25px;
   padding: 18px;
-  background: rgba(243,228,199,0.28);
-  border-radius: 14px;
+  background: transparent;
+  border-radius: 0;
   text-align: center;
   color: #5A1622;
-  transform: translate(-40px, 60px);
+  transform: translate(-20px, 60px);
 }
 
 .hero-content h1 {
