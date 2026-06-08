@@ -1,12 +1,25 @@
 /* GENERAL PAGE */
 html,
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #F2DDA7;
-  color: #5A1622;
-  text-align: center;
+  background-color: #F2DDA7 !important;
+  overflow-x: hidden !important;
+}
+
+.hero-banner,
+.about-page,
+.page-container,
+.venue-page-wrapper,
+form {
+  background-color: #F2DDA7 !important;
+}
+
+.main-nav,
+footer {
+  background-color: #5A1622 !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
 }
 
 /* NAVIGATION */
