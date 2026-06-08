@@ -31,6 +31,7 @@ body {
 
 /* HOMEPAGE HERO */
 .hero-banner {
+  position: relative;
   height: 560px !important;
   min-height: 0 !important;
   max-height: 560px !important;
@@ -143,7 +144,7 @@ body {
 .venue-page-wrapper,
 main,
 section {
-  background-color: #F5E3B8;
+  background-color: #FDDA7;
   color: #5A1622;
   max-width: 850px;
   margin: 40px auto;
@@ -153,7 +154,7 @@ section {
 
 /* FORMS */
 form {
-  background-color: #F5E3B8;
+  background-color: #F2DDA7;
   color: #5A1622;
   max-width: 600px;
   margin: 20px auto;
@@ -208,4 +209,17 @@ footer p {
 .hero-content h1,
 .hero-content h2 {
   text-shadow: 0 1px 2px rgba(255,255,255,0.45);
+}
+/* HOMEPAGE GOLDEN TRANSITION */
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(245,240,230,0.00) 0%,
+    rgba(239,215,154,0.08) 45%,
+    rgba(184,118,48,0.18) 100%
+  );
+  pointer-events: none;
 }
