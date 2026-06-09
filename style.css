@@ -45,9 +45,13 @@ footer {
 /* HOMEPAGE HERO */
 .hero-banner {
   position: relative;
+  width: 100% !important;
+  max-width: none !important;
+
   height: 570px !important;
   min-height: 570px !important;
   max-height: 570px !important;
+
   overflow: hidden !important;
   background-color: #EFD79A !important;
   background-image: url("booking-hero-final.png") !important;
@@ -155,8 +159,7 @@ footer {
 /* INNER PAGES */
 .page-container,
 .venue-page-wrapper,
-main,
-section {
+main, {
   background-color: #FDDA7;
   color: #5A1622;
   max-width: 850px;
