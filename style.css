@@ -212,7 +212,7 @@ footer {
   color: #F5F0E6;
   text-align: center;
   padding: 18px;
-  margin-top: 0;
+  margin-top: 1px !important;
 }
 
 footer p {
