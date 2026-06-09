@@ -309,7 +309,26 @@ section {
     background: white !important;
   }
 
+/* FINAL HOMEPAGE WIDTH + FOOTER FIX */
+section.hero-banner {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 570px !important;
+  min-height: 570px !important;
+  max-height: 570px !important;
+}
 
+footer {
+  padding: 6px 10px !important;
+  margin: 0 !important;
+}
+
+footer p {
+  margin: 1px 0 !important;
+  font-size: 13px !important;
+}
 
 
 
