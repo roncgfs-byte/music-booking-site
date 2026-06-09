@@ -283,3 +283,29 @@ footer {
   max-width: 100% !important;
   overflow: hidden !important;
 }
+html,
+body {
+  background-color: #5A1622 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+.hero-banner,
+.about-page,
+.page-container,
+.venue-page-wrapper,
+form,
+section {
+  background-color: #F2DDA7 !important;
+}
+
+.main-nav,
+footer {
+  background-color: #5A1622 !important;
+}
+
+footer {
+  margin-top: -2px !important;
+  margin-bottom: 0 !important;
+}
