@@ -211,14 +211,14 @@ footer {
   background-color: #5A1622 !important;
   color: #F5F0E6 !important;
   text-align: center;
-  padding: 8px 10px !important;
+  padding: 4px 10px !important;
   margin-top: -2px !important;
   margin-bottom: 0 !important;
 }
 footer p {
   color: #F5F0E6 !important;
-  margin: 2px 0 !important;
-  font-size: 14px;
+  margin: 1px 0 !important;
+  font-size: 13px;
 }
 .hero-content h1,
 .hero-content h2 {
