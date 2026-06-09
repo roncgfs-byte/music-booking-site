@@ -208,16 +208,17 @@ label {
 
 /* FOOTER */
 footer {
-  background-color: #5A1622;
-  color: #F5F0E6;
+  background-color: #5A1622 !important;
+  color: #F5F0E6 !important;
   text-align: center;
-  padding: 18px;
-  margin-top: -1px !important;
+  padding: 8px 10px !important;
+  margin-top: -2px !important;
+  margin-bottom: 0 !important;
 }
-
 footer p {
-  color: #F5F0E6;
-  margin: 4px 0;
+  color: #F5F0E6 !important;
+  margin: 2px 0 !important;
+  font-size: 14px;
 }
 .hero-content h1,
 .hero-content h2 {
@@ -285,7 +286,7 @@ footer {
 }
 html,
 body {
-  background-color: #5A1622 !important;
+  background-color: #FDDA7 !important;
   margin: 0 !important;
   padding: 0 !important;
   overflow-x: hidden !important;
