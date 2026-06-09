@@ -269,3 +269,17 @@ footer {
   margin-right: 0 !important;
   box-sizing: border-box !important;
 }
+html,
+body {
+  background-color: #F2DDA7 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+.main-nav,
+.hero-banner,
+footer {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
