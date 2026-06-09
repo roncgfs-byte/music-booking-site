@@ -344,3 +344,29 @@ footer {
     padding: 8px 10px !important;
   }
 }
+
+/* FINAL FOOTER FIX */
+html,
+body {
+  background-color: #F2DDA7 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+footer {
+  background-color: #5A1622 !important;
+  color: #F5F0E6 !important;
+  text-align: center !important;
+  padding: 6px 10px !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
+footer p {
+  margin: 1px 0 !important;
+  padding: 0 !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+}
