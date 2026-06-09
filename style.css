@@ -260,13 +260,14 @@ footer {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(245, 240, 230, 0.00) 0%,
-    rgba(245, 240, 230, 0.00) 35%,
-    rgba(232, 184, 92, 0.18) 58%,
-    rgba(202, 126, 38, 0.30) 100%
-  );
+ background: linear-gradient(
+  90deg,
+  rgba(245, 240, 230, 0.00) 0%,
+  rgba(245, 240, 230, 0.00) 30%,
+  rgba(232, 184, 92, 0.26) 55%,
+  rgba(218, 146, 48, 0.38) 78%,
+  rgba(190, 105, 30, 0.42) 100%
+);
   pointer-events: none;
   z-index: 1;
 }
