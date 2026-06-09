@@ -370,3 +370,9 @@ footer p {
   font-size: 13px !important;
   line-height: 1.2 !important;
 }
+/* PULL FOOTER UP TO REMOVE CREAM STRIP */
+footer {
+  margin-top: -70px !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
