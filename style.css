@@ -228,3 +228,22 @@ footer p {
   font-size: 13px !important;
   line-height: 1.2 !important;
 }
+/* FINAL PAGE EDGE FIX */
+html,
+body {
+  background-color: #5A1622 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+.hero-banner {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.main-nav,
+footer {
+  background-color: #5A1622 !important;
+}
