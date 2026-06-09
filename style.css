@@ -46,8 +46,8 @@ footer {
 .hero-banner {
   position: relative;
   height: 570px !important;
-  min-height: 0 !important;
-  max-height: 560px !important;
+  min-height: 570px !important;
+  max-height: 570px !important;
   overflow: hidden !important;
   background-color: #EFD79A !important;
   background-image: url("booking-hero-final.png") !important;
@@ -210,15 +210,20 @@ label {
 footer {
   background-color: #5A1622 !important;
   color: #F5F0E6 !important;
-  text-align: center;
-  padding: 4px 10px !important;
-  margin-top: -2px !important;
-  margin-bottom: 0 !important;
+  text-align: center !important;
+  padding: 6px 10px !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
 }
+
 footer p {
   color: #F5F0E6 !important;
   margin: 1px 0 !important;
-  font-size: 13px;
+  padding: 0 !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
 }
 .hero-content h1,
 .hero-content h2 {
@@ -243,11 +248,7 @@ body {
 }
 
 .hero-banner,
-footer,
-.main-nav {
-  width: 100%;
-  box-sizing: border-box;
-}
+
 html,
 body {
   background-color: #5A1622 !important;
@@ -263,13 +264,7 @@ form {
 }
 
 .main-nav,
-footer {
-  background-color: #5A1622 !important;
-  width: 100 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  box-sizing: border-box !important;
-}
+
 html,
 body {
   background-color: #F2DDA7 !important;
@@ -280,10 +275,7 @@ body {
 
 .main-nav,
 .hero-banner,
-footer {
-  max-width: 100% !important;
-  overflow: hidden !important;
-}
+
 html,
 body {
   background-color: #FDDA7 !important;
@@ -301,21 +293,6 @@ section {
   background-color: #F2DDA7 !important;
 }
 
-.main-nav,
-footer {
-  background-color: #5A1622 !important;
-}
-
-footer {
-  margin-top: -2px !important;
-  margin-bottom: 0 !important;
-}
-/* FIX FOOTER/YELLOW PRINT AREA */
-html,
-body {
-  background-color: #5A1622 !important;
-}
-
 .hero-banner,
 .about-page,
 .page-container,
@@ -325,12 +302,6 @@ section {
   background-color: #F2DDA7 !important;
 }
 
-footer {
-  padding: 8px 10px !important;
-  margin-top: -2px !important;
-  margin-bottom: 0 !important;
-}
-
 /* PRINT FIX */
 @media print {
   html,
@@ -338,46 +309,7 @@ footer {
     background: white !important;
   }
 
-  footer {
-    background-color: #5A1622 !important;
-    color: #F5F0E6 !important;
-    padding: 8px 10px !important;
-  }
-}
 
-/* FINAL FOOTER FIX */
-html,
-body {
-  background-color: #F2DDA7 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
 
-footer {
-  background-color: #5A1622 !important;
-  color: #F5F0E6 !important;
-  text-align: center !important;
-  padding: 6px 10px !important;
-  margin: 0 !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-}
 
-footer p {
-  margin: 1px 0 !important;
-  padding: 0 !important;
-  font-size: 13px !important;
-  line-height: 1.2 !important;
-}
 
-/* KEEP FOOTER THIN AND PAGE FITTED */
-.hero-banner {
-  height: 645px !important;
-  max-height: 645px !important;
-}
-
-footer {
-  margin-top: 0 !important;
-  padding: 6px 10px !important;
-}
