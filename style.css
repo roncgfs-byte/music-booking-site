@@ -310,3 +310,37 @@ footer {
   margin-top: -2px !important;
   margin-bottom: 0 !important;
 }
+/* FIX FOOTER/YELLOW PRINT AREA */
+html,
+body {
+  background-color: #5A1622 !important;
+}
+
+.hero-banner,
+.about-page,
+.page-container,
+.venue-page-wrapper,
+form,
+section {
+  background-color: #F2DDA7 !important;
+}
+
+footer {
+  padding: 8px 10px !important;
+  margin-top: -2px !important;
+  margin-bottom: 0 !important;
+}
+
+/* PRINT FIX */
+@media print {
+  html,
+  body {
+    background: white !important;
+  }
+
+  footer {
+    background-color: #5A1622 !important;
+    color: #F5F0E6 !important;
+    padding: 8px 10px !important;
+  }
+}
