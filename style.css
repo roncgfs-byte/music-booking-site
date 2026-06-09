@@ -235,6 +235,22 @@ body {
   margin: 0 !important;
 }
 
+/* HOME PAGE FULL HEIGHT FIX */
+body:has(.hero-banner) {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+body:has(.hero-banner) .hero-banner {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
+body:has(.hero-banner) footer {
+  margin: 0 !important;
+}
 .main-nav,
 footer {
   background-color: #5A1622 !important;
