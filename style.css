@@ -370,9 +370,14 @@ footer p {
   font-size: 13px !important;
   line-height: 1.2 !important;
 }
-/* PULL FOOTER UP TO REMOVE CREAM STRIP */
+
+/* KEEP FOOTER THIN AND PAGE FITTED */
+.hero-banner {
+  height: 640px !important;
+  max-height: 640px !important;
+}
+
 footer {
-  margin-top: -70px !important;
-  position: relative !important;
-  z-index: 10 !important;
+  margin-top: 0 !important;
+  padding: 6px 10px !important;
 }
