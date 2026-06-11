@@ -287,3 +287,7 @@ background: linear-gradient(
   margin: 0 0 6px;
   color: #5A1622;
 }
+/* HOMEPAGE VISUAL BRIGHTNESS */
+.hero-banner {
+  filter: brightness(1.08) contrast(1.06) saturate(1.08);
+}
