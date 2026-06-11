@@ -289,5 +289,5 @@ background: linear-gradient(
 }
 /* HOMEPAGE VISUAL BRIGHTNESS */
 .hero-banner {
-  filter: brightness(1.08) contrast(1.06) saturate(1.08);
+  filter: brightness(1.14) contrast(1.08) saturate(1.08);
 }
