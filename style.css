@@ -280,3 +280,10 @@ background: linear-gradient(
 .hero-card {
   box-shadow: 0 6px 14px rgba(90, 22, 34, 0.32) !important;
 }
+.company-line {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: #5A1622;
+}
