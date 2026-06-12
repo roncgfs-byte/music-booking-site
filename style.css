@@ -328,3 +328,20 @@ body.about-body footer p {
   margin: 1px 0 !important;
   font-size: 13px !important;
 }
+
+body.about-body {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh !important;
+  background-color: #F2DDA7 !important;
+}
+
+body.about-body .about-page {
+  flex: 1 0 auto !important;
+}
+
+body.about-body footer {
+  flex-shrink: 0 !important;
+  background-color: #5A1622 !important;
+  padding: 6px 10px !important;
+}
