@@ -141,11 +141,12 @@ footer {
 }
 .about-page h1,
 .about-page p {
-  max-width: 430px;
+  max-width: 360px;
   margin-left: 35px;
   margin-right: auto;
   position: relative;
-  top: 260px;
+  top: 245px;
+  line-height: 1.35;
 }
 .about-page p {
   font-size: 1.2rem;
