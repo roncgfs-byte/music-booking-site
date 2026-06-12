@@ -142,7 +142,7 @@ max-height: 460px;
 .about-page h1,
 .about-page p {
   max-width: 330px;
-  margin-left: 15px;
+  margin-left: 5px;
   margin-right: auto;
   position: relative;
   top: 225px;
