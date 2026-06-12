@@ -337,7 +337,7 @@ body.about-body {
 }
 
 body.about-body .about-page {
-  flex: 1 0 auto !important;
+  flex: 0 0 auto !important;
 }
 
 body.about-body footer {
