@@ -263,106 +263,25 @@ body.about-body {
   background-color: #F2DDA7 !important;
   margin: 0 !important;
   padding: 0 !important;
-  min-height: auto !important;
   display: block !important;
-}
-
-body.about-body footer {
-  background-color: #5A1622 !important;
-  color: #F5F0E6 !important;
-  padding: 6px 10px !important;
-  margin: 0 !important;
-  height: auto !important;
   min-height: 0 !important;
 }
 
-body.about-body footer p {
-  color: #F5F0E6 !important;
-  margin: 1px 0 !important;
-  font-size: 13px !important;
-}
-/* VISUAL ENHANCEMENT ONLY */
-.hero-banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-background: linear-gradient(
-  90deg,
-  rgba(245, 240, 230, 0.00) 0%,
-  rgba(245, 240, 230, 0.00) 18%,
-  rgba(232, 184, 92, 0.42) 40%,
-  rgba(218, 146, 48, 0.52) 75%,
-  rgba(190, 105, 30, 0.58) 100%
-);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-card {
-  box-shadow: 0 6px 14px rgba(90, 22, 34, 0.32) !important;
-}
-.company-line {
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  font-weight: 700;
-  margin: 0 0 6px;
-  color: #5A1622;
-}
-/* HOMEPAGE VISUAL BRIGHTNESS */
-.hero-banner {
-  filter: brightness(1.14) contrast(1.08) saturate(1.08);
-}
-
-/* SUBDUED INNER PAGE COLOR TONE */
-.page-container,
-.venue-page-wrapper,
-form,
-main {
-  background-color: #F2DDA7 !important;
-  color: #5A1622 !important;
-}
-
-body:not(:has(.hero-banner)) {
-  background-color: #F2DDA7 !important;
-}
-body.about-body {
-  background-color: #F2DDA7 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
 body.about-body footer {
   background-color: #5A1622 !important;
-  padding: 6px 10px !important;
-  margin: 0 !important;
-}
-
-body.about-body footer p {
   color: #F5F0E6 !important;
-  margin: 1px 0 !important;
-  font-size: 13px !important;
-}
-
-body.about-body {
-  display: flex !important;
-  flex-direction: column !important;
-  min-height: auto !important;
-  background-color: #F2DDA7 !important;
-}
-
-body.about-body .about-page {
-  flex: 0 0 auto !important;
-}
-
-body.about-body footer {
-  flex-shrink: 0 !important;
-  background-color: #5A1622 !important;
   padding: 4px 10px !important;
   margin: 0 !important;
-  height: auto !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+  overflow: hidden !important;
+}
+
+body.about-body footer p {
+  color: #F5F0E6 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 14px !important;
 }
