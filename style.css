@@ -258,9 +258,28 @@ body:has(.hero-banner) .hero-banner {
 body:has(.hero-banner) footer {
   margin: 0 !important;
 }
-.main-nav,
-footer {
+/* ABOUT PAGE FINAL FIX */
+body.about-body {
+  background-color: #F2DDA7 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: auto !important;
+  display: block !important;
+}
+
+body.about-body footer {
   background-color: #5A1622 !important;
+  color: #F5F0E6 !important;
+  padding: 6px 10px !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+body.about-body footer p {
+  color: #F5F0E6 !important;
+  margin: 1px 0 !important;
+  font-size: 13px !important;
 }
 /* VISUAL ENHANCEMENT ONLY */
 .hero-banner::after {
