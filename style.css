@@ -311,3 +311,20 @@ main {
 body:not(:has(.hero-banner)) {
   background-color: #F2DDA7 !important;
 }
+body.about-body {
+  background-color: #F2DDA7 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.about-body footer {
+  background-color: #5A1622 !important;
+  padding: 6px 10px !important;
+  margin: 0 !important;
+}
+
+body.about-body footer p {
+  color: #F5F0E6 !important;
+  margin: 1px 0 !important;
+  font-size: 13px !important;
+}
