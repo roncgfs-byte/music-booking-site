@@ -343,5 +343,7 @@ body.about-body .about-page {
 body.about-body footer {
   flex-shrink: 0 !important;
   background-color: #5A1622 !important;
-  padding: 6px 10px !important;
+  padding: 4px 10px !important;
+  margin: 0 !important;
+  height: auto !important;
 }
