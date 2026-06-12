@@ -258,7 +258,7 @@ body:has(.hero-banner) .hero-banner {
 body:has(.hero-banner) footer {
   margin: 0 !important;
 }
-/* ABOUT PAGE FINAL FIX */
+
 body.about-body {
   background-color: #F2DDA7 !important;
   margin: 0 !important;
