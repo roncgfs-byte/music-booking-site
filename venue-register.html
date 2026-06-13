@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  
+
 <!-- NAVIGATION -->
 <nav class="main-nav" style="background-color:#5A1622; padding:10px; text-align:center; white-space:nowrap;">
   <div style="color:#F5F0E6; font-weight:bold; display:inline-block; margin-right:10px;">
@@ -21,48 +21,27 @@
   <a href="contact.html" style="color:#F5F0E6; text-decoration:none; margin:0 7px;">Contact Us</a>
 </nav>
 
-  <div class="page-container">
+<div class="page-container">
   <h1>Register Your Venue to Book Live Music</h1>
   <p>Connect with artists and bring live music to your venue.</p>
 
   <form name="venue-application" method="POST" data-netlify="true">
     <input type="hidden" name="form-name" value="venue-application">
 
-    <p>
-      <label>Email:<br>
-      <input type="email" name="email" required></label>
-    </p>
+    <p><label>Email:<br><input type="email" name="email" required></label></p>
+    <p><label>City:<br><input type="text" name="city"></label></p>
+    <p><label>Preferred Music Style:<br><input type="text" name="music_style"></label></p>
+    <p><label>Preferred Booking Days:<br><input type="text" name="booking_days"></label></p>
+    <p><label>Tell us about your venue:<br><textarea name="message"></textarea></label></p>
 
-    <p>
-      <label>City:<br>
-      <input type="text" name="city"></label>
-    </p>
-
-    <p>
-      <label>Preferred Music Style:<br>
-      <input type="text" name="music_style"></label>
-    </p>
-
-    <p>
-      <label>Preferred Booking Days:<br>
-      <input type="text" name="booking_days"></label>
-    </p>
-
-    <p>
-      <label>Tell us about your venue:<br>
-      <textarea name="message"></textarea></label>
-    </p>
-
-    <p>
-      <button type="submit">Submit</button>
-    </p>
-
+    <p><button type="submit">Submit</button></p>
   </form>
-
 </div>
+
 <footer>
   <p>© 2026 Book Your Band</p>
   <p>Connecting Artists and Venues for Live Music</p>
 </footer>
+
 </body>
 </html>
