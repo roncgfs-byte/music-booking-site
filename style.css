@@ -259,3 +259,15 @@ body.about-body {
 body.about-body footer {
   background-color: #5A1622 !important;
 }
+
+/* INNER PAGE FOOTER FIT */
+body:not(:has(.hero-banner)) {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+body:not(:has(.hero-banner)) .page-container,
+body:not(:has(.hero-banner)) .about-page {
+  align-self: start;
+}
