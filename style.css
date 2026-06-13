@@ -272,3 +272,17 @@ footer p {
   font-size: 13px !important;
   line-height: 1.2 !important;
 }
+/* REMOVE SPACE BELOW FOOTERS */
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto !important;
+}
