@@ -237,21 +237,7 @@ body {
   overflow-x: hidden !important;
 }
 
-/* Homepage only */
-body:has(.hero-banner) {
-  background-color: #5A1622 !important;
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
 
-  
-}
-
-body:has(.hero-banner) .hero-banner {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-}
 
 /* About page only */
 body.about-body {
@@ -262,4 +248,27 @@ body.about-body footer {
   background-color: #5A1622 !important;
 }
 
+/* FINAL PAGE EDGE CLEANUP */
+html,
+body {
+  background-color: #F2DDA7 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
 
+.main-nav,
+footer {
+  background-color: #5A1622 !important;
+}
+
+footer {
+  padding: 6px 10px !important;
+  margin: 0 !important;
+}
+
+footer p {
+  margin: 1px 0 !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+}
