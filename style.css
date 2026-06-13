@@ -286,13 +286,4 @@ body {
 footer {
   margin-top: auto !important;
 }
-/* FINAL FOOTER POSITION FIX */
-body {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
 
-footer {
-  align-self: end;
-}
