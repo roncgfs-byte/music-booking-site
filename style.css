@@ -344,29 +344,14 @@ footer p {
   line-height: 1.2 !important;
 }
 
-/* ARTIST PAGE INSTRUMENT VISUAL */
-body.artist-page {
-  background-image: url("booking-hero-final.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
 
-body.artist-page .page-container,
-body.artist-page form {
-  background-color: rgba(242, 221, 167, 0.88) !important;
-}
-/* ARTIST PAGE INSTRUMENT VISUAL */
+/* ARTIST PAGE CLEAN STYLE */
 body.artist-page {
   background-color: #F2DDA7 !important;
-  background-image: url("booking-hero-final.png") !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-image: none !important;
 }
 
 body.artist-page form,
 body.artist-page div[style*="max-width"] {
-  background: rgba(242,221,167,0.78) !important;
+  background: #F2DDA7 !important;
 }
