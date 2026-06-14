@@ -355,3 +355,26 @@ body.artist-page form,
 body.artist-page div[style*="max-width"] {
   background: #F2DDA7 !important;
 }
+/* ARTIST PAGE COMPACT FORM */
+body.artist-page h2 {
+  margin-top: 12px !important;
+  margin-bottom: 6px !important;
+}
+
+body.artist-page p {
+  margin: 8px 0 !important;
+}
+
+body.artist-page label {
+  line-height: 1.25 !important;
+}
+
+body.artist-page input,
+body.artist-page textarea,
+body.artist-page select {
+  padding: 6px !important;
+}
+
+body.artist-page form {
+  padding: 12px !important;
+}
