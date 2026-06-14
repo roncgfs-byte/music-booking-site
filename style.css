@@ -303,12 +303,7 @@ body {
 }
 
 /* Main content fills the page so nothing shows below footer */
-.hero-banner,
-.about-page,
-.page-container,
-.venue-page-wrapper {
-  flex: 1 0 auto !important;
-}
+
 
 /* Footer stays normal size */
 footer {
