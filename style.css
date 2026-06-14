@@ -321,3 +321,44 @@ footer p {
   font-size: 13px !important;
   line-height: 1.2 !important;
 }
+/* FINAL SITE HEIGHT / FOOTER CONTROL */
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100% !important;
+  background: #F2DDA7 !important;
+}
+
+body {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.main-nav {
+  flex: 0 0 auto !important;
+}
+
+.hero-banner,
+.about-page,
+.page-container,
+.venue-page-wrapper {
+  flex: 1 0 auto !important;
+}
+
+footer {
+  flex: 0 0 auto !important;
+  background: #5A1622 !important;
+  color: #F5F0E6 !important;
+  padding: 6px 10px !important;
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+footer p {
+  color: #F5F0E6 !important;
+  margin: 1px 0 !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+}
