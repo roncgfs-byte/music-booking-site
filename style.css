@@ -371,3 +371,6 @@ body.artist-page form,
 body.artist-page div[style*="max-width"] {
   background-color: rgba(242, 221, 167, 0.78) !important;
 }
+body.artist-page {
+  background: red !important;
+}
