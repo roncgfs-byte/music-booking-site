@@ -357,3 +357,17 @@ body.artist-page .page-container,
 body.artist-page form {
   background-color: rgba(242, 221, 167, 0.88) !important;
 }
+/* ARTIST PAGE INSTRUMENT VISUAL */
+body.artist-page {
+  background-color: #F2DDA7 !important;
+  background-image: url("booking-hero-final.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+body.artist-page form,
+body.artist-page div[style*="max-width"] {
+  background-color: rgba(242, 221, 167, 0.78) !important;
+}
