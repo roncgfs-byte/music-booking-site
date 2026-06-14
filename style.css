@@ -363,15 +363,18 @@ footer p {
   line-height: 1.2 !important;
 }
 
-/* ABOUT US STRIP FIX */
-html body.about-body {
-  background-color: #5A1622 !important;
+/* ABOUT US PAGE FIT */
+body.about-body {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: #F2DDA7 !important;
 }
 
 body.about-body .about-page {
-  margin-bottom: 0 !important;
+  flex: 1 0 auto !important;
 }
 
 body.about-body footer {
-  margin-bottom: 0 !important;
+  flex: 0 0 auto !important;
 }
