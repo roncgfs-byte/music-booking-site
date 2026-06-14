@@ -362,3 +362,16 @@ footer p {
   font-size: 13px !important;
   line-height: 1.2 !important;
 }
+
+/* ABOUT US STRIP FIX */
+html body.about-body {
+  background-color: #5A1622 !important;
+}
+
+body.about-body .about-page {
+  margin-bottom: 0 !important;
+}
+
+body.about-body footer {
+  margin-bottom: 0 !important;
+}
