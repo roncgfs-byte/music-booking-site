@@ -377,3 +377,10 @@ body.artist-page div[style*="max-width"] {
 .days-row label {
   white-space: nowrap;
 }
+.youtube-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 600px;
+  margin: 0 auto 14px auto;
+}
