@@ -355,3 +355,25 @@ body.artist-page form,
 body.artist-page div[style*="max-width"] {
   background: #F2DDA7 !important;
 }
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 14px;
+  max-width: 520px;
+  margin: 0 auto 14px auto;
+  text-align: left;
+}
+
+.days-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.checkbox-grid label,
+.days-row label {
+  white-space: nowrap;
+}
