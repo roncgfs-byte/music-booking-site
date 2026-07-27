@@ -43,5 +43,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
   });
+const forgotPasswordLink = document.getElementById("forgot-password");
 
+if (forgotPasswordLink) {
+  forgotPasswordLink.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message");
+
+    if (!email) {
+      message.textContent = "Please enter your email address first.";
+      return;
+    }
+
+    message.textContent = "Sending password reset email...";
+
+    const { error } = await supabaseClient.auth.resetPasswordForEmail(email);
+
+    if (error) {
+      message.textContent = error.message;
+    } else {
+      message.textContent = "Password reset email sent. Please check your inbox.";
+    }
+  });
+}
 });
