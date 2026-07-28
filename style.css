@@ -93,14 +93,14 @@ footer {
 
 .hero-cards {
   display: grid !important;
-  grid-template-columns: repeat(2, 150px);
+  grid-template-columns: repeat(2, 180px);
   gap: 12px;
   justify-content: center;
 }
 
 .hero-card,
 .hero-button {
-  width: 150px !important;
+  width: 180px !important;
   min-height: 48px;
   display: flex !important;
   align-items: center;
