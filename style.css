@@ -422,3 +422,14 @@ body.artist-page div[style*="max-width"] {
 .hero-button:hover {
   opacity: 0.9;
 }
+/* Checkbox spacing */
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 8px;
+}
