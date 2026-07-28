@@ -403,3 +403,22 @@ body.artist-page div[style*="max-width"] {
   }
 
 }
+/* BUTTONS */
+
+.hero-button {
+  display: inline-block;
+  background-color: #5A1622;
+  color: #F5F0E6;
+  padding: 12px 24px;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+.hero-button:hover {
+  opacity: 0.9;
+}
