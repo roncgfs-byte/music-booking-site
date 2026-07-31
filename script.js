@@ -26,7 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
   city: form.city?.value || "",
   country: "",
   equipment: "",
-  youtube_link: form.link?.value || "",
+  youtube_link_1: form.video_1?.value || "",
+youtube_link_2: form.video_2?.value || "",
+youtube_link_3: form.video_3?.value || "",
+youtube_link_4: form.video_4?.value || "",
   availability: ""
 };
     const { error } = await db
