@@ -31,10 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
       .insert([artist]);
 
     if (error) {
-      console.error(error);
-      alert("Unable to save the artist registration.");
-      return;
-    }
+  console.error("SUPABASE ERROR:", error);
+  alert(
+    "Supabase says:\n\n" +
+    JSON.stringify(error, null, 2)
+  );
+  return;
+}
 
     form.submit();
   });
