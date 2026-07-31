@@ -25,7 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
   phone: form.phone?.value || "",
   city: form.city?.value || "",
   country: "",
-  equipment: "",
+  equipment: Array.from(
+  form.querySelectorAll('input[name="equipment"]:checked')
+)
+.map(item => item.value)
+.join(", "),
   youtube_link_1: form.video_1?.value || "",
 youtube_link_2: form.video_2?.value || "",
 youtube_link_3: form.video_3?.value || "",
