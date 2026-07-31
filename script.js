@@ -34,7 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
 youtube_link_2: form.video_2?.value || "",
 youtube_link_3: form.video_3?.value || "",
 youtube_link_4: form.video_4?.value || "",
-  availability: ""
+  availability: Array.from(
+  form.querySelectorAll('input[name="availability"]:checked')
+)
+.map(item => item.value)
+.join(", "),
 };
     const { error } = await db
       .from("artists")
