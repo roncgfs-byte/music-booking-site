@@ -19,13 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     const artist = {
-      name: form.artist_name?.value || "",
-      email: form.email?.value || "",
-      phone: form.phone?.value || "",
-      city: form.city?.value || "",
-      you_tube: form.link?.value || ""
-    };
-
+  first_name: form.artist_name?.value || "",
+  last_name: "",
+  email: form.email?.value || "",
+  phone: form.phone?.value || "",
+  city: form.city?.value || "",
+  country: "",
+  equipment: "",
+  youtube_link: form.link?.value || "",
+  availability: ""
+};
     const { error } = await db
       .from("artists")
       .insert([artist]);
