@@ -10,10 +10,7 @@ const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.forms["artist-application"];
 
-  if (!form) {
-    console.error("Artist form not found.");
-    return;
-  }
+  if (form) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
