@@ -167,3 +167,36 @@ document.getElementById("artist_name")?.addEventListener("change", async functio
   });
 
 });
+const bookingForm = document.forms["booking-request"];
+
+if (bookingForm) {
+  bookingForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const booking = {
+      venue_id: null,
+      title: bookingForm.title?.value || "",
+      description: bookingForm.details?.value || "",
+      event_date: bookingForm.booking_date?.value || "",
+      start_time: bookingForm.start_time?.value || "",
+      end_time: bookingForm.end_time?.value || "",
+      music_style: bookingForm.music_style?.value || "",
+      budget: bookingForm.budget?.value || 0,
+      status: "Pending"
+    };
+
+    const { error } = await db
+      .from("bookings")
+      .insert([booking]);
+
+    if (error) {
+      alert(
+        "Supabase says:\n\n" +
+        JSON.stringify(error, null, 2)
+      );
+      return;
+    }
+
+    bookingForm.submit();
+  });
+}
