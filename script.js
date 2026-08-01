@@ -39,6 +39,11 @@ youtube_link_4: form.video_4?.value || "",
 )
 .map(item => item.value)
 .join(", "),
+ music_styles: Array.from(
+  form.querySelectorAll('input[name="music_styles"]:checked')
+)
+.map(item => item.value)
+.join(", "),     
 };
     const { error } = await db
       .from("artists")
