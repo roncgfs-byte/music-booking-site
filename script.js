@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     const artist = {
-  first_name: form.artist_name?.value || "",
+  artist_name: form.artist_name?.value || "",
   last_name: "",
   email: form.email?.value || "",
   phone: form.phone?.value || "",
