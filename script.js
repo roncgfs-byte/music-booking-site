@@ -61,3 +61,35 @@ youtube_link_4: form.video_4?.value || "",
     form.submit();
   });
 });
+const venueForm = document.forms["venue-application"];
+
+if (venueForm) {
+  venueForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const venue = {
+      venue_name: venueForm.venue_name?.value || "",
+      contact_name: venueForm.contact_name?.value || "",
+      email: venueForm.email?.value || "",
+      phone: venueForm.phone?.value || "",
+      city: venueForm.city?.value || "",
+      country: venueForm.country?.value || "",
+      music_style: venueForm.music_style?.value || "",
+      booking_days: venueForm.booking_days?.value || ""
+    };
+
+    const { error } = await db
+      .from("venues")
+      .insert([venue]);
+
+    if (error) {
+      alert(
+        "Supabase says:\n\n" +
+        JSON.stringify(error, null, 2)
+      );
+      return;
+    }
+
+    venueForm.submit();
+  });
+}
