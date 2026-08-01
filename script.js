@@ -55,9 +55,10 @@ youtube_link_4: form.video_4?.value || "",
   return;
 }
 
-    form.submit();
+  form.submit();
   });
-});
+}
+}); 
 const venueForm = document.forms["venue-application"];
 
 if (venueForm) {
