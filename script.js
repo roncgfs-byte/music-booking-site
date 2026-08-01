@@ -118,3 +118,52 @@ document.addEventListener("DOMContentLoaded", async () => {
     artistSelect.appendChild(option);
   });
 });
+document.getElementById("artist_name")?.addEventListener("change", async function () {
+
+  const artistName = this.value;
+
+  if (!artistName) {
+    document.getElementById("artistProfile").style.display = "none";
+    return;
+  }
+
+  const { data, error } = await db
+    .from("artists")
+    .select("*")
+    .eq("artist_name", artistName)
+    .single();
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  document.getElementById("artistProfile").style.display = "block";
+
+  document.getElementById("profileArtist").textContent = data.artist_name || "";
+  document.getElementById("profileCity").textContent = data.city || "";
+  document.getElementById("profileMusic").textContent = data.music_styles || "";
+  document.getElementById("profileEquipment").textContent = data.equipment || "";
+  document.getElementById("profileAvailability").textContent = data.availability || "";
+
+  const youtube = [
+    data.youtube_link_1,
+    data.youtube_link_2,
+    data.youtube_link_3,
+    data.youtube_link_4
+  ];
+
+  ["yt1", "yt2", "yt3", "yt4"].forEach((id, index) => {
+    const link = document.getElementById(id);
+    const url = youtube[index];
+
+    if (url) {
+      link.href = url;
+      link.textContent = url;
+    } else {
+      link.removeAttribute("href");
+      link.textContent = "";
+    }
+  });
+
+});
