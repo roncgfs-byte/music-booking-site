@@ -93,3 +93,30 @@ if (venueForm) {
     venueForm.submit();
   });
 }
+document.addEventListener("DOMContentLoaded", async () => {
+  const artistSelect = document.getElementById("artist_name");
+
+  if (!artistSelect) return;
+
+  const { data, error } = await db
+    .from("artists")
+    .select("artist_name")
+    .order("artist_name");
+
+  if (error) {
+    console.error(error);
+    artistSelect.innerHTML =
+      '<option value="">Unable to load artists</option>';
+    return;
+  }
+
+  artistSelect.innerHTML =
+    '<option value="">Select an Artist</option>';
+
+  data.forEach((artist) => {
+    const option = document.createElement("option");
+    option.value = artist.artist_name;
+    option.textContent = artist.artist_name;
+    artistSelect.appendChild(option);
+  });
+});
