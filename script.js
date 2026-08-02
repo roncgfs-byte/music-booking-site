@@ -175,6 +175,7 @@ if (bookingForm) {
 
     const booking = {
       venue_id: null,
+      artist_name: bookingForm.artist_name?.value || "",
       title: bookingForm.title?.value || "",
       description: bookingForm.details?.value || "",
       event_date: bookingForm.booking_date?.value || "",
