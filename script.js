@@ -227,10 +227,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       <td>${booking.title || ""}</td>
       <td>${booking.event_date || ""}</td>
       <td>${booking.status || ""}</td>
-      <td>
-        <button>Accept</button>
-        <button>Decline</button>
-      </td>
+<td>
+  <button onclick="updateBookingStatus('${booking.id}','Accepted')">Accept</button>
+  <button onclick="updateBookingStatus('${booking.id}','Declined')">Decline</button>
+</td>
     `;
 
     bookingTable.appendChild(row);
