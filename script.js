@@ -291,3 +291,37 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
 });
+document.addEventListener("DOMContentLoaded", async () => {
+
+  const artistTable = document.querySelector("#artistBookings tbody");
+
+  if (!artistTable) return;
+
+  const { data, error } = await db
+    .from("bookings")
+    .select("*")
+    .eq("artist_name", "Blue Horizon")
+    .order("event_date", { ascending: true });
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  artistTable.innerHTML = "";
+
+  data.forEach((booking) => {
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${booking.title || ""}</td>
+      <td>${booking.event_date || ""}</td>
+      <td>${booking.status || ""}</td>
+    `;
+
+    artistTable.appendChild(row);
+
+  });
+
+});
