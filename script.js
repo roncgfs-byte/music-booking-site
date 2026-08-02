@@ -230,7 +230,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       <td>${booking.status || ""}</td>
 <td>
   <button onclick="updateBookingStatus('${booking.id}','Accepted')">Accept</button>
+
   <button onclick="updateBookingStatus('${booking.id}','Declined')">Decline</button>
+
+  <button onclick="updateBookingStatus('${booking.id}','Completed')">Complete</button>
 </td>
     `;
 
