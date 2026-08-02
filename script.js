@@ -200,3 +200,41 @@ if (bookingForm) {
     bookingForm.submit();
   });
 }
+document.addEventListener("DOMContentLoaded", async () => {
+
+  const bookingTable = document.querySelector("#bookingTable tbody");
+
+  if (!bookingTable) return;
+
+  const { data, error } = await db
+    .from("bookings")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  bookingTable.innerHTML = "";
+
+  data.forEach((booking) => {
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${booking.artist_name || ""}</td>
+      <td>${booking.title || ""}</td>
+      <td>${booking.event_date || ""}</td>
+      <td>${booking.status || ""}</td>
+      <td>
+        <button>Accept</button>
+        <button>Decline</button>
+      </td>
+    `;
+
+    bookingTable.appendChild(row);
+
+  });
+
+});
