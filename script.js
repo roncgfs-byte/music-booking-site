@@ -238,3 +238,21 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
 });
+async function updateBookingStatus(id, status) {
+
+  const { error } = await db
+    .from("bookings")
+    .update({ status: status })
+    .eq("id", id);
+
+  if (error) {
+    alert(
+      "Supabase says:\n\n" +
+      JSON.stringify(error, null, 2)
+    );
+    return;
+  }
+
+  location.reload();
+
+}
