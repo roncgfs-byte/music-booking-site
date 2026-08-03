@@ -197,7 +197,14 @@ if (bookingForm) {
       );
       return;
     }
+const bookingMessage = document.getElementById("bookingMessage");
 
+if (bookingMessage) {
+  bookingMessage.style.color = "green";
+  bookingMessage.style.fontWeight = "bold";
+  bookingMessage.textContent =
+    "✓ Booking request submitted successfully. The artist will be notified.";
+}
     bookingForm.submit();
   });
 }
