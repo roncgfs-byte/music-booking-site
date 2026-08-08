@@ -35,11 +35,11 @@ async function sendTest() {
   const data = await response.json();
 
   if (response.ok) {
-    result.textContent = "SUCCESS - Booking notification sent.";
-  } else {
-    result.textContent =
-      "FAILED - " + (data.error || JSON.stringify(data));
-  }
+  result.textContent = "SUCCESS - Booking notification sent.";
+} else {
+  result.textContent =
+    "FAILED - " + JSON.stringify(data);
+}
 }
 </script>
 
