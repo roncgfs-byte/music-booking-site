@@ -1,0 +1,15 @@
+  result.textContent = "SUCCESS - Booking notification sent.";
+        } else {
+          result.textContent =
+            "FAILED - " + (data.error || "Notification could not be sent.");
+        }
+
+      } catch (error) {
+        result.textContent = "FAILED - " + error.message;
+      }
+
+    });
+  </script>
+
+</body>
+</html>
