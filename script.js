@@ -173,9 +173,11 @@ if (bookingForm) {
   bookingForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    const artistName = bookingForm.artist_name?.value || "";
+
     const booking = {
       venue_id: null,
-      artist_name: bookingForm.artist_name?.value || "",
+      artist_name: artistName,
       title: bookingForm.title?.value || "",
       description: bookingForm.details?.value || "",
       event_date: bookingForm.booking_date?.value || "",
@@ -197,14 +199,64 @@ if (bookingForm) {
       );
       return;
     }
-const bookingMessage = document.getElementById("bookingMessage");
 
-if (bookingMessage) {
-  bookingMessage.style.color = "green";
-  bookingMessage.style.fontWeight = "bold";
-  bookingMessage.textContent =
-    "✓ Booking request submitted successfully. The artist will be notified.";
-}
+    const { data: artist, error: artistError } = await db
+      .from("artists")
+      .select("email")
+      .eq("artist_name", artistName)
+      .single();
+
+    if (artistError) {
+      console.error("Unable to find artist email:", artistError);
+    } else {
+      try {
+        const response = await fetch(
+          "/.netlify/functions/send-booking-notification",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              artistName: artistName,
+              artistEmail: artist.email,
+              venueName: bookingForm.name?.value || "",
+              contactName: bookingForm.name?.value || "",
+              email: bookingForm.email?.value || "",
+              bookingDate: booking.event_date,
+              title: booking.title,
+              musicStyle: booking.music_style,
+              budget: booking.budget,
+              startTime: booking.start_time,
+              endTime: booking.end_time,
+              message: booking.description
+            })
+          }
+        );
+
+        if (!response.ok) {
+          console.error(
+            "Booking saved, but notification could not be sent."
+          );
+        }
+      } catch (notificationError) {
+        console.error(
+          "Booking notification error:",
+          notificationError
+        );
+      }
+    }
+
+    const bookingMessage =
+      document.getElementById("bookingMessage");
+
+    if (bookingMessage) {
+      bookingMessage.style.color = "green";
+      bookingMessage.style.fontWeight = "bold";
+      bookingMessage.textContent =
+        "✓ Booking request submitted successfully. The artist will be notified.";
+    }
+
     bookingForm.submit();
   });
 }
