@@ -134,3 +134,7 @@ exports.handler = async function () {
   
   }
 };
+
+exports.config = {
+  schedule: "0 16 * * *"
+};
