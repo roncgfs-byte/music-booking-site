@@ -1,0 +1,16 @@
+result.style.fontWeight = "bold";
+    result.textContent =
+      "✓ System announcement sent successfully.";
+
+  } catch (error) {
+
+    result.style.color = "red";
+    result.textContent =
+      "Unable to send announcement: " + error.message;
+
+  }
+});
+</script>
+
+</body>
+</html>
