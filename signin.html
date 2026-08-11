@@ -49,6 +49,39 @@ Sign In
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
+<script>
+document.getElementById("forgot-password").addEventListener("click", async function(event) {
+  event.preventDefault();
 
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message");
+
+  if (!email) {
+    message.style.color = "red";
+    message.textContent =
+      "Please enter your email address first, then click Forgot your password?";
+    return;
+  }
+
+  message.style.color = "";
+  message.textContent = "Sending password reset email...";
+
+  const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+    redirectTo: "https://bookyourband.ca/reset-password.html"
+  });
+
+  if (error) {
+    message.style.color = "red";
+    message.textContent =
+      "Unable to send password reset email: " + error.message;
+    return;
+  }
+
+  message.style.color = "green";
+  message.style.fontWeight = "bold";
+  message.textContent =
+    "✓ Password reset email sent. Please check your inbox.";
+});
+</script>
 </body>
 </html>
