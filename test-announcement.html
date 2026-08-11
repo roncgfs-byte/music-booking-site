@@ -1,4 +1,90 @@
-result.style.fontWeight = "bold";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8.6 Announcement Test | Book Your Band</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+<h1>8.6 System Announcement Test</h1>
+
+<p>This page is for the Milestone 7 test only.</p>
+
+<form id="announcement-form">
+
+<p>
+<label>Email</label><br>
+<input type="email" id="recipient" required>
+</p>
+
+<p>
+<label>Subject</label><br>
+<input type="text" id="subject" required>
+</p>
+
+<p>
+<label>Announcement</label><br>
+<textarea id="announcement-message" rows="6" required></textarea>
+</p>
+
+<p>
+<button type="submit" class="hero-button">
+Send Test Announcement
+</button>
+</p>
+
+</form>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+document.getElementById("announcement-form")
+.addEventListener("submit", async function(event) {
+
+  event.preventDefault();
+
+  const result = document.getElementById("result");
+
+  result.style.color = "";
+  result.style.fontWeight = "";
+  result.textContent = "Sending...";
+
+  try {
+
+    const response = await fetch(
+      "/.netlify/functions/send-system-announcement",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          recipient: document.getElementById("recipient").value,
+          subject: document.getElementById("subject").value,
+          message: document.getElementById("announcement-message").value
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      result.style.color = "red";
+      result.textContent =
+        "Unable to send announcement: " +
+        (data.error || "Unknown error");
+      return;
+    }
+
+    result.style.color = "green";
+    result.style.fontWeight = "bold";
     result.textContent =
       "✓ System announcement sent successfully.";
 
