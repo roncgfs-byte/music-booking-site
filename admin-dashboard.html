@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin Dashboard | Book Your Band</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #5A1622;
+      color: #F5F0E6;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .dashboard {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .card {
+      border: 2px solid #F5F0E6;
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .card-number {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    #dashboardMessage {
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="dashboard">
+
+    <h1>Book Your Band</h1>
+    <h2>Admin Dashboard</h2>
+
+    <div class="overview">
+
+      <div class="card">
+        <h3>Artists</h3>
+        <div class="card-number" id="artistCount">—</div>
+      </div>
+
+      <div class="card">
+        <h3>Venues</h3>
+        <div class="card-number" id="venueCount">—</div>
+      </div>
+
+      <div class="card">
+        <h3>Bookings</h3>
+        <div class="card-number" id="bookingCount">—</div>
+      </div>
+
+      <div class="card">
+        <h3>Pending Bookings</h3>
+        <div class="card-number" id="pendingCount">—</div>
+      </div>
+
+    </div>
+
+    <p id="dashboardMessage">Loading dashboard overview...</p>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+
+      const dashboardMessage =
+        document.getElementById("dashboardMessage");
+
+      const {
+        data: { session }
+      } = await db.auth.getSession();
+
+      if (!session) {
+        window.location.href = "admin.html";
+        return;
+      }
+
+      const [
+        artistsResult,
+        venuesResult,
+        bookingsResult,
+        pendingResult
+      ] = await Promise.all([
+        db.from("artists")
+          .select("*", { count: "exact", head: true }),
+
+        db.from("venues")
+          .select("*", { count: "exact", head: true }),
+
+        db.from("bookings")
+          .select("*", { count: "exact", head: true }),
+
+        db.from("bookings")
+          .select("*", { count: "exact", head: true })
+          .eq("status", "Pending")
+      ]);
+
+      if (
+        artistsResult.error ||
+        venuesResult.error ||
+        bookingsResult.error ||
+        pendingResult.error
+      ) {
+        console.error(
+          artistsResult.error,
+          venuesResult.error,
+          bookingsResult.error,
+          pendingResult.error
+        );
+
+        dashboardMessage.textContent =
+          "Unable to load dashboard overview.";
+
+        return;
+      }
+
+      document.getElementById("artistCount").textContent =
+        artistsResult.count ?? 0;
+
+      document.getElementById("venueCount").textContent =
+        venuesResult.count ?? 0;
+
+      document.getElementById("bookingCount").textContent =
+        bookingsResult.count ?? 0;
+
+      document.getElementById("pendingCount").textContent =
+        pendingResult.count ?? 0;
+
+      dashboardMessage.textContent =
+        "Dashboard overview loaded successfully.";
+    });
+  </script>
+
+</body>
+</html>
