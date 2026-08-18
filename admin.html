@@ -1,44 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Booking Management | Book Your Band</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
-var password = prompt("Enter Admin Password");
+  <title>Admin Sign In | Book Your Band</title>
 
-if (password !== "Cowanadmin2468") {
-    alert("Access Denied");
-    window.location.href = "index.html";
-}
-</script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #5A1622;
+      color: #F5F0E6;
+      text-align: center;
+      margin: 0;
+      padding: 40px 20px;
+    }
 
+    .admin-box {
+      max-width: 420px;
+      margin: 60px auto;
+      padding: 30px;
+      border: 2px solid #F5F0E6;
+      border-radius: 10px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 24px;
+      margin-top: 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #loginMessage {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Booking Management</h1>
-<p>Welcome Ron & Brad.</p>
+  <div class="admin-box">
 
-<h2>Booking Requests</h2>
+    <h1>Book Your Band</h1>
+    <h2>Admin Sign In</h2>
 
-<table id="bookingTable" border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%;">
+    <form id="adminLoginForm">
 
-<thead>
-<tr>
-<th>Artist</th>
-<th>Event</th>
-<th>Date</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
-</thead>
+      <input
+        type="email"
+        id="adminEmail"
+        placeholder="Email address"
+        required
+      >
 
-<tbody>
+      <input
+        type="password"
+        id="adminPassword"
+        placeholder="Password"
+        required
+      >
 
-</tbody>
+      <br>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js"></script>
+      <button type="submit">Sign In</button>
+
+    </form>
+
+    <p id="loginMessage"></p>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+
+  <script>
+    const adminLoginForm = document.getElementById("adminLoginForm");
+    const loginMessage = document.getElementById("loginMessage");
+
+    adminLoginForm.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("adminEmail").value.trim();
+      const password = document.getElementById("adminPassword").value;
+
+      loginMessage.textContent = "Signing in...";
+
+      const { data, error } = await db.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
+
+      if (error) {
+        loginMessage.textContent = "Unable to sign in. Please check your email and password.";
+        return;
+      }
+
+      loginMessage.textContent = "Sign in successful.";
+    });
+  </script>
 
 </body>
 </html>
