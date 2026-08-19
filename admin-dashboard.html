@@ -162,6 +162,21 @@
 
   <div id="payments-list"></div>
 </section>
+
+<section id="reports-analytics">
+  <h2>Reports &amp; Analytics</h2>
+
+  <p>
+    Business performance overview for Book Your Band.
+  </p>
+
+  <div id="reports-status">
+    Loading reports...
+  </div>
+
+  <div id="reports-list"></div>
+</section>
+    
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -498,6 +513,77 @@ try {
   console.error(error);
   paymentsStatus.textContent = "Unable to load payments.";
 }
+
+// Load Reports & Analytics securely for the authorized Admin.
+const reportsStatus = document.getElementById("reports-status");
+const reportsList = document.getElementById("reports-list");
+
+try {
+  const { data: reportsSessionData } = await db.auth.getSession();
+  const reportsAccessToken =
+    reportsSessionData.session?.access_token;
+
+  if (!reportsAccessToken) {
+    reportsStatus.textContent =
+      "Unable to load reports. Admin sign in required.";
+  } else {
+    const { data, error } = await db.functions.invoke("admin-reports", {
+      headers: {
+        Authorization: `Bearer ${reportsAccessToken}`
+      }
+    });
+
+    if (error) {
+      console.error(error);
+      reportsStatus.textContent =
+        "Unable to load reports.";
+    } else {
+      const reports = data?.reports;
+
+      if (!reports) {
+        reportsStatus.textContent =
+          "No report data available.";
+      } else {
+        reportsStatus.textContent =
+          "Reports loaded successfully.";
+
+        const revenue =
+          (reports.revenue.membership_revenue_cents / 100).toFixed(2);
+
+        reportsList.innerHTML = `
+          <h3>Membership</h3>
+          <p><strong>Total Artists:</strong> ${reports.artists.total}</p>
+          <p><strong>Approved Artists:</strong> ${reports.artists.approved}</p>
+          <p><strong>Pending Artists:</strong> ${reports.artists.pending}</p>
+          <p><strong>Total Venues:</strong> ${reports.venues.total}</p>
+          <p><strong>Approved Venues:</strong> ${reports.venues.approved}</p>
+<h3>Bookings</h3>
+          <p><strong>Total Bookings:</strong> ${reports.bookings.total}</p>
+          <p><strong>Pending:</strong> ${reports.bookings.pending}</p>
+          <p><strong>Completed:</strong> ${reports.bookings.completed}</p>
+          <p><strong>Declined:</strong> ${reports.bookings.declined}</p>
+          <p><strong>Advertised Booking Budget Total:</strong>
+            $${Number(reports.bookings.advertised_budget_total).toFixed(2)}
+          </p>
+
+          <h3>Revenue</h3>
+          <p><strong>Successful Membership Payments:</strong>
+            ${reports.revenue.successful_payments}
+          </p>
+          <p><strong>Membership Revenue:</strong>
+            $${revenue} ${reports.revenue.currency}
+          </p>
+        `;
+      }
+    }
+  }
+} catch (error) {
+  console.error(error);
+  reportsStatus.textContent =
+    "Unable to load reports.";
+}
+          
+      
  });
   </script>
 
