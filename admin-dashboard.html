@@ -148,6 +148,20 @@
 
   <div id="bookings-list"></div>
 </section>
+
+    <section id="manage-payments">
+  <h2>Manage Payments</h2>
+
+  <p>
+    Review venue membership payments.
+  </p>
+
+  <div id="payments-status">
+    Loading payments...
+  </div>
+
+  <div id="payments-list"></div>
+</section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -428,7 +442,62 @@ window.updateBookingStatus = async function(id, status) {
   alert("Booking status updated to " + status + ".");
   location.reload();
 };
-      
+
+/ Load payments securely for the authorized Admin.
+const paymentsStatus = document.getElementById("payments-status");
+const paymentsList = document.getElementById("payments-list");
+
+try {
+  const { data: sessionData } = await db.auth.getSession();
+  const accessToken = sessionData.session?.access_token;
+
+  if (!accessToken) {
+    paymentsStatus.textContent =
+      "Unable to load payments. Admin sign in required.";
+  } else {
+    const { data, error } = await db.functions.invoke("admin-payments", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+
+    if (error) {
+      console.error(error);
+      paymentsStatus.textContent = "Unable to load payments.";
+    } else {
+      const payments = data?.payments || [];
+
+      if (payments.length === 0) {
+        paymentsStatus.textContent =
+          "No payments have been recorded yet.";
+      } else {
+        paymentsStatus.textContent =
+          "Payments loaded successfully.";
+
+        payments.forEach((payment) => {
+          const item = document.createElement("div");
+          item.style.marginBottom = "24px";
+
+          const amount =
+            (payment.amount_cents / 100).toFixed(2);
+
+          item.innerHTML = `
+            <h3>Venue Membership Payment</h3>
+            <p><strong>Amount:</strong> $${amount} ${payment.currency.toUpperCase()}</p>
+            <p><strong>Status:</strong> ${payment.status}</p>
+            <p><strong>Payment Date:</strong> ${payment.payment_date || "Not available"}</p>
+            <hr>
+          `;
+        
+      paymentsList.appendChild(item);
+        });
+      }
+    }
+  }
+} catch (error) {
+  console.error(error);
+  paymentsStatus.textContent = "Unable to load payments.";
+}
  });
   </script>
 
