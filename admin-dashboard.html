@@ -107,10 +107,34 @@
     <tbody>
     </tbody>
   </table>
-
-  <p id="artistApprovalMessage"></p>
+<p id="artistApprovalMessage"></p>
 </section>
+  <section style="margin-top:50px;">
+  <h2>Venue Applications</h2>
 
+  <table
+    id="venueApprovalTable"
+    border="1"
+    cellpadding="8"
+    cellspacing="0"
+    style="border-collapse:collapse; width:100%; background:#F5F0E6; color:#5A1622;"
+  >
+    <thead>
+      <tr>
+        <th>Venue</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    </tbody>
+  </table>
+
+  <p id="venueApprovalMessage"></p>
+</section>  
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -257,7 +281,79 @@
 
       location.reload();
     };
+  
+const venueApprovalTable =
+      document.querySelector("#venueApprovalTable tbody");
+
+    const venueApprovalMessage =
+      document.getElementById("venueApprovalMessage");
+
+    const { data: venues, error: venueLoadError } =
+      await db
+        .from("venues")
+        .select("id, venue_name, email, city, approval_status")
+        .order("created_at", { ascending: false });
+
+    if (venueLoadError) {
+      console.error(venueLoadError);
+      venueApprovalMessage.textContent =
+        "Unable to load venue applications.";
+      return;
+    }
+
+    venueApprovalTable.innerHTML = "";
+
+    venues.forEach((venue) => {
+
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${venue.venue_name || ""}</td>
+        <td>${venue.email || ""}</td>
+        <td>${venue.city || ""}</td>
+        <td>${venue.approval_status || "Pending"}</td>
+        <td>
+          <button
+            type="button"
+            onclick="updateVenueApproval('${venue.id}', 'Approved')"
+          >
+            Approve
+          </button>
+<button
+            type="button"
+            onclick="updateVenueApproval('${venue.id}', 'Rejected')"
+          >
+            Reject
+          </button>
+        </td>
+      `;
+
+      venueApprovalTable.appendChild(row);
+    });
+
+    venueApprovalMessage.textContent =
+      "Venue applications loaded successfully.";
       
+    window.updateVenueApproval = async function(id, status) {
+
+      const { error } = await db
+        .from("venues")
+        .update({
+          approval_status: status,
+          updated_at: new Date().toISOString()
+        })
+        .eq("id", id);
+
+      if (error) {
+        console.error(error);
+        alert("Unable to update venue approval status.");
+        return;
+      }
+      alert("Venue status updated to " + status + ".");
+
+      location.reload();
+    };
+              
  });
   </script>
 
