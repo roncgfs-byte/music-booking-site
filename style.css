@@ -40,9 +40,9 @@ footer {
   width: 100% !important;
   max-width: none !important;
 
-  height: 640px !important;
-  min-height: 640px !important;
-  max-height: 640px !important;
+height: calc(100vh - 100px) !important;
+min-height: 640px !important;
+max-height: none !important;
 
   overflow: hidden !important;
   background-color: #EFD79A !important;
