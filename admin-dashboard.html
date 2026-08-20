@@ -176,7 +176,56 @@
 
   <div id="reports-list"></div>
 </section>
-    
+  <section id="system-settings">
+  <h2>System Settings</h2>
+
+  <p>
+    Manage Book Your Band operational settings.
+  </p>
+
+  <div id="settings-status">
+    Loading system settings...
+  </div>
+
+  <form id="system-settings-form">
+    <p>
+      <label for="setting-site-name">
+        <strong>Site Name</strong>
+      </label><br>
+      <input type="text" id="setting-site-name" maxlength="100" required>
+    </p>
+
+    <p>
+      <label for="setting-membership-price">
+        <strong>Venue Membership Price (CAD per month)</strong>
+      </label><br>
+      <input type="number" id="setting-membership-price" min="0" step="0.01" required>
+    </p>
+
+    <p>
+      <label for="setting-support-email">
+        <strong>Support Email</strong>
+      </label><br>
+      <input type="email" id="setting-support-email">
+    </p>
+
+    <p>
+      <label>
+        <input type="checkbox" id="setting-artist-registrations">
+        Artist Registrations Open
+      </label>
+    </p>
+
+    <p>
+      <label>
+        <input type="checkbox" id="setting-venue-registrations">
+        Venue Registrations Open
+      </label>
+    </p>
+
+    <button type="submit">Save System Settings</button>
+  </form>
+</section>  
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -582,8 +631,110 @@ try {
   reportsStatus.textContent =
     "Unable to load reports.";
 }
-          
-      
+ // System Settings
+const settingsStatus = document.getElementById("settings-status");
+const settingsForm = document.getElementById("system-settings-form");
+const settingSiteName = document.getElementById("setting-site-name");
+const settingMembershipPrice =
+  document.getElementById("setting-membership-price");
+const settingSupportEmail =
+  document.getElementById("setting-support-email");
+const settingArtistRegistrations =
+  document.getElementById("setting-artist-registrations");
+const settingVenueRegistrations =
+  document.getElementById("setting-venue-registrations");
+  async function loadSystemSettings() {    
+    const { data: sessionData } = await db.auth.getSession();
+  const accessToken = sessionData.session?.access_token;
+
+  if (!accessToken) {
+    settingsStatus.textContent =
+      "Unable to load system settings. Admin sign in required.";
+    return;
+  }
+
+  const { data, error } =
+    await db.functions.invoke("admin-system-settings", {
+      body: { action: "get" },
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+
+  if (error || !data?.settings) {
+    console.error(error);
+    settingsStatus.textContent =
+      "Unable to load system settings.";
+    return;
+  }
+
+  const settings = data.settings;
+
+     settingSiteName.value =
+    settings.site_name || "";
+
+  settingMembershipPrice.value =
+    (settings.venue_membership_price_cents / 100).toFixed(2);
+
+  settingSupportEmail.value =
+    settings.support_email || "";
+
+  settingArtistRegistrations.checked =
+    settings.artist_registrations_open === true;
+
+  settingVenueRegistrations.checked =
+    settings.venue_registrations_open === true;
+
+  settingsStatus.textContent =
+    "System settings loaded successfully.";
+  }
+  settingsForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  settingsStatus.textContent =
+    "Saving system settings...";
+
+  const { data: sessionData } = await db.auth.getSession();
+  const accessToken = sessionData.session?.access_token;
+
+  if (!accessToken) {
+    settingsStatus.textContent =
+      "Unable to save. Admin sign in required.";
+    return;
+  }
+
+  const priceCents =
+    Math.round(Number(settingMembershipPrice.value) * 100);
+
+  const { error } =
+    await db.functions.invoke("admin-system-settings", {
+      body: {
+        action: "update",
+        site_name: settingSiteName.value.trim(),
+        venue_membership_price_cents: priceCents,
+        support_email: settingSupportEmail.value.trim(),
+        artist_registrations_open:
+          settingArtistRegistrations.checked,
+        venue_registrations_open:
+          settingVenueRegistrations.checked
+      },
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+
+  if (error) {
+    console.error(error);
+    settingsStatus.textContent =
+      "Unable to save system settings.";
+    return;
+  }
+  settingsStatus.textContent =
+    "System settings saved successfully.";
+});
+
+await loadSystemSettings();
+
  });
   </script>
 
