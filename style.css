@@ -273,20 +273,7 @@ footer p {
   font-size: 13px !important;
   line-height: 1.2 !important;
 }
-/* REMOVE SPACE BELOW FOOTERS */
-html,
-body {
-  min-height: 100%;
-}
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-footer {
-  margin-top: auto !important;
-}
 
 /* FINAL GLOBAL PAGE FIT — DO NOT STACK MORE FOOTER FIXES BELOW THIS */
 
@@ -309,28 +296,6 @@ body {
 /* Footer stays normal size */
 footer {
   flex: 0 0 auto !important;
-  background: #5A1622 !important;
-  color: #F5F0E6 !important;
-  padding: 6px 10px !important;
-  margin: 0 !important;
-  text-align: center !important;
-}
-
-footer p {
-  color: #F5F0E6 !important;
-  margin: 1px 0 !important;
-  font-size: 13px !important;
-  line-height: 1.2 !important;
-}
-/* FINAL SIMPLE FOOTER CONTROL */
-html,
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: #F2DDA7 !important;
-}
-
-footer {
   background: #5A1622 !important;
   color: #F5F0E6 !important;
   padding: 6px 10px !important;
