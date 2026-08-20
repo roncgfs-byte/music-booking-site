@@ -47,7 +47,7 @@ max-height: none !important;
   overflow: hidden !important;
   background-color: #EFD79A !important;
   background-image: url("booking-hero-final.png") !important;
-  background-size: 105% auto !important;
+  background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: calc(50% + 32px) center !important;
   margin: 0 !important;
