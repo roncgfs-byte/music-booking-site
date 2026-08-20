@@ -449,3 +449,58 @@ body.artist-page div[style*="max-width"] {
   margin: 0;
   flex-shrink: 0;
 }
+
+
+/* ==========================================
+   HOMEPAGE — BRAD REVIEW VERSION
+   ========================================== */
+
+.hero-content {
+  background: rgba(242, 221, 167, 0.88) !important;
+  border-radius: 18px !important;
+  padding: 22px 26px !important;
+  box-sizing: border-box;
+}
+
+.hero-content .company-line {
+  font-size: 1.05rem !important;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px !important;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem !important;
+  margin-bottom: 8px !important;
+}
+
+.hero-content .hero-tagline {
+  font-size: 1.05rem !important;
+}
+
+.member-access-title {
+  margin: 18px 0 12px !important;
+  font-size: 1.35rem !important;
+}
+
+.hero-cards {
+  gap: 10px !important;
+}
+
+.hero-card {
+  border-radius: 14px !important;
+  min-height: 46px !important;
+  box-shadow: 0 2px 5px rgba(90, 22, 34, 0.18);
+}
+
+.hero-card:hover {
+  transform: translateY(-1px);
+}
+
+.hero-content h2 {
+  line-height: 1.25;
+}
+
+.hero-content {
+  color: #5A1622 !important;
+}
