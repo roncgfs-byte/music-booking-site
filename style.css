@@ -91,12 +91,7 @@ footer {
   color: #5A1622;
 }
 
-.company-line {
-  position: relative;
-  top: -35px;
-  margin-bottom: -20px !important;
-  font-weight: 700;
-}
+
 .hero-cards {
   display: grid !important;
   grid-template-columns: repeat(2, 180px);
