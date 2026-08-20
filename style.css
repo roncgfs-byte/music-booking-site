@@ -285,7 +285,7 @@ body {
 }
 
 footer {
-  margin-top: auto !important;
+  margin-top: 0 !important;
 }
 
 /* FINAL GLOBAL PAGE FIT — DO NOT STACK MORE FOOTER FIXES BELOW THIS */
