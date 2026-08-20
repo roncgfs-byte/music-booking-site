@@ -450,7 +450,3 @@ body.artist-page div[style*="max-width"] {
   flex-shrink: 0;
 }
 
-/* HOMEPAGE BOTTOM SCREEN FILL */
-body:has(.hero-banner) {
-  background-color: #5A1622 !important;
-}
