@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <title>Book Your Band</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* Homepage-only browser-height fit */
+body.home-page .hero-banner {
+  height: calc(100vh - 78px) !important;
+  min-height: 600px !important;
+  max-height: 640px !important;
+}
+body.home-page .hero-content {
+  transform: translate(-35px, 75px);
+}
+</style>
 </head>
 
 <body class="home-page" style="background:#F2DDA7; margin:0; font-family: Arial, sans-serif; text-align:center;">
