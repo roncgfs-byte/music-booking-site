@@ -21,6 +21,7 @@ footer {
   padding: 8px 10px !important;
   text-align: center !important;
   white-space: nowrap;
+  border-radius: 18px 18px 0 0 !important;
 }
 
 .main-nav a,
@@ -220,6 +221,7 @@ footer {
   height: auto !important;
   min-height: 0 !important;
   max-height: none !important;
+  border-radius: 0 0 18px 18px !important;
 }
 
 footer p {
