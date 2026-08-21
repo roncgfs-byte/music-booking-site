@@ -306,13 +306,13 @@ footer p {
 /* HOMEPAGE DESKTOP VIEWPORT FIT */
 @media (min-width: 901px) {
   body.home-page .hero-banner {
-    height: calc(100vh - 94px) !important;
-    min-height: 560px !important;
-    max-height: 640px !important;
+    height: calc(100vh - 120px) !important;
+    min-height: 520px !important;
+    max-height: 614px !important;
   }
 
   body.home-page .hero-content {
-    transform: translate(-35px, 75px);
+    transform: translate(-35px, 60px);
   }
 }
 
