@@ -91,7 +91,6 @@ max-height: 640px !important;
   color: #5A1622;
 }
 
-
 .hero-cards {
   display: grid !important;
   grid-template-columns: repeat(2, 180px);
@@ -238,8 +237,6 @@ body {
   overflow-x: hidden !important;
 }
 
-
-
 /* About page only */
 body.about-body {
   background-color: #F2DDA7 !important;
@@ -274,7 +271,6 @@ footer p {
   line-height: 1.2 !important;
 }
 
-
 /* FINAL GLOBAL PAGE FIT — DO NOT STACK MORE FOOTER FIXES BELOW THIS */
 
 html,
@@ -289,9 +285,6 @@ body {
   display: flex !important;
   flex-direction: column !important;
 }
-
-/* Main content fills the page so nothing shows below footer */
-
 
 /* Footer stays normal size */
 footer {
@@ -310,6 +303,18 @@ footer p {
   line-height: 1.2 !important;
 }
 
+/* HOMEPAGE DESKTOP VIEWPORT FIT */
+@media (min-width: 901px) {
+  body.home-page .hero-banner {
+    height: calc(100vh - 94px) !important;
+    min-height: 560px !important;
+    max-height: 640px !important;
+  }
+
+  body.home-page .hero-content {
+    transform: translate(-35px, 75px);
+  }
+}
 
 /* ARTIST PAGE CLEAN STYLE */
 body.artist-page {
@@ -414,4 +419,3 @@ body.artist-page div[style*="max-width"] {
   margin: 0;
   flex-shrink: 0;
 }
-
