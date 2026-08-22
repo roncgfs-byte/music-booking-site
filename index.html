@@ -5,14 +5,18 @@
 <title>Book Your Band</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* Homepage-only browser-height fit */
+/* Homepage-only stable browser-height fit */
+body.home-page {
+  min-height: 100vh !important;
+}
 body.home-page .hero-banner {
-  height: calc(100vh - 78px) !important;
-  min-height: 600px !important;
-  max-height: 640px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  flex: 1 1 auto !important;
 }
 body.home-page .hero-content {
-  transform: translate(-35px, 75px);
+  transform: translate(-35px, 60px);
 }
 </style>
 </head>
@@ -60,22 +64,8 @@ body.home-page .hero-content {
     <strong>Venue Sign In</strong>
   </a>
 </div>
-
-<h2 class="member-access-title">Member Access</h2>
-
-<div class="hero-cards">
-
-  <a href="artist-dashboard.html" class="hero-card">
-    <strong>Artist Member Area</strong>
-  </a>
-
-  <a href="venue-dashboard.html" class="hero-card">
-    <strong>Venue Member Area</strong>
-  </a>
-
 </div>
-</div> 
-  
+
 </section>
 
 <!-- FOOTER -->
