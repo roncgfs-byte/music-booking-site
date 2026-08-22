@@ -7,11 +7,11 @@ const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // SIGN IN
-  const loginForm = document.getElementById("artist-login");
+  // ARTIST SIGN IN
+  const artistLoginForm = document.getElementById("artist-login");
 
-  if (loginForm) {
-    loginForm.addEventListener("submit", async (event) => {
+  if (artistLoginForm) {
+    artistLoginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const email = document.getElementById("email").value.trim();
@@ -25,9 +25,41 @@ document.addEventListener("DOMContentLoaded", () => {
         password
       });
 
-      message.textContent = error
-        ? error.message
-        : "Sign in successful.";
+      if (error) {
+        message.textContent = error.message;
+        return;
+      }
+
+      message.textContent = "Sign in successful.";
+      window.location.href = "artist-dashboard.html";
+    });
+  }
+
+  // VENUE SIGN IN
+  const venueLoginForm = document.getElementById("venue-login");
+
+  if (venueLoginForm) {
+    venueLoginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      message.textContent = "Signing in...";
+
+      const { error } = await supabaseClient.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) {
+        message.textContent = error.message;
+        return;
+      }
+
+      message.textContent = "Sign in successful.";
+      window.location.href = "venue-dashboard.html";
     });
   }
 
