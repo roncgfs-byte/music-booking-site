@@ -422,3 +422,12 @@ body.artist-page div[style*="max-width"] {
   margin: 0;
   flex-shrink: 0;
 }
+
+/* FINAL HEADER / FOOTER TYPOGRAPHY CONSISTENCY */
+.main-nav,
+.main-nav a,
+.main-nav div,
+footer,
+footer p {
+  font-family: Arial, sans-serif !important;
+}
