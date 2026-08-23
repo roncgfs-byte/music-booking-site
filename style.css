@@ -285,6 +285,9 @@ body {
   display: flex !important;
   flex-direction: column !important;
 }
+body:not(.home-page):not(.about-body) > .page-container {
+  flex: 1 0 auto;
+}
 
 /* Footer stays normal size */
 footer {
