@@ -65,10 +65,13 @@ if (venueForm) {
   venueForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    const email = venueForm.email?.value.trim() || "";
+    const password = venueForm.password?.value || "";
+
     const venue = {
       venue_name: venueForm.venue_name?.value || "",
       contact_name: venueForm.contact_name?.value || "",
-      email: venueForm.email?.value || "",
+      email: email,
       phone: venueForm.phone?.value || "",
       city: venueForm.city?.value || "",
       country: venueForm.country?.value || "",
@@ -76,14 +79,36 @@ if (venueForm) {
       booking_days: venueForm.booking_days?.value || ""
     };
 
+    const { data: signUpData, error: signUpError } = await db.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: "https://bookyourband.ca/venue-signin.html"
+      }
+    });
+
+    if (signUpError) {
+      alert(
+        "Unable to create Venue account:\n\n" +
+        signUpError.message
+      );
+      return;
+    }
+
+    if (!signUpData.user) {
+      alert("Unable to create Venue account. Please try again.");
+      return;
+    }
+
     const { error } = await db
       .from("venues")
       .insert([venue]);
 
     if (error) {
       alert(
-        "Supabase says:\n\n" +
-        JSON.stringify(error, null, 2)
+        "Venue account was created, but the Venue profile could not be saved:\n\n" +
+        error.message +
+        "\n\nPlease contact Book Your Band support before trying again."
       );
       return;
     }
