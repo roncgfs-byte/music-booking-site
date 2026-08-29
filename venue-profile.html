@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Venue Profile | Book Your Band</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<div class="page-container">
+<h1>Update My Venue Profile</h1>
+<p>Edit your existing Venue information below.</p>
+
+<form id="venue-profile-form">
+<label>Venue Name</label>
+<input type="text" id="venue_name" required>
+
+<label>Contact Name</label>
+<input type="text" id="contact_name">
+
+<label>Email</label>
+<input type="email" id="email" readonly>
+
+<label>Phone</label>
+<input type="tel" id="phone">
+
+<label>City</label>
+<input type="text" id="city">
+
+<label>Country</label>
+<input type="text" id="country">
+
+<label>Preferred Music Style</label>
+<input type="text" id="music_style">
+
+<label>Preferred Booking Days</label>
+<input type="text" id="booking_days">
+
+<button type="submit">Save Venue Profile</button>
+</form>
+
+<p id="profile-status"></p>
+<p><a href="venue-dashboard.html">Return to My Account</a></p>
+</div>
+
+<script>
+const SUPABASE_URL = "https://oyeopxbtdrvtmdedsoli.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_1eq1XDcLRotp2UDxg-WuAQ_ez0l30oW";
+const { createClient } = supabase;
+const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const form = document.getElementById("venue-profile-form");
+const status = document.getElementById("profile-status");
+let signedInEmail = "";
+
+async function loadVenueProfile() {
+  const { data: sessionData } = await db.auth.getSession();
+  const session = sessionData?.session;
+
+  if (!session?.user?.email) {
+    window.location.href = "venue-signin.html";
+    return;
+  }
+
+  signedInEmail = session.user.email;
+
+  const { data, error } = await db
+    .from("venues")
+    .select("venue_name, contact_name, email, phone, city, country, music_style, booking_days")
+    .eq("email", signedInEmail)
+    .single();
+
+  if (error || !data) {
+    status.textContent = "Unable to load your Venue Profile.";
+    return;
+  }
+
+  document.getElementById("venue_name").value = data.venue_name || "";
+  document.getElementById("contact_name").value = data.contact_name || "";
+  document.getElementById("email").value = data.email || signedInEmail;
+  document.getElementById("phone").value = data.phone || "";
+  document.getElementById("city").value = data.city || "";
+  document.getElementById("country").value = data.country || "";
+  document.getElementById("music_style").value = data.music_style || "";
+  document.getElementById("booking_days").value = data.booking_days || "";
+}
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  status.textContent = "Saving...";
+
+  const updates = {
+    venue_name: document.getElementById("venue_name").value,
+    contact_name: document.getElementById("contact_name").value,
+    phone: document.getElementById("phone").value,
+    city: document.getElementById("city").value,
+    country: document.getElementById("country").value,
+    music_style: document.getElementById("music_style").value,
+    booking_days: document.getElementById("booking_days").value,
+    updated_at: new Date().toISOString()
+  };
+
+  const { error } = await db
+    .from("venues")
+    .update(updates)
+    .eq("email", signedInEmail);
+
+  if (error) {
+    status.textContent = "Unable to update your Venue Profile: " + error.message;
+    return;
+  }
+
+  status.textContent = "Venue profile updated successfully.";
+});
+
+loadVenueProfile();
+</script>
+</body>
+</html>
