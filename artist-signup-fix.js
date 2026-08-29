@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.stopImmediatePropagation();
 
     const email = form.email?.value.trim() || "";
-    const password = form.password?.value || "";
+    const password = document.getElementById("artist-password")?.value || "";
 
     const artist = {
       artist_name: form.artist_name?.value || "",
@@ -18,27 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
       phone: form.phone?.value || "",
       city: form.city?.value || "",
       country: "",
-      equipment: Array.from(
-        form.querySelectorAll('input[name="equipment"]:checked')
-      ).map(item => item.value).join(", "),
+      equipment: Array.from(form.querySelectorAll('input[name="equipment"]:checked')).map(item => item.value).join(", "),
       youtube_link_1: form.video_1?.value || "",
       youtube_link_2: form.video_2?.value || "",
       youtube_link_3: form.video_3?.value || "",
       youtube_link_4: form.video_4?.value || "",
-      availability: Array.from(
-        form.querySelectorAll('input[name="availability"]:checked')
-      ).map(item => item.value).join(", "),
-      music_styles: Array.from(
-        form.querySelectorAll('input[name="music_styles"]:checked')
-      ).map(item => item.value).join(", ")
+      availability: Array.from(form.querySelectorAll('input[name="availability"]:checked')).map(item => item.value).join(", "),
+      music_styles: Array.from(form.querySelectorAll('input[name="music_styles"]:checked')).map(item => item.value).join(", ")
     };
 
     const { data: signUpData, error: signUpError } = await db.auth.signUp({
       email,
       password,
-      options: {
-        emailRedirectTo: "https://bookyourband.ca/signin.html"
-      }
+      options: { emailRedirectTo: "https://bookyourband.ca/signin.html" }
     });
 
     if (signUpError) {
@@ -46,26 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Supabase can deliberately return an obfuscated user for an email that
-    // already has an Auth account. An empty identities array identifies that case.
     if (!signUpData.user || signUpData.user.identities?.length === 0) {
-      alert("This email is already registered. Please use Artist Sign In instead.");
+      alert("This email is already registered. Please use Artist Sign In or Forgot Password instead.");
       return;
     }
 
-    const { error: profileError } = await db
-      .from("artists")
-      .insert([artist]);
+    const { error: profileError } = await db.from("artists").insert([artist]);
 
     if (profileError) {
       if (profileError.code === "23505") {
-        alert("This email already has an Artist profile. Please confirm your email if requested, then use Artist Sign In.");
+        alert("This email already has an Artist profile. Please confirm your email if requested, then use Artist Sign In or Forgot Password.");
       } else {
-        alert(
-          "Artist account was created, but the Artist profile could not be saved:\n\n" +
-          profileError.message +
-          "\n\nPlease contact Book Your Band support before trying again."
-        );
+        alert("Artist account was created, but the Artist profile could not be saved. Please contact Book Your Band support before trying again.");
       }
       return;
     }
