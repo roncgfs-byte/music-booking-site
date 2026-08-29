@@ -1,414 +1,123 @@
 const SUPABASE_URL = "https://oyeopxbtdrvtmdedsoli.supabase.co";
-
-const SUPABASE_ANON_KEY =
-  "sb_publishable_1eq1XDcLRotp2UDxg-WuAQ_ez0l30oW";
-
+const SUPABASE_ANON_KEY = "sb_publishable_1eq1XDcLRotp2UDxg-WuAQ_ez0l30oW";
 const { createClient } = supabase;
-
 const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.forms["artist-application"];
-
   if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const artist = {
+        artist_name: form.artist_name?.value || "", last_name: "", email: form.email?.value || "",
+        phone: form.phone?.value || "", city: form.city?.value || "", country: "",
+        equipment: Array.from(form.querySelectorAll('input[name="equipment"]:checked')).map(item => item.value).join(", "),
+        youtube_link_1: form.video_1?.value || "", youtube_link_2: form.video_2?.value || "",
+        youtube_link_3: form.video_3?.value || "", youtube_link_4: form.video_4?.value || "",
+        availability: Array.from(form.querySelectorAll('input[name="availability"]:checked')).map(item => item.value).join(", "),
+        music_styles: Array.from(form.querySelectorAll('input[name="music_styles"]:checked')).map(item => item.value).join(", ")
+      };
+      const { error } = await db.from("artists").insert([artist]);
+      if (error) { console.error("SUPABASE ERROR:", error); alert("Supabase says:\n\n" + JSON.stringify(error, null, 2)); return; }
+      form.submit();
+    });
+  }
+});
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const artist = {
-  artist_name: form.artist_name?.value || "",
-  last_name: "",
-  email: form.email?.value || "",
-  phone: form.phone?.value || "",
-  city: form.city?.value || "",
-  country: "",
-  equipment: Array.from(
-  form.querySelectorAll('input[name="equipment"]:checked')
-)
-.map(item => item.value)
-.join(", "),
-  youtube_link_1: form.video_1?.value || "",
-youtube_link_2: form.video_2?.value || "",
-youtube_link_3: form.video_3?.value || "",
-youtube_link_4: form.video_4?.value || "",
-  availability: Array.from(
-  form.querySelectorAll('input[name="availability"]:checked')
-)
-.map(item => item.value)
-.join(", "),
- music_styles: Array.from(
-  form.querySelectorAll('input[name="music_styles"]:checked')
-)
-.map(item => item.value)
-.join(", "),     
-};
-    const { error } = await db
-      .from("artists")
-      .insert([artist]);
-
-    if (error) {
-  console.error("SUPABASE ERROR:", error);
-  alert(
-    "Supabase says:\n\n" +
-    JSON.stringify(error, null, 2)
-  );
-  return;
-}
-
-  form.submit();
-  });
-}
-}); 
 const venueForm = document.forms["venue-application"];
-
 if (venueForm) {
   venueForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-
     const email = venueForm.email?.value.trim() || "";
-    const password = venueForm.password?.value || "";
-
+    const password = document.getElementById("venue-password")?.value || "";
     const venue = {
-      venue_name: venueForm.venue_name?.value || "",
-      contact_name: venueForm.contact_name?.value || "",
-      email: email,
-      phone: venueForm.phone?.value || "",
-      city: venueForm.city?.value || "",
-      country: venueForm.country?.value || "",
-      music_style: venueForm.music_style?.value || "",
+      venue_name: venueForm.venue_name?.value || "", contact_name: venueForm.contact_name?.value || "",
+      email, phone: venueForm.phone?.value || "", city: venueForm.city?.value || "",
+      country: venueForm.country?.value || "", music_style: venueForm.music_style?.value || "",
       booking_days: venueForm.booking_days?.value || ""
     };
-
     const { data: signUpData, error: signUpError } = await db.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: "https://bookyourband.ca/venue-signin.html"
-      }
+      email, password, options: { emailRedirectTo: "https://bookyourband.ca/venue-signin.html" }
     });
-
-    if (signUpError) {
-      alert(
-        "Unable to create Venue account:\n\n" +
-        signUpError.message
-      );
-      return;
+    if (signUpError) { alert("Unable to create Venue account:\n\n" + signUpError.message); return; }
+    if (!signUpData.user || signUpData.user.identities?.length === 0) {
+      alert("This email is already registered. Please use Venue Sign In or Forgot Password instead."); return;
     }
-
-    if (!signUpData.user) {
-      alert("Unable to create Venue account. Please try again.");
-      return;
-    }
-
-    const { error } = await db
-      .from("venues")
-      .insert([venue]);
-
+    const { error } = await db.from("venues").insert([venue]);
     if (error) {
-      alert(
-        "Venue account was created, but the Venue profile could not be saved:\n\n" +
-        error.message +
-        "\n\nPlease contact Book Your Band support before trying again."
-      );
+      if (error.code === "23505") {
+        alert("This email already has a Venue profile. Please confirm your email if requested, then use Venue Sign In or Forgot Password.");
+      } else {
+        alert("Venue account was created, but the Venue profile could not be saved. Please contact Book Your Band support before trying again.");
+      }
       return;
     }
-
     venueForm.submit();
   });
 }
+
 document.addEventListener("DOMContentLoaded", async () => {
   const artistSelect = document.getElementById("artist_name");
-
   if (!artistSelect) return;
-
-  const { data, error } = await db
-    .from("artists")
-    .select("artist_name")
-    .order("artist_name");
-
-  if (error) {
-    console.error(error);
-    artistSelect.innerHTML =
-      '<option value="">Unable to load artists</option>';
-    return;
-  }
-
-  artistSelect.innerHTML =
-    '<option value="">Select an Artist</option>';
-
-  data.forEach((artist) => {
-    const option = document.createElement("option");
-    option.value = artist.artist_name;
-    option.textContent = artist.artist_name;
-    artistSelect.appendChild(option);
-  });
+  const { data, error } = await db.from("artists").select("artist_name").order("artist_name");
+  if (error) { console.error(error); artistSelect.innerHTML = '<option value="">Unable to load artists</option>'; return; }
+  artistSelect.innerHTML = '<option value="">Select an Artist</option>';
+  data.forEach((artist) => { const option = document.createElement("option"); option.value = artist.artist_name; option.textContent = artist.artist_name; artistSelect.appendChild(option); });
 });
+
 document.getElementById("artist_name")?.addEventListener("change", async function () {
-
   const artistName = this.value;
-
-  if (!artistName) {
-    document.getElementById("artistProfile").style.display = "none";
-    return;
-  }
-
-  const { data, error } = await db
-    .from("artists")
-    .select("*")
-    .eq("artist_name", artistName)
-    .single();
-
-  if (error) {
-    console.error(error);
-    return;
-  }
-
+  if (!artistName) { document.getElementById("artistProfile").style.display = "none"; return; }
+  const { data, error } = await db.from("artists").select("*").eq("artist_name", artistName).single();
+  if (error) { console.error(error); return; }
   document.getElementById("artistProfile").style.display = "block";
-
   document.getElementById("profileArtist").textContent = data.artist_name || "";
   document.getElementById("profileCity").textContent = data.city || "";
   document.getElementById("profileMusic").textContent = data.music_styles || "";
   document.getElementById("profileEquipment").textContent = data.equipment || "";
   document.getElementById("profileAvailability").textContent = data.availability || "";
-
-  const youtube = [
-    data.youtube_link_1,
-    data.youtube_link_2,
-    data.youtube_link_3,
-    data.youtube_link_4
-  ];
-
-  ["yt1", "yt2", "yt3", "yt4"].forEach((id, index) => {
-    const link = document.getElementById(id);
-    const url = youtube[index];
-
-    if (url) {
-      link.href = url;
-      link.textContent = url;
-    } else {
-      link.removeAttribute("href");
-      link.textContent = "";
-    }
-  });
-
+  const youtube = [data.youtube_link_1, data.youtube_link_2, data.youtube_link_3, data.youtube_link_4];
+  ["yt1", "yt2", "yt3", "yt4"].forEach((id, index) => { const link = document.getElementById(id); const url = youtube[index]; if (url) { link.href = url; link.textContent = url; } else { link.removeAttribute("href"); link.textContent = ""; } });
 });
-const bookingForm = document.forms["booking-request"];
 
+const bookingForm = document.forms["booking-request"];
 if (bookingForm) {
   bookingForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-
     const artistName = bookingForm.artist_name?.value || "";
-
-    const booking = {
-      venue_id: null,
-      artist_name: artistName,
-      title: bookingForm.title?.value || "",
-      description: bookingForm.details?.value || "",
-      event_date: bookingForm.booking_date?.value || "",
-      start_time: bookingForm.start_time?.value || "",
-      end_time: bookingForm.end_time?.value || "",
-      music_style: bookingForm.music_style?.value || "",
-      budget: bookingForm.budget?.value || 0,
-      status: "Pending"
-    };
-
-    const { error } = await db
-      .from("bookings")
-      .insert([booking]);
-
-    if (error) {
-      alert(
-        "Supabase says:\n\n" +
-        JSON.stringify(error, null, 2)
-      );
-      return;
-    }
-
-    const { data: artist, error: artistError } = await db
-      .from("artists")
-      .select("email")
-      .eq("artist_name", artistName)
-      .single();
-
-    if (artistError) {
-      console.error("Unable to find artist email:", artistError);
-    } else {
+    const booking = { venue_id: null, artist_name: artistName, title: bookingForm.title?.value || "", description: bookingForm.details?.value || "", event_date: bookingForm.booking_date?.value || "", start_time: bookingForm.start_time?.value || "", end_time: bookingForm.end_time?.value || "", music_style: bookingForm.music_style?.value || "", budget: bookingForm.budget?.value || 0, status: "Pending" };
+    const { error } = await db.from("bookings").insert([booking]);
+    if (error) { alert("Supabase says:\n\n" + JSON.stringify(error, null, 2)); return; }
+    const { data: artist, error: artistError } = await db.from("artists").select("email").eq("artist_name", artistName).single();
+    if (artistError) console.error("Unable to find artist email:", artistError);
+    else {
       try {
-        const response = await fetch(
-          "/.netlify/functions/send-booking-notification",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              artistName: artistName,
-              artistEmail: artist.email,
-              venueName: bookingForm.name?.value || "",
-              contactName: bookingForm.name?.value || "",
-              email: bookingForm.email?.value || "",
-              bookingDate: booking.event_date,
-              title: booking.title,
-              musicStyle: booking.music_style,
-              budget: booking.budget,
-              startTime: booking.start_time,
-              endTime: booking.end_time,
-              message: booking.description
-            })
-          }
-        );
-
-        if (!response.ok) {
-          console.error(
-            "Booking saved, but notification could not be sent."
-          );
-        }
-      } catch (notificationError) {
-        console.error(
-          "Booking notification error:",
-          notificationError
-        );
-      }
+        const response = await fetch("/.netlify/functions/send-booking-notification", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ artistName, artistEmail: artist.email, venueName: bookingForm.name?.value || "", contactName: bookingForm.name?.value || "", email: bookingForm.email?.value || "", bookingDate: booking.event_date, title: booking.title, musicStyle: booking.music_style, budget: booking.budget, startTime: booking.start_time, endTime: booking.end_time, message: booking.description }) });
+        if (!response.ok) console.error("Booking saved, but notification could not be sent.");
+      } catch (notificationError) { console.error("Booking notification error:", notificationError); }
     }
-
-    const bookingMessage =
-      document.getElementById("bookingMessage");
-
-    if (bookingMessage) {
-      bookingMessage.style.color = "green";
-      bookingMessage.style.fontWeight = "bold";
-      bookingMessage.textContent =
-        "✓ Booking request submitted successfully. The artist will be notified.";
-    }
-
+    const bookingMessage = document.getElementById("bookingMessage");
+    if (bookingMessage) { bookingMessage.style.color = "green"; bookingMessage.style.fontWeight = "bold"; bookingMessage.textContent = "✓ Booking request submitted successfully. The artist will be notified."; }
     bookingForm.submit();
   });
 }
+
 document.addEventListener("DOMContentLoaded", async () => {
-
-  const bookingTable = document.querySelector("#bookingTable tbody");
-
-  if (!bookingTable) return;
-
-  const { data, error } = await db
-    .from("bookings")
-    .select("*")
-    .order("created_at", { ascending: false });
-
-  if (error) {
-    console.error(error);
-    return;
-  }
-
+  const bookingTable = document.querySelector("#bookingTable tbody"); if (!bookingTable) return;
+  const { data, error } = await db.from("bookings").select("*").order("created_at", { ascending: false }); if (error) { console.error(error); return; }
   bookingTable.innerHTML = "";
-
-  data.forEach((booking) => {
-
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>${booking.artist_name || ""}</td>
-      <td>${booking.title || ""}</td>
-      <td>${booking.event_date || ""}</td>
-      <td>${booking.status || ""}</td>
-<td>
-  <button onclick="updateBookingStatus('${booking.id}','Accepted')">Accept</button>
-
-  <button onclick="updateBookingStatus('${booking.id}','Declined')">Decline</button>
-
-  <button onclick="updateBookingStatus('${booking.id}','Completed')">Complete</button>
-</td>
-    `;
-
-    bookingTable.appendChild(row);
-
-  });
-
+  data.forEach((booking) => { const row = document.createElement("tr"); row.innerHTML = `<td>${booking.artist_name || ""}</td><td>${booking.title || ""}</td><td>${booking.event_date || ""}</td><td>${booking.status || ""}</td><td><button onclick="updateBookingStatus('${booking.id}','Accepted')">Accept</button> <button onclick="updateBookingStatus('${booking.id}','Declined')">Decline</button> <button onclick="updateBookingStatus('${booking.id}','Completed')">Complete</button></td>`; bookingTable.appendChild(row); });
 });
-async function updateBookingStatus(id, status) {
+async function updateBookingStatus(id, status) { const { error } = await db.from("bookings").update({ status }).eq("id", id); if (error) { alert("Supabase says:\n\n" + JSON.stringify(error, null, 2)); return; } location.reload(); }
 
-  const { error } = await db
-    .from("bookings")
-    .update({ status: status })
-    .eq("id", id);
-
-  if (error) {
-    alert(
-      "Supabase says:\n\n" +
-      JSON.stringify(error, null, 2)
-    );
-    return;
-  }
-
-  location.reload();
-
-}
 document.addEventListener("DOMContentLoaded", async () => {
-
-  const venueTable = document.querySelector("#venueBookings tbody");
-
-  if (!venueTable) return;
-
-  const { data, error } = await db
-    .from("bookings")
-    .select("*")
-    .order("created_at", { ascending: false });
-
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  venueTable.innerHTML = "";
-
-  data.forEach((booking) => {
-
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>${booking.artist_name || ""}</td>
-      <td>${booking.title || ""}</td>
-      <td>${booking.event_date || ""}</td>
-      <td>${booking.status || ""}</td>
-    `;
-
-    venueTable.appendChild(row);
-
-  });
-
+  const venueTable = document.querySelector("#venueBookings tbody"); if (!venueTable) return;
+  const { data, error } = await db.from("bookings").select("*").order("created_at", { ascending: false }); if (error) { console.error(error); return; }
+  venueTable.innerHTML = ""; data.forEach((booking) => { const row = document.createElement("tr"); row.innerHTML = `<td>${booking.artist_name || ""}</td><td>${booking.title || ""}</td><td>${booking.event_date || ""}</td><td>${booking.status || ""}</td>`; venueTable.appendChild(row); });
 });
+
 document.addEventListener("DOMContentLoaded", async () => {
-
-  const artistTable = document.querySelector("#artistBookings tbody");
-
-  if (!artistTable) return;
-
-  const { data, error } = await db
-    .from("bookings")
-    .select("*")
-    .eq("artist_name", "Blue Horizon")
-    .order("event_date", { ascending: true });
-
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  artistTable.innerHTML = "";
-
-  data.forEach((booking) => {
-
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>${booking.title || ""}</td>
-      <td>${booking.event_date || ""}</td>
-      <td>${booking.status || ""}</td>
-    `;
-
-    artistTable.appendChild(row);
-
-  });
-
+  const artistTable = document.querySelector("#artistBookings tbody"); if (!artistTable) return;
+  const { data, error } = await db.from("bookings").select("*").eq("artist_name", "Blue Horizon").order("event_date", { ascending: true }); if (error) { console.error(error); return; }
+  artistTable.innerHTML = ""; data.forEach((booking) => { const row = document.createElement("tr"); row.innerHTML = `<td>${booking.title || ""}</td><td>${booking.event_date || ""}</td><td>${booking.status || ""}</td>`; artistTable.appendChild(row); });
 });
