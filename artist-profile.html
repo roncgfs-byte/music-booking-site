@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Artist Profile | Book Your Band</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-container">
+<h1>Edit My Artist Profile</h1>
+<p id="profile-status">Loading your profile...</p>
+
+<form id="artist-profile-form" style="display:none; max-width:500px; margin:auto;">
+<p>
+<label>Artist / Band Name:<br>
+<input type="text" id="artist_name" required></label>
+</p>
+
+<p>
+<label>Email:<br>
+<input type="email" id="email" readonly></label>
+</p>
+
+<p>
+<label>Phone Number:<br>
+<input type="text" id="phone"></label>
+</p>
+
+<p>
+<label>City:<br>
+<input type="text" id="city"></label>
+</p>
+
+<p>YouTube Live Performances:</p>
+<p><label>#1<br><input type="url" id="youtube_link_1"></label></p>
+<p><label>#2<br><input type="url" id="youtube_link_2"></label></p>
+<p><label>#3<br><input type="url" id="youtube_link_3"></label></p>
+<p><label>#4<br><input type="url" id="youtube_link_4"></label></p>
+
+<h2>Music Styles</h2>
+<div class="checkbox-grid" id="music-styles">
+<label><input type="checkbox" value="Originals"> Originals</label>
+<label><input type="checkbox" value="Covers"> Covers</label>
+<label><input type="checkbox" value="Acoustic"> Acoustic</label>
+<label><input type="checkbox" value="Piano"> Piano</label>
+<label><input type="checkbox" value="Dueling Pianos"> Dueling Pianos</label>
+<label><input type="checkbox" value="Rock"> Rock</label>
+<label><input type="checkbox" value="Jazz"> Jazz</label>
+<label><input type="checkbox" value="Pop"> Pop</label>
+<label><input type="checkbox" value="Blues"> Blues</label>
+<label><input type="checkbox" value="Electronic"> Electronic</label>
+<label><input type="checkbox" value="Folk"> Folk</label>
+<label><input type="checkbox" value="Irish Jig"> Irish Jig</label>
+<label><input type="checkbox" value="Rap"> Rap</label>
+<label><input type="checkbox" value="Classical"> Classical</label>
+</div>
+
+<h2>Equipment List</h2>
+<div class="checkbox-grid" id="equipment-list">
+<label><input type="checkbox" value="Microphones"> Microphones</label>
+<label><input type="checkbox" value="Speakers"> Speakers</label>
+<label><input type="checkbox" value="Monitors"> Monitors</label>
+<label><input type="checkbox" value="Cables"> Cables</label>
+</div>
+
+<h2>Available Days</h2>
+<div class="days-row" id="availability-list">
+<label><input type="checkbox" value="Mon"> Mon</label>
+<label><input type="checkbox" value="Tue"> Tue</label>
+<label><input type="checkbox" value="Wed"> Wed</label>
+<label><input type="checkbox" value="Thu"> Thu</label>
+<label><input type="checkbox" value="Fri"> Fri</label>
+<label><input type="checkbox" value="Sat"> Sat</label>
+<label><input type="checkbox" value="Sun"> Sun</label>
+</div>
+
+<p><button type="submit" class="submit-btn">Save Profile Changes</button></p>
+</form>
+
+<p><a href="artist-dashboard.html" class="hero-button">Return to Artist Dashboard</a></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const status = document.getElementById("profile-status");
+  const form = document.getElementById("artist-profile-form");
+
+  const { data: { session } } = await supabaseClient.auth.getSession();
+
+  if (!session) {
+    window.location.href = "signin.html";
+    return;
+  }
+
+  const email = session.user.email;
+
+  const { data: artist, error } = await supabaseClient
+    .from("artists")
+    .select("*")
+    .eq("email", email)
+    .single();
+
+  if (error || !artist) {
+    status.style.color = "red";
+    status.textContent = "Unable to load your Artist profile.";
+    return;
+  }
+
+  document.getElementById("artist_name").value = artist.artist_name || "";
+  document.getElementById("email").value = artist.email || email;
+  document.getElementById("phone").value = artist.phone || "";
+  document.getElementById("city").value = artist.city || "";
+  document.getElementById("youtube_link_1").value = artist.youtube_link_1 || "";
+  document.getElementById("youtube_link_2").value = artist.youtube_link_2 || "";
+  document.getElementById("youtube_link_3").value = artist.youtube_link_3 || "";
+  document.getElementById("youtube_link_4").value = artist.youtube_link_4 || "";
+
+  setChecks("music-styles", artist.music_styles);
+  setChecks("equipment-list", artist.equipment);
+  setChecks("availability-list", artist.availability);
+
+  status.textContent = "Profile loaded successfully.";
+  form.style.display = "block";
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    status.textContent = "Saving profile changes...";
+
+    const updates = {
+      artist_name: document.getElementById("artist_name").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      city: document.getElementById("city").value.trim(),
+      youtube_link_1: document.getElementById("youtube_link_1").value.trim(),
+      youtube_link_2: document.getElementById("youtube_link_2").value.trim(),
+      youtube_link_3: document.getElementById("youtube_link_3").value.trim(),
+      youtube_link_4: document.getElementById("youtube_link_4").value.trim(),
+      music_styles: getChecks("music-styles"),
+      equipment: getChecks("equipment-list"),
+      availability: getChecks("availability-list")
+    };
+
+    const { error: updateError } = await supabaseClient
+      .from("artists")
+      .update(updates)
+      .eq("email", email);
+
+    if (updateError) {
+      status.style.color = "red";
+      status.textContent = "Unable to save profile: " + updateError.message;
+      return;
+    }
+
+    status.style.color = "green";
+    status.style.fontWeight = "bold";
+    status.textContent = "✓ Artist profile updated successfully.";
+  });
+});
+
+function setChecks(containerId, storedValue) {
+  const selected = (storedValue || "")
+    .split(",")
+    .map(value => value.trim())
+    .filter(Boolean);
+
+  document.querySelectorAll(`#${containerId} input[type="checkbox"]`)
+    .forEach(box => {
+      box.checked = selected.includes(box.value);
+    });
+}
+
+function getChecks(containerId) {
+  return Array.from(
+    document.querySelectorAll(`#${containerId} input[type="checkbox"]:checked`)
+  ).map(box => box.value).join(", ");
+}
+</script>
+</body>
+</html>
