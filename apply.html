@@ -9,120 +9,79 @@
 <!-- NAVIGATION -->
   
 <nav class="main-nav" style="background-color:#5A1622; padding:10px; text-align:center;">
-  <div style="color:#F5F0E6; font-weight:bold; display:inline-block; margin-right:20px;">
-    Book Your Band
-  </div>
-
+  <div style="color:#F5F0E6; font-weight:bold; display:inline-block; margin-right:20px;">Book Your Band</div>
   <a href="index.html" style="color:#F5F0E6; text-decoration:none; margin:0 12px;">Home</a>
   <a href="about.html" style="color:#F5F0E6; text-decoration:none; margin:0 12px;">About Us</a>
   <a href="apply.html" style="color:#F5F0E6; text-decoration:none; margin:0 12px;">Artists</a>
   <a href="venue-register.html" style="color:#F5F0E6; text-decoration:none; margin:0 12px;">Venues</a>
   <a href="contact.html" style="color:#F5F0E6; text-decoration:none; margin:0 12px;">Contact Us</a>
 </nav>
-
 <div class="page-container">
 <h1>Sign Up as an Artist</h1>
 <p>Join our platform to be considered for live music bookings.</p>
-
 <div style="max-width: 500px; margin: auto; background:rgba(242,221,167,0.82); padding:20px; border-radius:10px;">
 <form name="artist-application" method="POST" netlify data-netlify="true" action="/thank-you.html">
 <input type="hidden" name="form-name" value="artist-application">
 <input type="hidden" name="source" value="netlify-v1">
-
-<p>Profile page – takes under 2 minutes
-
-<p>
-  <label>Artist / Band Name:<br>
-  <input type="text" name="artist_name" required></label>
-</p>
-<p>
-  <label>Password:<br>
-  <input type="password" name="password" required minlength="8"></label>
-</p>
-<p>
-  <label>Email:<br>
-  <input type="email" name="email" required></label>
-</p>
-
-<p>
-  <label>Phone Number:<br>
-  <input type="text" name="phone"></label>
-</p>
-
-<p>
-  <label>City:<br>
-  <input type="text" name="city"></label>
-</p>
-
-<p>
-  <label>Website or Social Media:<br>
-  <input type="text" name="link"></label>
-</p>
-
+<p>Profile page – takes under 2 minutes</p>
+<p><label>Artist / Band Name:<br><input type="text" name="artist_name" required></label></p>
+<p><label>Password:<br><input type="password" id="artist-password" required minlength="8" autocomplete="new-password"></label></p>
+<p style="font-size:0.9em;">Your password is used only to create your secure account and is not included in the Artist application submission.</p>
+<p><label>Email:<br><input type="email" name="email" required></label></p>
+<p><label>Phone Number:<br><input type="text" name="phone"></label></p>
+<p><label>City:<br><input type="text" name="city"></label></p>
+<p><label>Website or Social Media:<br><input type="text" name="link"></label></p>
 <p>YouTube Live Performances:</p>
-
 <div class="youtube-row">
-  <label>#1<br><input type="url" name="video_1"></label>
-  <label>#2<br><input type="url" name="video_2"></label>
-  <label>#3<br><input type="url" name="video_3"></label>
-  <label>#4<br><input type="url" name="video_4"></label>
+<label>#1<br><input type="url" name="video_1"></label>
+<label>#2<br><input type="url" name="video_2"></label>
+<label>#3<br><input type="url" name="video_3"></label>
+<label>#4<br><input type="url" name="video_4"></label>
 </div>
-
 <h1>Booking Preferences</h1>
-  
 <h2>Performance Fee</h2>
 <input type="number" min="100" max="10000">
-  
 <h2>Music Styles</h2>
 <div class="checkbox-grid">
-  <label><input type="checkbox" name="music_styles" value="Originals"> Originals</label>
-  <label><input type="checkbox" name="music_styles" value="Covers"> Covers</label>
-  <label><input type="checkbox" name="music_styles" value="Acoustic"> Acoustic</label>
-  <label><input type="checkbox" name="music_styles" value="Piano"> Piano</label>
-  <label><input type="checkbox" name="music_styles" value="Dueling Pianos"> Dueling Pianos</label>
-  <label><input type="checkbox" name="music_styles" value="Rock"> Rock</label>
-  <label><input type="checkbox" name="music_styles" value="Jazz"> Jazz</label>
-  <label><input type="checkbox" name="music_styles" value="Pop"> Pop</label>
-  <label><input type="checkbox" name="music_styles" value="Blues"> Blues</label>
-  <label><input type="checkbox" name="music_styles" value="Electronic"> Electronic</label>
-  <label><input type="checkbox" name="music_styles" value="Folk"> Folk</label>
-  <label><input type="checkbox" name="music_styles" value="Irish Jig"> Irish Jig</label>
-  <label><input type="checkbox" name="music_styles" value="Rap"> Rap</label>
-  <label><input type="checkbox" name="music_styles" value="Classical"> Classical</label>
+<label><input type="checkbox" name="music_styles" value="Originals"> Originals</label>
+<label><input type="checkbox" name="music_styles" value="Covers"> Covers</label>
+<label><input type="checkbox" name="music_styles" value="Acoustic"> Acoustic</label>
+<label><input type="checkbox" name="music_styles" value="Piano"> Piano</label>
+<label><input type="checkbox" name="music_styles" value="Dueling Pianos"> Dueling Pianos</label>
+<label><input type="checkbox" name="music_styles" value="Rock"> Rock</label>
+<label><input type="checkbox" name="music_styles" value="Jazz"> Jazz</label>
+<label><input type="checkbox" name="music_styles" value="Pop"> Pop</label>
+<label><input type="checkbox" name="music_styles" value="Blues"> Blues</label>
+<label><input type="checkbox" name="music_styles" value="Electronic"> Electronic</label>
+<label><input type="checkbox" name="music_styles" value="Folk"> Folk</label>
+<label><input type="checkbox" name="music_styles" value="Irish Jig"> Irish Jig</label>
+<label><input type="checkbox" name="music_styles" value="Rap"> Rap</label>
+<label><input type="checkbox" name="music_styles" value="Classical"> Classical</label>
 </div>
-
 <h2>Equipment List</h2>
 <div class="checkbox-grid">
-  <label><input type="checkbox" name="equipment" value="Microphones"> Microphones</label>
-  <label><input type="checkbox" name="equipment" value="Speakers"> Speakers</label>
-  <label><input type="checkbox" name="equipment" value="Monitors"> Monitors</label>
-  <label><input type="checkbox" name="equipment" value="Cables"> Cables</label>
+<label><input type="checkbox" name="equipment" value="Microphones"> Microphones</label>
+<label><input type="checkbox" name="equipment" value="Speakers"> Speakers</label>
+<label><input type="checkbox" name="equipment" value="Monitors"> Monitors</label>
+<label><input type="checkbox" name="equipment" value="Cables"> Cables</label>
 </div>
-
 <h2>Available Days</h2>
 <div class="days-row">
-  <label><input type="checkbox" name="availability" value="Mon"> Mon</label>
-  <label><input type="checkbox" name="availability" value="Tue"> Tue</label>
-  <label><input type="checkbox" name="availability" value="Wed"> Wed</label>
-  <label><input type="checkbox" name="availability" value="Thu"> Thu</label>
-  <label><input type="checkbox" name="availability" value="Fri"> Fri</label>
-  <label><input type="checkbox" name="availability" value="Sat"> Sat</label>
-  <label><input type="checkbox" name="availability" value="Sun"> Sun</label>
+<label><input type="checkbox" name="availability" value="Mon"> Mon</label>
+<label><input type="checkbox" name="availability" value="Tue"> Tue</label>
+<label><input type="checkbox" name="availability" value="Wed"> Wed</label>
+<label><input type="checkbox" name="availability" value="Thu"> Thu</label>
+<label><input type="checkbox" name="availability" value="Fri"> Fri</label>
+<label><input type="checkbox" name="availability" value="Sat"> Sat</label>
+<label><input type="checkbox" name="availability" value="Sun"> Sun</label>
 </div>
-
-<div style="text-align: center; margin-top: 25px;">
-  <button type="submit" class="submit-btn">
-    Save
-  </button>
-</div>
-  
-</form> 
+<div style="text-align: center; margin-top: 25px;"><button type="submit" class="submit-btn">Save</button></div>
+</form>
 </div>
 </div>
-
- <footer style="background:#5A1622; color:#F5F0E6; padding:6px 10px; text-align:center; margin-top:0; width:100%; box-sizing:border-box;">
-  <p style="color:#F5F0E6; margin:1px 0; font-size:13px;">© 2026 Book Your Band</p>
-  <p style="color:#F5F0E6; margin:1px 0; font-size:13px;">Connecting Artists and Venues for Live Music</p>
+<footer style="background:#5A1622; color:#F5F0E6; padding:6px 10px; text-align:center; margin-top:0; width:100%; box-sizing:border-box;">
+<p style="color:#F5F0E6; margin:1px 0; font-size:13px;">© 2026 Book Your Band</p>
+<p style="color:#F5F0E6; margin:1px 0; font-size:13px;">Connecting Artists and Venues for Live Music</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
