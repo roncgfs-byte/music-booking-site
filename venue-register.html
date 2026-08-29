@@ -5,83 +5,43 @@
   <title>Register Your Venue</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<!-- NAVIGATION -->
 <nav class="main-nav" style="background-color:#5A1622; padding:10px; text-align:center; white-space:nowrap;">
-  <div style="color:#F5F0E6; font-weight:bold; display:inline-block; margin-right:10px;">
-    Book Your Band
-  </div>
-
+  <div style="color:#F5F0E6; font-weight:bold; display:inline-block; margin-right:10px;">Book Your Band</div>
   <a href="index.html" style="color:#F5F0E6; text-decoration:none; margin:0 7px;">Home</a>
   <a href="about.html" style="color:#F5F0E6; text-decoration:none; margin:0 7px;">About Us</a>
   <a href="apply.html" style="color:#F5F0E6; text-decoration:none; margin:0 7px;">Artists</a>
   <a href="venue-register.html" style="color:#F5F0E6; text-decoration:none; margin:0 7px;">Venues</a>
   <a href="contact.html" style="color:#F5F0E6; text-decoration:none; margin:0 7px;">Contact Us</a>
 </nav>
-
 <div class="page-container" style="margin:20px auto 10px auto;">
-  <h1>Register Your Venue to Book Live Music</h1>
-  <p>Connect with artists and bring live music to your venue.</p>
-
-  <form name="venue-application" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="venue-application">
+<h1>Register Your Venue to Book Live Music</h1>
+<p>Connect with artists and bring live music to your venue.</p>
+<form name="venue-application" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="venue-application">
 <p><label>Venue Name:<br><input type="text" name="venue_name" required></label></p>
-
 <p><label>Contact Name:<br><input type="text" name="contact_name" required></label></p>
-
 <p><label>Phone:<br><input type="text" name="phone"></label></p>
-
 <p><label>Country:<br><input type="text" name="country"></label></p>
-    <p><label>Email:<br><input type="email" name="email" required></label></p>
-    <p><label>Create Password:<br><input type="password" name="password" minlength="8" required autocomplete="new-password"></label></p>
-    <p style="font-size:0.9em;">Use this email and password later on the Venue Sign In page.</p>
-    <p><label>City:<br><input type="text" name="city"></label></p>
-    <p><label>Preferred Music Style:<br><input type="text" name="music_style"></label></p>
-    <p><label>Preferred Booking Days:<br><input type="text" name="booking_days"></label></p>
-    <p><label>Tell us about your venue:<br><textarea name="message"></textarea></label></p>
-
-    <p><button type="submit">Submit</button></p>
-  </form>
-  <div style="margin:30px auto 20px auto; padding:20px; max-width:600px; text-align:center; border-top:1px solid #5A1622;">
-    <h2>Venue Membership</h2>
-
-    <p>
-      Join Book Your Band for $100 CAD per month.
-    </p>
-
-    <p>
-      Your membership gives your venue access to Book Your Band's
-      live music booking service.
-    </p>
-
-    <p>
-      <a href="https://buy.stripe.com/fZufZbcey7BM2Ww6gv4gg00"
-         style="display:inline-block;
-                background-color:#5A1622;
-                color:#F5F0E6;
-                padding:12px 24px;
-                text-decoration:none;
-                font-weight:bold;
-                border-radius:5px;">
-        SUBSCRIBE — $100 CAD / MONTH
-      </a>
-    </p>
-
-    <p style="font-size:0.9em;">
-      Secure subscription payment processed by Stripe.
-    </p>
-  </div>
+<p><label>Email:<br><input type="email" name="email" required></label></p>
+<p><label>Create Password:<br><input type="password" id="venue-password" minlength="8" required autocomplete="new-password"></label></p>
+<p style="font-size:0.9em;">Use this email and password later on the Venue Sign In page. Your password is not included in the Venue application submission.</p>
+<p><label>City:<br><input type="text" name="city"></label></p>
+<p><label>Preferred Music Style:<br><input type="text" name="music_style"></label></p>
+<p><label>Preferred Booking Days:<br><input type="text" name="booking_days"></label></p>
+<p><label>Tell us about your venue:<br><textarea name="message"></textarea></label></p>
+<p><button type="submit">Submit</button></p>
+</form>
+<div style="margin:30px auto 20px auto; padding:20px; max-width:600px; text-align:center; border-top:1px solid #5A1622;">
+<h2>Venue Membership</h2>
+<p>Join Book Your Band for $100 CAD per month.</p>
+<p>Your membership gives your venue access to Book Your Band's live music booking service.</p>
+<p><a href="https://buy.stripe.com/fZufZbcey7BM2Ww6gv4gg00" style="display:inline-block; background-color:#5A1622; color:#F5F0E6; padding:12px 24px; text-decoration:none; font-weight:bold; border-radius:5px;">SUBSCRIBE — $100 CAD / MONTH</a></p>
+<p style="font-size:0.9em;">Secure subscription payment processed by Stripe.</p>
 </div>
-
-<footer>
-  <p>© 2026 Book Your Band</p>
-  <p>Connecting Artists and Venues for Live Music</p>
-</footer>
-  
+</div>
+<footer><p>© 2026 Book Your Band</p><p>Connecting Artists and Venues for Live Music</p></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
-  
 </body>
 </html>
