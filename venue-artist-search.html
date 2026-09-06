@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Artists | Book Your Band</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+.search-wrap{max-width:1100px;margin:30px auto;padding:20px}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:20px 0}
+.filters label{display:block;font-weight:bold;margin-bottom:5px}
+.filters input{width:100%;box-sizing:border-box;padding:10px}
+.artist-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:25px}
+.artist-card{background:#fff;color:#222;border-radius:10px;padding:16px;text-align:left}
+.artist-card iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:6px}
+.artist-card button,.search-actions button{padding:10px 16px;margin:6px 4px 6px 0;cursor:pointer}
+#shortlist{margin-top:30px;padding:18px;border:1px solid #ddd;border-radius:8px}
+@media(max-width:850px){.artist-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.artist-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="search-wrap">
+<h1>Find Artists</h1>
+<p>Select only the requirements that matter to your event. Artists shown must match 100% of every selected requirement. Leave all filters blank to browse all approved Artists.</p>
+
+<div class="filters">
+<div><label for="music">Music Style</label><input id="music" type="text" placeholder="e.g. Jazz"></div>
+<div><label for="day">Availability Day</label><input id="day" type="text" placeholder="e.g. Saturday"></div>
+<div><label for="fee">Maximum Performance Fee (CAD)</label><input id="fee" type="number" min="0" step="1"></div>
+<div><label for="city">City / Travel Area</label><input id="city" type="text" placeholder="e.g. Vancouver"></div>
+<div><label for="venueType">Venue Type</label><input id="venueType" type="text" placeholder="e.g. Restaurant"></div>
+<div><label for="eventType">Event Type</label><input id="eventType" type="text" placeholder="e.g. Wedding"></div>
+<div><label for="equipment">Equipment Requirement</label><input id="equipment" type="text" placeholder="e.g. Speakers"></div>
+</div>
+
+<div class="search-actions">
+<button id="searchBtn" type="button">Search Artists</button>
+<button id="clearBtn" type="button">Clear Filters / Show All</button>
+<a href="venue-dashboard.html" class="hero-button">Back to Venue Member Area</a>
+</div>
+
+<p id="status">Checking your Venue session…</p>
+<div id="results" class="artist-grid"></div>
+
+<div id="shortlist">
+<h2>My Shortlist</h2>
+<p id="shortlistEmpty">No Artists selected yet.</p>
+<div id="shortlistItems"></div>
+<button id="inquiryBtn" type="button" disabled>Continue to Booking Inquiry</button>
+</div>
+</div>
+
+<script>
+const SUPABASE_URL="https://oyeopxbtdrvtmdedsoli.supabase.co";
+const SUPABASE_ANON_KEY="REPLACE_WITH_EXISTING_SITE_ANON_KEY";
+const client=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+const shortlist=new Map();
+
+function youtubeEmbed(url){
+ if(!url) return "";
+ try{
+  const u=new URL(url);
+  let id="";
+  if(u.hostname.includes("youtu.be")) id=u.pathname.slice(1);
+  else if(u.pathname.includes("/shorts/")) id=u.pathname.split("/shorts/")[1].split("/")[0];
+  else id=u.searchParams.get("v")||"";
+  return id ? "https://www.youtube.com/embed/"+encodeURIComponent(id) : "";
+ }catch{return ""}
+}
+
+function addToShortlist(artist){
+ shortlist.set(artist.id,artist);
+ renderShortlist();
+}
+
+function removeFromShortlist(id){
+ shortlist.delete(id);
+ renderShortlist();
+}
+
+function renderShortlist(){
+ const holder=document.getElementById("shortlistItems");
+ const empty=document.getElementById("shortlistEmpty");
+ const btn=document.getElementById("inquiryBtn");
+ holder.innerHTML="";
+ empty.style.display=shortlist.size ? "none" : "block";
+ btn.disabled=!shortlist.size;
+ shortlist.forEach(a=>{
+  const row=document.createElement("p");
+  row.textContent=a.artist_name+" ";
+  const remove=document.createElement("button");
+  remove.type="button"; remove.textContent="Remove";
+  remove.onclick=()=>removeFromShortlist(a.id);
+  row.appendChild(remove); holder.appendChild(row);
+ });
+}
+
+function renderArtists(artists){
+ const results=document.getElementById("results");
+ results.innerHTML="";
+ if(!artists.length){
+  results.innerHTML="<p>No Artists currently match all of your selections. Remove or change one or more filters to see additional Artists.</p>";
+  return;
+ }
+ artists.forEach(a=>{
+  const card=document.createElement("article");
+  card.className="artist-card";
+  const embed=youtubeEmbed(a.youtube_link_1||a.youtube_link_2||a.youtube_link_3||a.youtube_link_4);
+  if(embed){
+   const frame=document.createElement("iframe");
+   frame.src=embed; frame.title=(a.artist_name||"Artist")+" performance video";
+   frame.loading="lazy"; frame.allowFullscreen=true; card.appendChild(frame);
+  }else{
+   const noVideo=document.createElement("p"); noVideo.textContent="Performance video not yet available."; card.appendChild(noVideo);
+  }
+  const h=document.createElement("h2"); h.textContent=a.artist_name||"Artist"; card.appendChild(h);
+  const details=document.createElement("p");
+  details.textContent=[a.city,a.music_styles,a.performance_fee!=null?"$"+a.performance_fee+" CAD":null].filter(Boolean).join(" • ");
+  card.appendChild(details);
+  const b=document.createElement("button"); b.type="button"; b.textContent="Add to Shortlist"; b.onclick=()=>addToShortlist(a); card.appendChild(b);
+  results.appendChild(card);
+ });
+}
+
+async function searchArtists(){
+ const status=document.getElementById("status");
+ status.textContent="Searching approved Artists…";
+ const fee=document.getElementById("fee").value;
+ const {data,error}=await client.rpc("search_approved_artists",{
+  p_music_style:document.getElementById("music").value||null,
+  p_day:document.getElementById("day").value||null,
+  p_max_fee:fee===""?null:Number(fee),
+  p_city:document.getElementById("city").value||null,
+  p_venue_type:document.getElementById("venueType").value||null,
+  p_event_type:document.getElementById("eventType").value||null,
+  p_equipment:document.getElementById("equipment").value||null
+ });
+ if(error){status.textContent="Unable to search Artists: "+error.message; return;}
+ status.textContent=data.length+" approved Artist"+(data.length===1?"":"s")+" found.";
+ renderArtists(data);
+}
+
+async function init(){
+ const {data:{session}}=await client.auth.getSession();
+ if(!session){location.href="venue-login.html";return;}
+ document.getElementById("status").textContent="Venue signed in. Loading approved Artists…";
+ searchArtists();
+}
+document.getElementById("searchBtn").onclick=searchArtists;
+document.getElementById("clearBtn").onclick=()=>{
+ ["music","day","fee","city","venueType","eventType","equipment"].forEach(id=>document.getElementById(id).value="");
+ searchArtists();
+};
+document.getElementById("inquiryBtn").onclick=()=>{
+ sessionStorage.setItem("byb_shortlist",JSON.stringify([...shortlist.values()].map(a=>({id:a.id,artist_name:a.artist_name}))));
+ location.href="venue-booking-inquiry.html";
+};
+init();
+</script>
+</body>
+</html>
