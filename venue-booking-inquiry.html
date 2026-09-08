@@ -54,13 +54,15 @@
 <h2>Inquiry Review</h2>
 <div id="reviewContent"></div>
 <p><strong>Development status:</strong> This page currently validates and prepares the inquiry only. It does not yet send Artist invitations or create a confirmed booking.</p>
-<button id="editBtn" type="button">Edit Inquiry</button>
+<div class="actions"><button id="submitBtn" type="button">Send Private Inquiries</button><button id="editBtn" type="button">Edit Inquiry</button></div>
+<p id="submitStatus"></p>
 </section>
 </div>
 
 <script>
 const client=supabaseClient;
 let shortlist=[];
+let inquiryDraft=null;
 
 function safeShortlist(){
  try{
@@ -105,7 +107,8 @@ document.getElementById("inquiryForm").addEventListener("submit",e=>{
   budget:document.getElementById("budget").value===""?null:Number(document.getElementById("budget").value),
   description:document.getElementById("description").value.trim()
  };
- sessionStorage.setItem("byb_inquiry_draft",JSON.stringify({shortlist,event:data}));
+ inquiryDraft={shortlist,event:data};
+ sessionStorage.setItem("byb_inquiry_draft",JSON.stringify(inquiryDraft));
  const review=document.getElementById("reviewContent"); review.innerHTML="";
  review.appendChild(textRow("Event",data.title));
  review.appendChild(textRow("Date",data.event_date));
@@ -118,6 +121,24 @@ document.getElementById("inquiryForm").addEventListener("submit",e=>{
  document.getElementById("message").textContent="Inquiry draft prepared for review. Nothing has been sent to Artists.";
  document.getElementById("reviewPanel").scrollIntoView({behavior:"smooth"});
 });
+
+document.getElementById("submitBtn").onclick=async()=>{
+ if(!inquiryDraft||!shortlist.length) return;
+ const btn=document.getElementById("submitBtn");
+ const status=document.getElementById("submitStatus");
+ btn.disabled=true; status.textContent="Sending separate private inquiries…";
+ const e=inquiryDraft.event;
+ const {data,error}=await client.rpc("submit_venue_booking_inquiry",{
+  p_title:e.title,p_description:e.description,p_event_date:e.event_date,
+  p_start_time:e.start_time,p_end_time:e.end_time,p_music_style:e.music_style,
+  p_budget:e.budget,p_artist_ids:shortlist.map(a=>a.id)
+ });
+ if(error){status.textContent="Unable to send inquiry: "+error.message;btn.disabled=false;return;}
+ sessionStorage.removeItem("byb_inquiry_draft");
+ sessionStorage.removeItem("byb_shortlist");
+ status.textContent="Inquiry sent successfully. Each shortlisted Artist now has a separate private invitation. Reference: "+data;
+ document.getElementById("editBtn").disabled=true;
+};
 
 document.getElementById("editBtn").onclick=()=>{
  document.getElementById("reviewPanel").hidden=true;
