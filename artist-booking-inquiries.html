@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Booking Inquiries | Book Your Band</title><link rel="stylesheet" href="style.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase.js"></script><style>
+.wrap{max-width:900px;margin:30px auto;padding:20px}.card{background:#fff;color:#222;border:1px solid #ddd;border-radius:10px;padding:20px;margin:16px 0;text-align:left}.meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.status{font-weight:bold}@media(max-width:650px){.meta{grid-template-columns:1fr}}</style></head><body><main class="wrap"><h1>Your Booking Inquiries</h1><p>Only inquiries sent privately to your Artist account appear here. Other invited Artists are never shown.</p><p id="pageStatus">Checking your Artist account…</p><div id="list"></div></main>
+<script>
+const client=supabaseClient;
+function el(tag,text){const x=document.createElement(tag);if(text!==undefined)x.textContent=text;return x}
+function line(label,value){const p=el("p");const b=el("strong",label+": ");p.append(b,document.createTextNode(value||"Not specified"));return p}
+async function respond(id,response,card){
+ const buttons=card.querySelectorAll("button");buttons.forEach(b=>b.disabled=true);
+ const note=card.querySelector(".response-note");note.textContent="Saving response…";
+ const {data,error}=await client.rpc("respond_to_booking_inquiry",{p_application_id:id,p_response:response});
+ if(error){note.textContent=error.message;buttons.forEach(b=>b.disabled=false);return}
+ note.textContent=data==="Interested/Available"?"You responded Interested/Available. This is not yet a confirmed booking.":"You declined this inquiry.";
+ card.querySelector(".status").textContent=data;
+}
+async function init(){
+ const {data:{session},error:sErr}=await client.auth.getSession();
+ if(sErr||!session){location.href="artist-signin.html";return}
+ const email=session.user.email;
+ const {data:artist,error:aErr}=await client.from("artists").select("id,artist_name,approval_status").ilike("email",email).maybeSingle();
+ if(aErr||!artist||artist.approval_status!=="Approved"){document.getElementById("pageStatus").textContent="An Approved Artist account is required.";return}
+ const {data:apps,error}=await client.from("booking_applications").select("id,booking_id,message,status,created_at,responded_at,bookings(id,title,description,event_date,start_time,end_time,music_style,budget,status)").eq("artist_id",artist.id).order("created_at",{ascending:false});
+ if(error){document.getElementById("pageStatus").textContent="Unable to load inquiries: "+error.message;return}
+ document.getElementById("pageStatus").textContent=apps.length?apps.length+" private inquiry"+(apps.length===1?"":"ies")+" found.":"You have no booking inquiries yet.";
+ const list=document.getElementById("list");
+ apps.forEach(app=>{
+  const b=app.bookings||{};const card=el("section");card.className="card";
+  card.append(el("h2",b.title||"Booking Inquiry"),line("Date",b.event_date),line("Time",(b.start_time||"")+(b.end_time?" – "+b.end_time:"")),line("Music",b.music_style),line("Budget",b.budget==null?null:"$"+b.budget+" CAD"),line("Details",b.description||app.message));
+  const sp=line("Your response",app.status);sp.querySelector("strong").after();sp.className="status-line";const sv=el("span",app.status);sv.className="status";sp.replaceChildren(el("strong","Your response: "),sv);card.append(sp);
+  const note=el("p","");note.className="response-note";card.append(note);
+  if(app.status==="Pending"){const acts=el("div");acts.className="actions";const yes=el("button","Interested / Available");const no=el("button","Decline");yes.onclick=()=>respond(app.id,"Interested/Available",card);no.onclick=()=>respond(app.id,"Declined",card);acts.append(yes,no);card.append(acts)}
+  else note.textContent=app.status==="Interested/Available"?"This indicates interest and availability only; the Venue has not yet selected the Artist.":"This inquiry has been declined.";
+  list.append(card);
+ });
+}
+init();
+</script></body></html>
