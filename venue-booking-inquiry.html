@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Inquiry | Book Your Band</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<style>
+.inquiry-wrap{max-width:900px;margin:30px auto;padding:20px}
+.summary,.inquiry-form{background:#fff;color:#222;border:1px solid #ddd;border-radius:10px;padding:20px;margin:20px 0;text-align:left}
+.shortlist-list{display:grid;gap:8px;padding-left:20px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.form-grid .full{grid-column:1/-1}
+.inquiry-form label{display:block;font-weight:bold;margin-bottom:6px}
+.inquiry-form input,.inquiry-form textarea{width:100%;box-sizing:border-box;padding:10px}
+.inquiry-form textarea{min-height:120px;resize:vertical}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.notice{padding:12px;border:1px solid #ddd;border-radius:6px}
+@media(max-width:650px){.form-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="inquiry-wrap">
+<h1>Booking Inquiry</h1>
+<p>Enter your event information once. When the invitation stage is enabled, each shortlisted Artist will receive a separate private inquiry and will respond independently.</p>
+
+<section class="summary">
+<h2>Shortlisted Artists</h2>
+<ul id="shortlistList" class="shortlist-list"></ul>
+<p id="shortlistStatus"></p>
+</section>
+
+<form id="inquiryForm" class="inquiry-form">
+<h2>Event Information</h2>
+<div class="form-grid">
+<div class="full"><label for="title">Event / Inquiry Title</label><input id="title" name="title" required maxlength="120" placeholder="e.g. Saturday Dinner Music"></div>
+<div><label for="eventDate">Event Date</label><input id="eventDate" name="eventDate" type="date" required></div>
+<div><label for="budget">Budget (CAD)</label><input id="budget" name="budget" type="number" min="0" step="1"></div>
+<div><label for="startTime">Start Time</label><input id="startTime" name="startTime" type="time" required></div>
+<div><label for="endTime">End Time</label><input id="endTime" name="endTime" type="time"></div>
+<div class="full"><label for="musicStyle">Music Style / Program</label><input id="musicStyle" name="musicStyle" maxlength="150" placeholder="e.g. Jazz standards and light dinner music"></div>
+<div class="full"><label for="description">Event Details and Message to Artists</label><textarea id="description" name="description" required maxlength="2000" placeholder="Describe the event, performance expectations, equipment or stage details, and anything else the Artists should know."></textarea></div>
+</div>
+<div class="actions">
+<button id="reviewBtn" type="submit">Review Inquiry</button>
+<a href="venue-artist-search.html" class="hero-button">Back to Artist Search</a>
+</div>
+<p id="message" class="notice">Checking your Venue session…</p>
+</form>
+
+<section id="reviewPanel" class="summary" hidden>
+<h2>Inquiry Review</h2>
+<div id="reviewContent"></div>
+<p><strong>Development status:</strong> This page currently validates and prepares the inquiry only. It does not yet send Artist invitations or create a confirmed booking.</p>
+<button id="editBtn" type="button">Edit Inquiry</button>
+</section>
+</div>
+
+<script>
+const client=supabaseClient;
+let shortlist=[];
+
+function safeShortlist(){
+ try{
+  const parsed=JSON.parse(sessionStorage.getItem("byb_shortlist")||"[]");
+  if(!Array.isArray(parsed)) return [];
+  return parsed.filter(a=>a&&typeof a.id==="string"&&typeof a.artist_name==="string")
+    .map(a=>({id:a.id,artist_name:a.artist_name}));
+ }catch{return []}
+}
+
+function renderShortlist(){
+ const list=document.getElementById("shortlistList");
+ const status=document.getElementById("shortlistStatus");
+ list.innerHTML="";
+ shortlist.forEach(a=>{const li=document.createElement("li");li.textContent=a.artist_name;list.appendChild(li);});
+ if(!shortlist.length){
+  status.textContent="Your shortlist is empty. Return to Artist Search and select at least one Artist.";
+  document.getElementById("reviewBtn").disabled=true;
+ }else{
+  status.textContent=shortlist.length+" Artist"+(shortlist.length===1?"":"s")+" selected. Each Artist will later receive a separate private inquiry.";
+ }
+}
+
+function textRow(label,value){
+ const p=document.createElement("p");
+ const strong=document.createElement("strong"); strong.textContent=label+": ";
+ p.appendChild(strong); p.appendChild(document.createTextNode(value||"Not specified"));
+ return p;
+}
+
+document.getElementById("inquiryForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ if(!shortlist.length) return;
+ const form=e.currentTarget;
+ if(!form.reportValidity()) return;
+ const data={
+  title:document.getElementById("title").value.trim(),
+  event_date:document.getElementById("eventDate").value,
+  start_time:document.getElementById("startTime").value,
+  end_time:document.getElementById("endTime").value||null,
+  music_style:document.getElementById("musicStyle").value.trim()||null,
+  budget:document.getElementById("budget").value===""?null:Number(document.getElementById("budget").value),
+  description:document.getElementById("description").value.trim()
+ };
+ sessionStorage.setItem("byb_inquiry_draft",JSON.stringify({shortlist,event:data}));
+ const review=document.getElementById("reviewContent"); review.innerHTML="";
+ review.appendChild(textRow("Event",data.title));
+ review.appendChild(textRow("Date",data.event_date));
+ review.appendChild(textRow("Time",data.start_time+(data.end_time?" – "+data.end_time:"")));
+ review.appendChild(textRow("Music",data.music_style));
+ review.appendChild(textRow("Budget",data.budget==null?null:"$"+data.budget+" CAD"));
+ review.appendChild(textRow("Details",data.description));
+ review.appendChild(textRow("Artists",shortlist.map(a=>a.artist_name).join(", ")));
+ document.getElementById("reviewPanel").hidden=false;
+ document.getElementById("message").textContent="Inquiry draft prepared for review. Nothing has been sent to Artists.";
+ document.getElementById("reviewPanel").scrollIntoView({behavior:"smooth"});
+});
+
+document.getElementById("editBtn").onclick=()=>{
+ document.getElementById("reviewPanel").hidden=true;
+ document.getElementById("title").focus();
+};
+
+async function init(){
+ const {data:{session},error}=await client.auth.getSession();
+ if(error||!session){location.href="venue-signin.html";return;}
+ shortlist=safeShortlist();
+ renderShortlist();
+ document.getElementById("message").textContent="Venue signed in. Complete the event information below.";
+}
+init();
+</script>
+</body>
+</html>
