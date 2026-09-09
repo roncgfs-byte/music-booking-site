@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inquiry Responses | Book Your Band</title><link rel="stylesheet" href="style.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase.js"></script><style>.wrap{max-width:1000px;margin:30px auto;padding:20px}.booking,.response{background:#fff;color:#222;border:1px solid #ddd;border-radius:10px;padding:18px;margin:15px 0;text-align:left}.responses{margin-top:15px}.response{background:#fafafa}.actions{margin-top:12px}.status{font-weight:bold}</style></head><body><main class="wrap"><h1>Artist Responses</h1><p>Review responses to your private inquiries. Selecting an Interested/Available Artist confirms that Artist for the opportunity and closes the inquiry for the others.</p><p id="pageStatus">Checking your Venue account…</p><div id="list"></div></main><script>
+const client=supabaseClient;
+function el(t,x){const n=document.createElement(t);if(x!==undefined)n.textContent=x;return n}
+function line(l,v){const p=el("p");p.append(el("strong",l+": "),document.createTextNode(v||"Not specified"));return p}
+async function choose(bookingId,appId,button,notice){
+ if(!confirm("Select this Artist and close this opportunity for all other invited Artists?"))return;
+ button.disabled=true;notice.textContent="Confirming selection…";
+ const {error}=await client.rpc("select_artist_for_booking",{p_booking_id:bookingId,p_application_id:appId});
+ if(error){notice.textContent=error.message;button.disabled=false;return}
+ notice.textContent="Artist selected. The opportunity is now confirmed and closed to the other invited Artists.";
+ await load();
+}
+async function load(){
+ const {data:{session},error:sErr}=await client.auth.getSession();if(sErr||!session){location.href="venue-signin.html";return}
+ const {data:venue,error:vErr}=await client.from("venues").select("id,venue_name,approval_status").ilike("email",session.user.email).maybeSingle();
+ if(vErr||!venue||venue.approval_status!=="Approved"){document.getElementById("pageStatus").textContent="An Approved Venue account is required.";return}
+ const {data:bookings,error}=await client.from("bookings").select("id,title,description,event_date,start_time,end_time,music_style,budget,status,artist_name,booking_applications(id,artist_id,status,responded_at,artists(artist_name))").eq("venue_id",venue.id).order("created_at",{ascending:false});
+ if(error){document.getElementById("pageStatus").textContent="Unable to load inquiries: "+error.message;return}
+ document.getElementById("pageStatus").textContent=bookings.length?bookings.length+" inquiry record"+(bookings.length===1?"":"s")+" found.":"No inquiries found.";
+ const list=document.getElementById("list");list.innerHTML="";
+ bookings.forEach(b=>{
+  const card=el("section");card.className="booking";card.append(el("h2",b.title),line("Date",b.event_date),line("Status",b.status),line("Selected Artist",b.artist_name));
+  const box=el("div");box.className="responses";box.append(el("h3","Responses"));
+  (b.booking_applications||[]).forEach(a=>{
+   const r=el("div");r.className="response";const name=a.artists&&a.artists.artist_name?a.artists.artist_name:"Artist";r.append(el("h4",name),line("Response",a.status));
+   const note=el("p","");if(b.status==="Inquiry"&&a.status==="Interested/Available"){const btn=el("button","Select This Artist");btn.onclick=()=>choose(b.id,a.id,btn,note);r.append(btn,note)}
+   box.append(r);
+  });card.append(box);list.append(card);
+ });
+}
+load();
+</script></body></html>
